@@ -59,6 +59,14 @@
         "2026-11-10"
       ],
       "ready": false
+    },
+    {
+      "reportKind": "weekly",
+      "periodEnd": "2026-11-20",
+      "missingBatchDates": [
+        "2026-11-17"
+      ],
+      "ready": false
     }
   ],
   "pendingDailyBatches": [
