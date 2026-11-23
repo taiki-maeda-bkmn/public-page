@@ -124,7 +124,7 @@ Lunaは抄録の一次判定です。どちらも正解ラベルではなく、�
 | [2611.26365v1](https://arxiv.org/abs/2611.26365v1) | 2026-11-20 | out_of_scope | 除外候補 | 0.02 | 0.02 | 0.02 |
 | [2611.26568v1](https://arxiv.org/abs/2611.26568v1) | 2026-11-20 | out_of_scope | 元の抄録・版と照合できず | — | — | — |
 | [2611.26623v1](https://arxiv.org/abs/2611.26623v1) | 2026-11-20 | market_microstructure | 要確認 | 0.03 | 0.30 | 0.12 |
-| [2611.26649v1](https://arxiv.org/abs/2611.26649v1) | 2026-11-23 | out_of_scope | 送信待ち | — | — | — |
+| [2611.26649v1](https://arxiv.org/abs/2611.26649v1) | 2026-11-23 | out_of_scope | 送信結果未確認 | — | — | — |
 | [2611.26652v1](https://arxiv.org/abs/2611.26652v1) | 2026-11-23 | out_of_scope | 送信待ち | — | — | — |
 | [2611.26670v1](https://arxiv.org/abs/2611.26670v1) | 2026-11-23 | out_of_scope | 送信待ち | — | — | — |
 | [2611.26673v1](https://arxiv.org/abs/2611.26673v1) | 2026-11-23 | out_of_scope | 送信待ち | — | — | — |
