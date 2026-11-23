@@ -2475,7 +2475,7 @@
         "importance": 1,
         "recommended": false
       },
-      "status": "waiting"
+      "status": "input_mismatch"
     },
     "2611.27020": {
       "batch": "2026-11-23",
