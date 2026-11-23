@@ -2527,7 +2527,7 @@
         "importance": 1,
         "recommended": false
       },
-      "status": "waiting"
+      "status": "attempted"
     },
     "2611.27274": {
       "batch": "2026-11-23",
