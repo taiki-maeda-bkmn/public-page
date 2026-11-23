@@ -2413,7 +2413,19 @@
         "importance": 2,
         "recommended": false
       },
-      "status": "attempted"
+      "status": "compared",
+      "jev": {
+        "scores": {
+          "rates": 0.89,
+          "execution": 0.03,
+          "practical": 0.06
+        },
+        "route": "include",
+        "usage": {
+          "input_tokens": 583,
+          "output_tokens": 54
+        }
+      }
     },
     "2611.26882": {
       "batch": "2026-11-23",
