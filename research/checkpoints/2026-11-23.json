@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 2,
+  "batchDate": "2026-11-23",
+  "fingerprint": "abcc5eee3fb5162e7f1a1898f71535f59004984cd3e0cf0d3e11d001f5a83b65",
+  "candidateFingerprints": {
+    "2611.26649": "ffa0ff7d283db8cd5b5da904bd23c3549f42928747db4dd06aa2d2155b29dad2",
+    "2611.26652": "90174a4e6dfe3b5ae8e75e45c705279356bbd64f4bbb6843771a5ed8d3adc2c6",
+    "2611.26670": "fe4473b0ae6455076bd5a6ea441ea12267434fb83df41396f9076d78ff0aa106",
+    "2611.26673": "f54ae9371bcab9d9793ff934b82e54d61f02c1897bf8bf5cff62ca90f5438f56",
+    "2611.26700": "3a7d72a5de02450480cf4fc5d09a6a12078617bf5e6024ea03868d0b58b25dba",
+    "2611.26882": "4b2e87c11af51b079ac65d2bd8ade44d9d1b94d1f018883a00023589d088c39a",
+    "2611.26948": "c6ffbfb46f835f57fa0193e670fabb67714f858ec4b3162a18537d9b0c0c9ce4",
+    "2611.27020": "ed9f66db5a7b84219adbb644bb0f375cd87ae951674cc90af20e86cb0283f957",
+    "2611.27210": "0c56836ffc162ed812fcd3c2d49eaabec4b61c5496bab7d0c34c8f8a394a3dc4",
+    "2611.27274": "e5a32a5195dbc2ead20428d765ee163928c440d734fb107a4b82a53517af92a6",
+    "2611.27485": "4e832727d8a958f560caba7b641ed1f7e49cf9f991ace7d77a68a4363620b100",
+    "2611.27616": "ffeb9ab9893c28e8fadaa067feca4de72602260afc9f6de34fe4a279390d5f20",
+    "2611.27692": "5cdbf727825956823d6216fdf79095f1bca745eb5b404c3739209320bf61daba"
+  },
+  "results": {
+    "2611.26649": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "金融ワークフロー向けLLMで、数値回答の可否を実行可能な契約に基づいて判定するVerifiQuantを提案する。",
+        "mainResult": "抄録によれば、適用可能な契約がない場合に推測せず回答を控えることで、不適切な入力への安全性を高める。安全性の向上はカバレッジとのトレードオフであり、適切な質問での精度向上が主な効果ではない。",
+        "practicalApplication": "金融計算をLLMから分離し、計算・確認・拒否を監査可能にする用途が考えられる。ただし、電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブを直接扱う研究ではない。",
+        "methodology": "金融ロジックを推論契約として定義し、決定論的計算の前に実行可能な診断手順でクエリを評価する。契約範囲内で検索・実行ベースラインと比較し、カバレッジや失敗を分析したと抄録は述べる。",
+        "limitations": "評価は宣言された契約ライブラリの範囲に限られる。安全性とカバレッジのトレードオフがあり、実験規模や定量的な性能指標は抄録に示されていない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "金融LLMのガバナンスには関連するが、本サイトの主要対象である取引執行、マーケットマイクロストラクチャー、金利・イールドカーブ研究には直接該当しない。",
+        "tags": [
+          "金融LLM",
+          "ガバナンス",
+          "実行可能契約",
+          "範囲外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proposes VerifiQuant, which uses executable contracts to determine whether an LLM in a financial workflow should provide a numeric answer.",
+          "mainResult": "According to the abstract, declining to guess when no applicable contract is found improves safety on unsupported inputs. This trades off against coverage; improved accuracy on well-posed questions is not the principal benefit.",
+          "practicalApplication": "The framework could separate financial computation from the LLM and make computation, clarification, and refusal auditable. It does not directly study electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "Financial logic is specified as inference contracts, and queries pass through an executable diagnostic funnel before deterministic computation. The abstract reports comparisons with retrieval-and-execution baselines within the declared contract library, along with coverage sweeps and failure analysis.",
+          "limitations": "The evaluation is limited to the declared contract library. Safety trades off against coverage, and the abstract provides no evaluation scale or quantitative performance metrics.",
+          "reason": "The work concerns governance of financial LLMs but does not directly address the site's core topics of execution, market microstructure, rates, or yield curves.",
+          "tags": [
+            "financial LLMs",
+            "governance",
+            "executable contracts",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26652": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、ヘッジ損益分布の分位点を学習し、学習後にリスク選好を適用する深層ヘッジ手法を提案する。金利モデル、イールドカーブ、電子取引、または市場マイクロストラクチャを主題とするものではない。",
+        "mainResult": "著者らは、期待ショートフォールやその混合を分位点の重み付けで表現でき、エントロピー効用も同じ分位点から計算できると報告する。また、数値実験では動的計画法による参照解に近いヘッジが得られ、選好を固定せず学習した単一の分布的クリティックを学習後の選好に利用できた。",
+        "practicalApplication": "学習後にリスク選好を選ぶ運用を想定したヘッジ戦略の研究に役立つ可能性があるが、対象サイトの中心領域への直接的な応用は限定的である。",
+        "methodology": "ヘッジ損益の分位点を学ぶ分布的クリティックを提案し、同一勾配を持つ期待効用による下界を用いてリスク感応型ヘッジをリスク中立問題の系列に帰着する。これに基づく方策探索およびアクター・クリティック法を示し、動的計画法の参照値と数値比較する。",
+        "limitations": "評価の詳細、対象市場や取引コストの設定、実データでの検証は抄録から確認できない。報告された数値結果だけでは実運用での優位性は判断できない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "深層ヘッジとリスク選好の扱いに関する方法論的貢献だが、対象サイトの電子執行・市場マイクロストラクチャ・金利モデル・イールドカーブ・金利研究には直接該当しない。",
+        "tags": [
+          "深層ヘッジ",
+          "リスク管理",
+          "分布的強化学習",
+          "分位点",
+          "期待ショートフォール"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes deep hedging that learns the quantiles of the hedging P&L distribution and applies risk preferences after training. It does not focus on interest-rate models, yield curves, electronic trading, or market microstructure.",
+          "mainResult": "The authors report that expected shortfall and mixtures of it can be represented by weighting quantiles, and that entropic utility can also be computed from the same quantiles. In numerical experiments, hedges approached dynamic-programming reference solutions, and a single distributional critic trained without a fixed preference could serve preferences selected after training.",
+          "practicalApplication": "The approach may be useful for studying hedging strategies where risk preferences are selected after training, but its direct relevance to the site's core areas is limited.",
+          "methodology": "The paper proposes a distributional critic that learns hedging P&L quantiles and uses a lower bound based on an expected utility with the same gradient to reduce risk-sensitive hedging to a sequence of risk-neutral problems. It derives policy-search and actor-critic algorithms and compares numerical results with dynamic-programming references.",
+          "limitations": "The abstract does not provide details on the evaluation, market or transaction-cost settings, or validation on real data. The reported numerical results alone do not establish an advantage in live practice.",
+          "reason": "This is a methodological contribution on deep hedging and risk preferences, but it does not directly address the site's focus on electronic execution, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "deep hedging",
+            "risk management",
+            "distributional reinforcement learning",
+            "quantiles",
+            "expected shortfall"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26670": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、アフィン死亡率モデルとSolvency IIのCost-of-Capital原則を用いて、構造的な長寿リスクの評価・価格付け枠組みを提案する。",
+        "mainResult": "ベルギー死亡率データによる数値例では、死亡率水準へのストレスが死亡率トレンドへのストレスより大幅に大きい資本コスト指標をもたらしたと報告する。",
+        "practicalApplication": "長寿リスクに連動するペイオフや保険負債の評価に、Best Estimate、SCR、Risk Marginを一貫して算出するための枠組みとして利用できる可能性がある。",
+        "methodology": "連続時間アフィン死亡率モデルで生存確率を扱い、Best Estimateの1年割引変動の条件付き分布、歪度、VaRを導出する。トレンド・ショックを水準ショックおよびVaRベースの資本評価と比較する。",
+        "limitations": "根拠は抄録に限られ、モデル適合度や感度分析、他国データでの頑健性は確認できない。結果はガウス型アフィンモデルと設定したストレスシナリオに依存する。対象分野は本サイトの電子取引、マーケット・マイクロストラクチャー、金利モデル・イールドカーブ・金利研究とは異なる。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "保険数理における長寿リスク評価が主題であり、本サイトの対象研究分野との直接的な関連性が低い。",
+        "tags": [
+          "長寿リスク",
+          "死亡率モデル",
+          "Solvency II",
+          "保険数理"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proposes a framework for valuing and pricing structural longevity risk using an affine mortality model and the Solvency II Cost-of-Capital principle.",
+          "mainResult": "In a numerical example using Belgian mortality data, the paper reports that a mortality-level stress produces substantially larger capital-cost measures than a mortality-trend stress.",
+          "practicalApplication": "The framework may support consistent calculation of Best Estimate, SCR, and Risk Margin for longevity-linked payoffs and insurance liabilities.",
+          "methodology": "A continuous-time affine mortality model is used to represent survival probabilities and derive the conditional distribution, skewness, and VaR of one-year discounted Best Estimate variations. Trend shocks are compared with level shocks and VaR-based capital assessment.",
+          "limitations": "The assessment is based only on the abstract; model fit, sensitivity analysis, and robustness across other countries cannot be assessed. Results depend on the Gaussian affine model and the specified stress scenarios. The topic is distinct from the site's focus on electronic trading, market microstructure, interest-rate models, yield curves, and rates.",
+          "reason": "The paper focuses on actuarial valuation of longevity risk and has little direct relevance to the site's target research areas.",
+          "tags": [
+            "Longevity risk",
+            "Mortality model",
+            "Solvency II",
+            "Actuarial science"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26673": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "完全市場における Markov 拡散型の quantile hedging について、数値近似誤差を解析し、ニューラルネットワーク制御を用いた離散スキームを検証する研究です。",
+        "mainResult": "制御の切り詰めと正則化を用いる PCPT 法について、確率変数に一様な誤差評価を導出しています。誤差指数は一般の設定で 1/8 未満、制御が有界なら 1/4 未満まで任意に近づけられると報告しています。",
+        "practicalApplication": "Black–Scholes モデルと Lipschitz 局所ボラティリティ・モデルで、グリッド細分化による価格誤差の低下と、状態依存の制御上限による離散化バイアスの軽減を示しています。",
+        "methodology": "確率状態を拡張した確率制御問題を定式化し、境界到達時に制御を停止する PCPT 法、動的計画原理、正則化を用いて誤差評価を導出しています。さらにニューラルネットワーク制御による完全離散スキームを実験しています。",
+        "limitations": "結果は完全市場、Markov 拡散、係数の正則性、Lipschitz ペイオフなどの仮定に依存します。実験は限られたモデルと toy problem に基づき、実市場での性能は示されていません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "数理ファイナンスの数値計算としては有用ですが、電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利を主題とする研究ではありません。",
+        "tags": [
+          "quantile hedging",
+          "数値解析",
+          "確率制御",
+          "PCPT",
+          "ニューラルネットワーク"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes numerical approximations for quantile hedging in complete markets with Markovian diffusion dynamics and tests a discrete scheme using neural-network controls.",
+          "mainResult": "For the PCPT method with control truncation and regularization, the paper derives error bounds uniform in the probability variable. It reports error exponents arbitrarily close to, but below, 1/8 in the general setting and 1/4 when controls are bounded.",
+          "practicalApplication": "Experiments in Black–Scholes and Lipschitz local-volatility models show decreasing pricing errors under grid refinement and mitigation of discretization bias using a state-dependent control bound.",
+          "methodology": "The authors formulate an augmented stochastic control problem and derive error bounds using a PCPT method that stops controls upon boundary hitting, dynamic programming principles, and regularization. They also test a fully discrete scheme with neural-network controls.",
+          "limitations": "The results depend on assumptions including complete markets, Markovian diffusion dynamics, coefficient regularity, and a Lipschitz payoff. Experiments cover only a limited set of models and a toy problem, and do not establish performance in real markets.",
+          "reason": "This is a relevant contribution to numerical mathematical finance, but it does not primarily concern electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "quantile hedging",
+            "numerical analysis",
+            "stochastic control",
+            "PCPT",
+            "neural networks"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26700": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本稿は、HTM会計による損失認識の遅延が銀行間のシステミックリスクに及ぼす影響をモデルで分析する。",
+        "mainResult": "著者らのモデルでは、HTM会計が含み損の蓄積と同時化を促し、流動性ストレス下で損失が顕在化すると、共通の金利感応資産へのエクスポージャーと銀行間ネットワークを通じてデフォルトが非線形に増加する。",
+        "practicalApplication": "会計制度の変更が金融安定性に与える影響を評価し、共通エクスポージャーや銀行間連関を考慮したストレステストを設計する際の概念的示唆となりうる。",
+        "methodology": "相関する金利感応資産を保有し、内生的な銀行間ネットワークで結ばれた銀行のモデルを構築し、HTM会計下の損失認識と波及を分析する。",
+        "limitations": "提供された要旨だけでは、モデルの仮定、定量的な結果、実証的検証、政策効果の頑健性は判断できない。金利モデルや市場マイクロストラクチャー、電子執行を主題とする研究ではない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "銀行会計とシステミックリスクが中心であり、金利感応資産は扱うものの、対象サイトの金利モデル・イールドカーブ・市場マイクロストラクチャー等には直接的に該当しない。",
+        "tags": [
+          "HTM会計",
+          "銀行リスク",
+          "システミックリスク",
+          "含み損"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper uses a model to analyze how delayed loss recognition under HTM accounting affects systemic risk among banks.",
+          "mainResult": "In the authors’ model, HTM accounting encourages unrealized losses to accumulate and become synchronized. When losses are realized under liquidity stress, shared exposures to interest-rate-sensitive assets and interbank networks lead to a nonlinear increase in defaults.",
+          "practicalApplication": "The analysis may offer conceptual guidance for assessing how accounting rules affect financial stability and for designing stress tests that account for common exposures and interbank connections.",
+          "methodology": "The authors construct a model of banks holding correlated interest-rate-sensitive assets and connected through an endogenous interbank network, and analyze loss recognition and propagation under HTM accounting.",
+          "limitations": "The abstract does not provide enough information to assess the model assumptions, quantitative results, empirical validation, or robustness of policy implications. The paper does not focus on interest-rate models, market microstructure, or electronic execution.",
+          "reason": "The paper focuses on bank accounting and systemic risk. Although it considers interest-rate-sensitive assets, it does not directly address the site’s focus areas of interest-rate models, yield curves, or market microstructure.",
+          "tags": [
+            "HTM accounting",
+            "bank risk",
+            "systemic risk",
+            "unrealized losses"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26882": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、コロンビアの和平協定下の地域改革が農村部の市民参加や地域連携に与えた影響を分析する。",
+        "mainResult": "対象自治体では、都市部と比べた農村部の市民参加がより好ましく変化し、とくに共通課題への協調で明確な結果が報告された。",
+        "practicalApplication": "地域開発・政治参加政策の評価に参考となるが、電子取引、金融市場のミクロ構造、金利やイールドカーブへの直接的な応用は示されていない。",
+        "methodology": "社会資本バロメーターの複数時点データを用い、対象自治体とその他の自治体、農村部と都市部、改革前後を比較する三重差分のイベントスタディを実施した。",
+        "limitations": "要旨の結果は二つの改革が同時に適用された地域での変化であり、個別改革の効果は分離されていない。要旨だけでは推定値や標本規模などの詳細も確認できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "政治経済・地域開発の研究であり、サイトの金融・市場関連の対象範囲には実質的に該当しない。",
+        "tags": [
+          "コロンビア",
+          "和平協定",
+          "市民参加",
+          "三重差分",
+          "地域開発"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes how territorial reforms under Colombia’s peace agreement affected rural civic engagement and community coordination.",
+          "mainResult": "In covered municipalities, rural engagement changed more favorably relative to urban engagement, with the clearest reported result in coordination around shared problems.",
+          "practicalApplication": "The findings may inform evaluations of regional development and political participation policies, but no direct application to electronic trading, financial-market microstructure, interest rates, or yield curves is presented.",
+          "methodology": "Using repeated waves of the Social Capital Barometer, the study conducts a triple-difference event study comparing covered and other municipalities, rural and urban areas, and periods before and after the reforms.",
+          "limitations": "The abstract reports changes in areas covered by both reforms, without separating the effect of each reform. It also does not provide details such as effect estimates or sample size.",
+          "reason": "This is research in political economy and regional development, not materially within the site’s financial and market-related scope.",
+          "tags": [
+            "Colombia",
+            "peace agreement",
+            "civic engagement",
+            "triple difference",
+            "regional development"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.26948": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "DeFi融資プロトコルで、利用者損失を吸収するジュニア資本の配置と費用を分析する研究です。",
+        "mainResult": "著者らは、既存方式に比べて最適化した融資グラフでは保険費用の漸近的な増加が小さくなり、2026年の攻撃事例に基づく試算で資本費用を最大34.5%削減できると報告しています。",
+        "practicalApplication": "ジュニア資本を設計上の制約として扱い、DeFi融資プロトコルの資本効率を改善する用途が提案されています。電子取引、金利モデル、イールドカーブを扱う本サイトの主題には直接該当しません。",
+        "methodology": "資産、カバー対象の負債、損失を負担するジュニア資本を結ぶ三部グラフを定義し、グラフ上のカットと静的な攻撃者ゲームから保護費用をモデル化しています。",
+        "limitations": "評価は要旨に記された理論上の仮定と攻撃事例に基づく試算に限られます。仮定の詳細、推定の不確実性、実運用での効果は要旨から判断できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "DeFi融資の損失保護と資本配分が中心であり、対象サイトが重視する電子執行、マーケットマイクロストラクチャー、金利関連研究とは直接の関連がありません。",
+        "tags": [
+          "DeFi",
+          "融資プロトコル",
+          "ジュニア資本",
+          "リスク保護"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes the allocation and cost of junior capital that absorbs user losses in DeFi lending protocols.",
+          "mainResult": "The authors report that optimized lending graphs have lower asymptotic insurance-cost growth than existing designs, and estimate up to 34.5% in capital-cost savings based on 2026 attacks.",
+          "practicalApplication": "The proposed application is to improve DeFi lending-protocol capital efficiency by treating junior capital as a design constraint. It does not directly address this site's focus on electronic trading, interest-rate models, or yield curves.",
+          "methodology": "The study defines a tripartite graph linking assets, covered liabilities, and loss-absorbing junior capital, then models protection costs using graph cuts and a static attacker game.",
+          "limitations": "The evaluation is limited to theoretical assumptions and estimates based on attack cases described in the abstract. The abstract does not establish the assumptions' details, estimation uncertainty, or effects in live operations.",
+          "reason": "The paper focuses on loss protection and capital allocation in DeFi lending, which is not directly relevant to the site's focus on electronic execution, market microstructure, or rates research.",
+          "tags": [
+            "DeFi",
+            "lending protocols",
+            "junior capital",
+            "risk protection"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27020": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "米国49州の企業データを用い、社会的信頼と宝くじ型株式の価格形成の関係を分析する研究です。",
+        "mainResult": "MAXで測る宝くじ型特性のリターン効果は、社会的信頼が高い地域で強く、低信頼地域では弱いか見られないと報告しています。この関係は教育水準や所得水準が低い地域でより強いとされます。",
+        "practicalApplication": "社会的信頼を、株式の歪んだペイオフに伴う信念依存の誤価格形成を分析する際の地域要因として考慮する示唆があります。電子取引、金利、イールドカーブへの直接的な応用は示されていません。",
+        "methodology": "1996～2018年の米国49州、8,875社を対象に、MAXを宝くじ型特性の代理指標として地域別に分析し、代替指標や頑健性検証も用いています。",
+        "limitations": "提供された抄録だけでは、社会的信頼の測定方法、因果関係の識別、推定の詳細や効果の大きさを評価できません。結果は米国株式と対象期間に限られ、頑健性検証の具体的内容も不明です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "株式の行動ファイナンスおよび地域差に関する研究であり、サイトの電子執行、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利の主題には直接該当しません。",
+        "tags": [
+          "社会的信頼",
+          "宝くじ型株式",
+          "株式価格形成",
+          "行動ファイナンス"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines the relationship between social trust and the pricing of lottery-like stocks using firm data from 49 US states.",
+          "mainResult": "The paper reports that the return effect associated with lottery-like characteristics, measured by MAX, is stronger in regions with high social trust and weak or absent in low-trust regions. The relationship is reported to be stronger in regions with lower education or income levels.",
+          "practicalApplication": "The findings suggest considering social trust as a regional factor when analyzing belief-driven mispricing in stocks with skewed payoffs. No direct application to electronic trading, interest rates, or yield curves is presented.",
+          "methodology": "The study analyzes 8,875 firms across 49 US states from 1996 to 2018, using MAX as a proxy for lottery-like characteristics, with regional analyses, alternative proxies, and robustness checks.",
+          "limitations": "The abstract alone does not allow assessment of how social trust is measured, how causality is identified, or the estimation details and effect sizes. The results are limited to US equities and the study period; the specific robustness checks are not described.",
+          "reason": "This is a study of behavioral finance in equities and regional differences, not a direct contribution to the site's focus on electronic execution, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "social trust",
+            "lottery-like stocks",
+            "equity pricing",
+            "behavioral finance"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27210": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、AIエージェントの利用と米国企業の求人動向の関係を分析した労働市場研究である。金融市場や金利のモデル・執行・マイクロストラクチャーを主題としていない。",
+        "mainResult": "要旨によると、エージェントAIへの企業のエクスポージャーが1標準偏差高い場合、求人件数の伸びはその後6か月で2.11%、9か月で3.20%低かった。Claude Code 2.0の公開後についても同様の関係が報告され、減少は非シニア職に集中した。",
+        "practicalApplication": "企業のAI導入と採用計画の関係を検討する際の参考にはなり得るが、本サイトの対象分野への直接的な実務応用は限定的である。",
+        "methodology": "約400超のAIモデルの利用データと、公開企業の求人情報を組み合わせ、株価リターンと集計エージェントAI利用量の連動から企業別エクスポージャーを構築した。さらにClaude Code 2.0公開を用いたイベント分析を行った。",
+        "limitations": "要旨だけでは、推定の識別仮定や頑健性検証の詳細を評価できない。報告された予測関係やイベント分析だけから、AI利用が求人減少を引き起こしたと断定することはできない。また、データは米国公開企業の求人に限られる。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "主題はAIと雇用の関係であり、量的金融の対象領域との関連性が薄いため、対象外と判定する。",
+        "tags": [
+          "AIエージェント",
+          "労働市場",
+          "求人",
+          "対象外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This is a labor-market study examining the relationship between agentic AI use and job postings at U.S. firms. Its main subject is not financial markets, interest-rate models, execution, or market microstructure.",
+          "mainResult": "According to the abstract, firms with agentic-AI exposure one standard deviation higher had job-posting growth 2.11% lower over the following six months and 3.20% lower over nine months. A similar relationship was reported after the release of Claude Code 2.0, with the decline concentrated in non-senior jobs.",
+          "practicalApplication": "The findings may inform analysis of the relationship between corporate AI adoption and hiring plans, but have limited direct practical application to this site's subject areas.",
+          "methodology": "The authors combine usage data for more than 400 AI models with job-posting data for public firms. They construct firm-level exposure from the comovement of stock returns with aggregate agentic-AI usage and also conduct an event analysis around the release of Claude Code 2.0.",
+          "limitations": "The abstract does not provide enough detail to assess identification assumptions or robustness tests. The reported predictive relationships and event analysis alone do not establish that AI use caused the decline in postings. The data are also limited to job postings at U.S. public firms.",
+          "reason": "The paper focuses on AI and employment, with little relevance to the covered quantitative-finance topics, so it is classified as out of scope.",
+          "tags": [
+            "agentic AI",
+            "labor market",
+            "job postings",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27274": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、大規模ポートフォリオの高次モーメント推定に向け、テンソル分解に基づくフィルタリング手法を提案しています。",
+        "mainResult": "Russell 1000構成銘柄の過去リターンを用いた評価では、提案手法は標本推定量より相関・共尖度テンソルのアウト・オブ・サンプル推定精度を高め、ポートフォリオのボラティリティと尖度の推定誤差を抑えたと報告されています。分散と四次モーメントの双方を罰する目的関数では、実現ボラティリティと尖度も低下しました。",
+        "practicalApplication": "高次モーメントを考慮するポートフォリオ構築において、共モーメント推定のノイズを抑える用途が示唆されます。電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ研究への直接的な関連は限定的です。",
+        "methodology": "共分散行列のクロスバリデーションによるクリーニングとAverage Oracle手法を偶数次の共モーメントテンソルに拡張し、歴史的なRussell 1000銘柄リターンで標本推定量と比較しています。評価には相対二乗フロベニウス誤差と、ポートフォリオのリスク指標を用いています。",
+        "limitations": "提供された抄録だけでは、標本期間、具体的な分割・調整手順、ベンチマークの詳細、改善幅や統計的不確実性を確認できません。結果はRussell 1000の過去データに基づく報告であり、他の市場や運用条件への一般化は判断できません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "ポートフォリオ・リスク推定には関連しますが、対象サイトの中心領域である電子執行、マーケット・マイクロストラクチャー、金利・イールドカーブには直接関係しないため、対象外と判定します。",
+        "tags": [
+          "ポートフォリオ最適化",
+          "高次モーメント",
+          "共尖度",
+          "テンソル分解",
+          "リスク推定"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes tensor-decomposition-based filtering methods for estimating higher moments in large portfolios.",
+          "mainResult": "In tests using historical returns of Russell 1000 constituents, the proposed methods reportedly improved out-of-sample estimation accuracy over sample estimators for correlation and cokurtosis tensors, and reduced estimation errors for portfolio volatility and kurtosis. For an objective penalizing both variance and the fourth moment, realized volatility and kurtosis were also lower.",
+          "practicalApplication": "The methods may help reduce co-moment estimation noise in portfolio construction that accounts for higher moments. Direct relevance to electronic trading, market microstructure, interest-rate models, and yield-curve research is limited.",
+          "methodology": "The study extends cross-validated covariance cleaning and the Average Oracle methodology to even-order co-moment tensors, comparing the filters with sample estimators on historical returns of Russell 1000 constituents. It evaluates relative squared Frobenius errors and portfolio risk measures.",
+          "limitations": "The abstract does not specify the sample period, detailed data-splitting or adjustment procedures, benchmark details, effect sizes, or statistical uncertainty. The findings are reported for historical Russell 1000 data, and generalization to other markets or operating conditions cannot be assessed.",
+          "reason": "The work concerns portfolio risk estimation but is not directly about the site's core areas of electronic execution, market microstructure, interest rates, or yield curves; it is therefore classified as out of scope.",
+          "tags": [
+            "portfolio optimization",
+            "higher moments",
+            "cokurtosis",
+            "tensor decomposition",
+            "risk estimation"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27485": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、無限平均損失を持つ正依存リスクの分担がリスクに与える影響を、背景リスクモデルで理論的に検討する。",
+        "mainResult": "著者らは、線形および条件付き平均のリスク分担により、通常の確率順序の意味でリスクが増加し得ると報告する。所定の条件下では、元のリスクまたは分散度の低いポートフォリオが、定義可能なすべての法則不変・単調リスク尺度で選好されるという。",
+        "practicalApplication": "無限平均損失を伴うリスク配分や保険・ポートフォリオ分散の理論的評価に関係するが、電子取引、マーケットマイクロストラクチャ、金利モデル、イールドカーブの研究ではない。",
+        "methodology": "背景リスクモデルの下で、確率的優越関係を理論的に導出する。Pareto–ClaytonやFréchet–Gumbelなどの分布、Archimedeanコピュラによる混合、安定分布を扱う。",
+        "limitations": "要旨には条件の詳細、証明、数値検証や実データによる評価が示されていない。結論は無限平均と正依存を含む所定の仮定に依存し、適用範囲を要旨だけから判断できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "リスク分担に関する数理ファイナンス研究だが、対象サイトの主要分野との実質的な関連は薄い。",
+        "tags": [
+          "リスク分担",
+          "無限平均損失",
+          "確率的優越",
+          "背景リスク",
+          "コピュラ"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper theoretically examines how sharing positively dependent risks with infinite-mean losses affects risk in background risk models.",
+          "mainResult": "The authors report that linear and conditional-mean risk sharing can increase risk in the usual stochastic order. Under stated conditions, the original risk or a less diversified portfolio is preferred under every law-invariant, monotone risk measure for which it is well defined.",
+          "practicalApplication": "The work is relevant to theoretical assessment of risk allocation and insurance or portfolio diversification involving infinite-mean losses, but not to electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The paper derives stochastic dominance relations in background risk models. It considers distributions such as Pareto–Clayton and Fréchet–Gumbel, mixtures using Archimedean copulas, and stable distributions.",
+          "limitations": "The abstract does not provide details of the assumptions, proofs, numerical validation, or empirical assessment. The conclusions depend on specified conditions involving infinite means and positive dependence, and their scope cannot be determined from the abstract alone.",
+          "reason": "This is a mathematical-finance study of risk sharing, but it has little substantive relevance to the site's main research areas.",
+          "tags": [
+            "risk sharing",
+            "infinite-mean losses",
+            "stochastic dominance",
+            "background risk",
+            "copulas"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27616": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "DJIA構成銘柄29社の1分足データを用い、物理学由来の特徴量を加えたニューラル共分散予測モデルを検証しています。",
+        "mainResult": "ニューラルモデルは静的共分散推定法を上回りましたが、HAR-RVやLSTMに対する有意な改善はなく、物理学由来の特徴量・正則化にも測定可能な寄与は確認されませんでした。取引コスト控除後のSharpe比改善も有意ではありませんでした。",
+        "practicalApplication": "結果は、対象データと予測期間では、RMT・Tsallis・Hawkes由来の要素を追加しても既存の金融予測ベンチマークを超える実務上の利点が確認できないことを示唆します。",
+        "methodology": "DJIA構成銘柄29社の545取引日分の1分足データで、11分割・231日のアウトオブサンプル期間を含むネスト型walk-forward評価を実施し、複数シード、リーケージ対策、アブレーション、ポートフォリオ検証を行っています。",
+        "limitations": "抄録から確認できるのは単一指数構成銘柄群と1日先予測での結果です。他の市場、資産、期間や予測ホライズンへの一般化は示されていません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "主題は株式の共分散予測とリスクモデルであり、電子取引、マーケットマイクロストラクチャ、金利モデル、イールドカーブまたは金利研究には実質的に該当しません。",
+        "tags": [
+          "共分散予測",
+          "株式リスク",
+          "ニューラルネットワーク",
+          "walk-forward評価",
+          "エコノフィジックス"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper evaluates a neural covariance forecasting model augmented with physics-inspired features using one-minute data for 29 DJIA constituents.",
+          "mainResult": "Neural models outperform static covariance estimators but do not significantly improve on HAR-RV or LSTM. The physics-inspired features and regularizer show no measurable contribution, and the post-transaction-cost Sharpe improvement is not significant.",
+          "practicalApplication": "For the dataset and forecast horizon studied, the results suggest no demonstrated practical benefit from adding RMT-, Tsallis-, or Hawkes-inspired components beyond established financial forecasting benchmarks.",
+          "methodology": "The study uses one-minute data for 29 DJIA constituents over 545 trading days, with nested walk-forward evaluation across 11 folds and 231 out-of-sample days. It also reports multiple-seed tests, leakage controls, ablations, and portfolio experiments.",
+          "limitations": "The abstract reports results only for one index constituent universe and a one-day-ahead horizon. Generalization to other markets, assets, periods, or forecast horizons is not established.",
+          "reason": "The paper concerns equity covariance forecasting and risk models, not electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "covariance forecasting",
+            "equity risk",
+            "neural networks",
+            "walk-forward evaluation",
+            "econophysics"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.27692": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "有限個の偶発請求権と評価額から、凸かつ cash-additive なリスク尺度を再構成する問題を扱う。",
+        "mainResult": "データがリスク尺度と整合するための必要十分条件と、整合するデータに対する再構成公式を提示する。単調性を課す場合にも拡張し、再構成の鋭い Lipschitz 定数を示すほか、線形選好と Expected Shortfall の再構成を報告する。",
+        "practicalApplication": "欧州オプションを用いた数値例を示すが、実運用での有効性や市場データへの適用範囲は抄録から判断できない。",
+        "methodology": "有限データに対する整合性条件と再構成公式を理論的に導き、単調なリスク尺度への拡張と数値例を示す。",
+        "limitations": "抄録には仮定の詳細、数値実験の設定や結果、実データでの検証内容が記載されていない。本サイトの中心領域である電子執行、マーケット・マイクロストラクチャー、金利モデル、イールドカーブとの直接的関連も示されていない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "リスク尺度の理論的再構成として金融数学上の関心はあるが、本サイトの対象領域との関連は限定的である。",
+        "tags": [
+          "リスク尺度",
+          "凸リスク尺度",
+          "Expected Shortfall",
+          "欧州オプション"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper studies reconstructing a convex, cash-additive risk measure from a finite set of contingent claims and their evaluations.",
+          "mainResult": "It gives necessary and sufficient conditions for data to be compatible with a risk measure, along with a reconstruction formula for compatible data. It also extends the construction to monotone risk measures, establishes sharp Lipschitz constants, and reports reconstruction of linear preferences and Expected Shortfall.",
+          "practicalApplication": "A numerical example using European options is presented, but the abstract does not establish real-world effectiveness or the scope of applicability to market data.",
+          "methodology": "The paper derives theoretical compatibility conditions and reconstruction formulas for finite datasets, extends them to monotone risk measures, and presents a numerical example.",
+          "limitations": "The abstract does not specify the assumptions, numerical experiment design or results, or validation on real data. It also indicates no direct connection to the site's core areas of electronic execution, market microstructure, interest-rate models, or yield curves.",
+          "reason": "The theoretical reconstruction of risk measures is of interest in financial mathematics, but its relevance to the site's focus areas is limited.",
+          "tags": [
+            "Risk measures",
+            "Convex risk measures",
+            "Expected Shortfall",
+            "European options"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    }
+  },
+  "usage": [
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 806,
+      "outputTokens": 786,
+      "reasoningTokens": 93,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1592,
+      "estimatedCostUsd": 0.000474,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26649v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 808,
+      "outputTokens": 855,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1663,
+      "estimatedCostUsd": 0.000508,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26652v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 890,
+      "outputTokens": 745,
+      "reasoningTokens": 56,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1635,
+      "estimatedCostUsd": 0.000461,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26670v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 901,
+      "outputTokens": 916,
+      "reasoningTokens": 98,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1817,
+      "estimatedCostUsd": 0.000548,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26673v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 749,
+      "outputTokens": 685,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1434,
+      "estimatedCostUsd": 0.000417,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26700v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 732,
+      "outputTokens": 568,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1300,
+      "estimatedCostUsd": 0.000357,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26882v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 934,
+      "outputTokens": 817,
+      "reasoningTokens": 146,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1751,
+      "estimatedCostUsd": 0.000502,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.26948v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 813,
+      "outputTokens": 792,
+      "reasoningTokens": 67,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1605,
+      "estimatedCostUsd": 0.000477,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27020v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 915,
+      "outputTokens": 857,
+      "reasoningTokens": 94,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1772,
+      "estimatedCostUsd": 0.00052,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27210v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 776,
+      "outputTokens": 880,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1656,
+      "estimatedCostUsd": 0.000518,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27274v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 789,
+      "outputTokens": 779,
+      "reasoningTokens": 71,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1568,
+      "estimatedCostUsd": 0.000468,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27485v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 879,
+      "outputTokens": 793,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1672,
+      "estimatedCostUsd": 0.000484,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27616v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 766,
+      "outputTokens": 797,
+      "reasoningTokens": 100,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1563,
+      "estimatedCostUsd": 0.000475,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27692v1"
+      ],
+      "outcome": "completed"
+    }
+  ]
+}

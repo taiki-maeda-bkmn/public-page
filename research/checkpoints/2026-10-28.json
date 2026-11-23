@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "batchDate": "2026-10-28",
-  "fingerprint": "77f17cfaf3884580956080e7602f5598b936e91a9279d1b90fa3903dabfa1947",
+  "fingerprint": "f85b43c4b2bbb77168ee19129cc55a59407d393a0358f48a74b0ca52d3a0b22d",
   "candidateFingerprints": {
     "2610.35887": "4c396062f92170af93cf8034de867ec998b4dfddc89948c48c75d04beee0cf07",
     "2610.35893": "326541c34871b69bec66bc97d2d0f983c9c411c54d1c8011a9ca9716a115e09e",
@@ -313,7 +313,7 @@
       "finalAnalysis": null
     },
     "2610.36317": {
-      "status": "awaiting_pdf",
+      "status": "completed",
       "screenAnalysis": {
         "classification": "market_microstructure",
         "summary": "本稿は、統合米国気配フィードの価格変化を用いた Hawkes 推定で、イベント定義が短期クラスタリングの解釈に与える影響を調べる。",
@@ -345,6 +345,417 @@
             "quote feed",
             "event definition",
             "price-change clustering"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "全米最良気配（NBBO）では、取引所間で更新の到着順がずれると、1ティックの値動きが半ティックずつ2回の仲値変化として記録される。約定で最良気配が尽き、すぐに同じ価格で補充された場合も、仲値には往復が生じる。本稿は、こうした対を別々のイベントとして数えると、Hawkesモデルが気配の更新を価格変化の励起と見なすことを示す。持続する仲値の変化だけに絞ってもクラスタリングは残り、値動きの多い日や月ほど強かった。",
+        "mainResult": "112銘柄月で、未処理系列のイベント当たりカーネル積分は、持続系列に比べて1秒以内で中央値3.1倍、10秒以内で2.0倍だった。ところが、両系列とも最初の5ミリ秒を除くと、倍率はそれぞれ0.48倍と0.50倍に下がった。未処理系列では、直後の機械的な対が励起を押し上げる一方、その後の励起はほぼ倍のイベント数に分散する。総分岐比には別の問題もある。2017年5月のINTCでは、基礎強度の区間を5分から1日に変えると持続系列の実効分岐比は0.18から0.74に上がったが、1秒以内の積分値は0.100から0.103の範囲に収まった。",
+        "practicalApplication": "持続的な値動きを分析するなら、短いロックだけでなく、正のスプレッドのまま終わる短命な気配も識別する。銘柄間の比較では、持続時間の閾値と基礎強度の区間幅を明記し、総分岐比よりも1秒・10秒までのカーネル積分を、取引日をブロックとする標準誤差とともに報告するのが有用である。10秒の値は基礎強度を5分・10分刻みにすると低下し得る。また、気配が持続したかは事後にしか分からず、バックテストでその開始時刻に売買判断が可能だったと扱ってはならない。",
+        "methodology": "2016年11月から2017年12月の米国株8銘柄について、TAQの仲値変化を、未処理、5ミリ秒未満のロック・クロスを除去、さらに短命な気配をスプレッドによらず除去、の3系列で比較した。持続閾値は原則1ミリ秒、BACは2ミリ秒とし、持続系列には同じ長さの不応期を設けた。上昇・下落の対称2変量Hawkesモデルを銘柄月ごとに推定し、基礎強度は日別の30分区間ごとに設定した。約定との照合、取引所時刻でのNBBO再構築、実測した短命な気配を加えた4銘柄のシミュレーションで機序を検証した。基本シミュレーションでは、持続系列の1秒・10秒の積分値は生成値を3〜7%下回った。",
+        "limitations": "112銘柄月のうち80はスプレッドがほぼ常に1ティックであり、2016〜17年のデータで選んだ閾値を現在の配信環境にそのまま適用する根拠はない。持続条件は本物の高速反応も除くため、サブミリ秒の反応が存在しないとは結論できない。励起は因果効果でも市場の臨界性の証拠でもない。検定した2か月では持続系列のモデルも各銘柄で少なくとも一方向について棄却され、観測時間帯の序盤の強い励起、5分未満の集中、価格反転の多さを十分には再現できなかった。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "気配の数え方が推定値を変えるだけでなく、価格単位で見ても誤差が大きいことを示した点が重要である。2017年5月の4銘柄では、未処理系列のモデルが示す1秒後までの同方向への値動きは実測の約3倍だった。統合気配を使う価格モデルの検証に役立つが、売買戦略の収益性を示す研究ではない。",
+        "tags": [
+          "市場マイクロストラクチャー",
+          "全米最良気配（NBBO）",
+          "Hawkes過程",
+          "イベント定義",
+          "分岐比",
+          "気配配信の遅延",
+          "価格変化のクラスタリング"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "When quote updates from different venues arrive out of order, the US national best bid and offer (NBBO) can record a one-tick move as two half-tick mid-price changes. A trade that depletes the best quote, followed by a refill at the same price, can likewise produce a round trip in the mid-price. The paper shows that counting such pairs as separate events makes a Hawkes model read quote updates as price-change excitation. Clustering remains when only persistent mid-price changes are counted and was stronger on days and in months with more price moves.",
+          "mainResult": "Across 112 stock-months, the median raw-to-persistent ratio of per-event kernel mass was 3.1 within one second and 2.0 within ten seconds. When the first five milliseconds were excluded from both series, the ratios fell to 0.48 and 0.50, respectively. Mechanical pairs inflate immediate excitation in the raw series, while later excitation is spread across roughly twice as many events. The total branching ratio has a separate problem: for INTC in May 2017, changing the baseline bins from five minutes to one day raised the persistent series’ effective branching ratio from 0.18 to 0.74, while one-second mass stayed between 0.100 and 0.103.",
+          "practicalApplication": "For studies of persistent price moves, identify short-lived positive-spread quotes as well as brief locks. For cross-stock comparisons, state the persistence threshold and baseline bin width, and report one- and ten-second kernel masses with trading-day block standard errors rather than relying on the total branching ratio. Ten-second mass can fall with five- or ten-minute baseline bins. Persistence is known only after the fact: a backtest must not treat the start of a qualifying quote as a time when a trading decision based on its persistence was already possible.",
+          "methodology": "For eight US stocks from November 2016 through December 2017, the paper compared three TAQ mid-price series: raw changes, changes after removing locks and crosses shorter than five milliseconds, and changes after also removing short-lived quotes regardless of spread. The persistence threshold was one millisecond, or two for BAC, with a matching refractory period for the persistent series. A symmetric bivariate Hawkes model for up and down moves was fitted by stock-month, with a separate baseline for each half-hour of each day. Trade matching, NBBO reconstruction in exchange time, and four-stock simulations adding measured brief quote states tested the mechanism. In the base simulation, persistent-series estimates of one- and ten-second mass were 3–7% below the generating values.",
+          "limitations": "In 80 of the 112 stock-months, the spread was almost always one tick. A threshold chosen on 2016–17 data is not automatically valid for current feeds. The persistence rule also removes genuine fast reactions, so the results cannot establish that sub-millisecond responses do not exist. Excitation is neither a causal effect nor evidence of market criticality. In the two months tested, the persistent-series model was rejected in at least one direction for every stock. It did not fully reproduce stronger excitation early in the observation window, bursts shorter than five minutes, or the frequency of price reversals.",
+          "reason": "The paper shows that event counting changes not just a fitted statistic but also the model’s implications in price units. For four stocks in May 2017, raw-event models implied about three times the observed same-direction price continuation within one second. This makes the study useful for validating price models built on consolidated quotes, not as evidence of a profitable trading strategy.",
+          "tags": [
+            "Market microstructure",
+            "National best bid and offer (NBBO)",
+            "Hawkes processes",
+            "Event definition",
+            "Branching ratio",
+            "Quote-feed latency",
+            "Price-change clustering"
+          ]
+        }
+      }
+    },
+    "2610.36392": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "AMM流動性提供者の将来手数料を、オプション情報から評価する無裁定フレームワークを提示する研究です。",
+        "mainResult": "Uniswap v2・v3のETH–USDCプールへの適用では、推定手数料率は正で満期とともに低下し、レンジ設計に強く依存すると報告しています。特に、より狭いアット・ザ・マネーのレンジで高い推定収益が得られます。",
+        "practicalApplication": "オプション価格に基づいてLP報酬を評価し、流動性レンジを比較する分析に応用できる可能性があります。",
+        "methodology": "無裁定条件の下で、期待累積手数料を現在のプール価値と終端ペイオフのリスク中立価値との差として求めます。確率的ボラティリティとジャンプ拡散モデルをDeribitオプションで較正し、Uniswap v2・v3に適用しています。",
+        "limitations": "評価はモデルとリスク中立価格に依存し、実現手数料や実際のLP収益性を直接示すものではありません。要旨には較正・検証の詳細や推定精度が記されていません。主題はDeFiのAMMであり、対象分野の電子取引・市場マイクロ構造・金利やイールドカーブとの関連は限定的です。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "手数料率の期間構造を扱いますが、金利商品や伝統的な市場構造ではなく、AMMのLP報酬評価が中心のため、サイトの主要対象からは外れます。",
+        "tags": [
+          "DeFi",
+          "AMM",
+          "流動性提供者",
+          "オプション価格",
+          "手数料率"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study presents a no-arbitrage framework for valuing future fees for AMM liquidity providers using option-implied information.",
+          "mainResult": "Applied to Uniswap v2 and v3 ETH–USDC pools, the estimated fee rates are positive, decline with maturity, and depend strongly on range design. Tighter at-the-money ranges are reported to yield higher implied returns.",
+          "practicalApplication": "The framework may help assess LP compensation from option prices and compare liquidity ranges.",
+          "methodology": "Under a no-arbitrage condition, expected accumulated fees are obtained as the difference between current pool value and the risk-neutral value of the terminal payoff. A stochastic-volatility jump-diffusion model calibrated to Deribit options is applied to Uniswap v2 and v3.",
+          "limitations": "The valuation depends on the model and risk-neutral pricing and does not directly establish realized fees or actual LP profitability. The abstract provides no details on calibration, validation, or estimation accuracy. The topic is DeFi AMMs, with limited relevance to electronic trading, market microstructure, rates, or yield curves.",
+          "reason": "Although it studies a term structure of fee rates, its focus is AMM LP compensation rather than interest-rate products or conventional market structure, so it falls outside the site's primary scope.",
+          "tags": [
+            "DeFi",
+            "AMM",
+            "liquidity providers",
+            "option pricing",
+            "fee rates"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.36473": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "Cox過程の到着強度を二乗Bessel過程で表す無限サーバ待ち行列について、状態変数と顧客数の時間積分のリスク測度を扱う研究です。",
+        "mainResult": "到着強度、系内顧客数、および顧客数の時間積分に関する同時モーメント母関数を複数時点でも明示的に導出し、閾値超過を条件とするリスク測度を計算する方法を示したと報告しています。",
+        "practicalApplication": "待ち行列の状態変数が閾値を超える場合の条件付きモーメントなどを評価する用途が考えられます。要旨では数値実験による実装例が示されていますが、金融市場の執行や金利分析への直接的な適用は示されていません。",
+        "methodology": "モデルのアフィン構造を利用して同時モーメント母関数を導出し、リスク測度にはその明示形とフーリエ表現を用いています。",
+        "limitations": "評価は要旨の記述に限られ、仮定の詳細、数値実験の規模、既存手法との比較、現実データでの検証は確認できません。対象は待ち行列のリスク測度であり、本サイトの重点領域との関連は限定的です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "待ち行列理論における確率的リスク測度の研究であり、電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブを主題としていません。",
+        "tags": [
+          "無限サーバ待ち行列",
+          "Cox過程",
+          "二乗Bessel過程",
+          "リスク測度"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines risk measures for an infinite-server queue whose Cox-process arrival intensity is modeled by a squared Bessel process.",
+          "mainResult": "The authors report explicit joint moment-generating functions for the arrival intensity, the number of customers in the system, and the time integral of the customer count, including at multiple dates. They use these expressions to calculate risk measures conditional on threshold exceedances.",
+          "practicalApplication": "The method may support evaluation of conditional moments when queue-state variables exceed thresholds. The abstract reports numerical implementation examples, but does not establish direct applications to financial execution or interest-rate analysis.",
+          "methodology": "The authors exploit the model's affine structure to derive joint moment-generating functions and use their explicit forms together with Fourier representations to obtain risk measures.",
+          "limitations": "The abstract does not provide details on assumptions, the scale of the numerical experiments, comparisons with existing methods, or validation on real-world data. The subject is queueing risk measurement and has limited relevance to the site's focus areas.",
+          "reason": "This is a study of stochastic risk measures in queueing theory, not primarily of electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "tags": [
+            "infinite-server queue",
+            "Cox process",
+            "squared Bessel process",
+            "risk measures"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.36899": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "プール型貸出市場の利用率連動金利モデルで、追加預入が供給者の総利息収入を減らし得る条件を導出し、その抑制に向けた金利曲線設計制約を示す研究です。",
+        "mainResult": "供給者の最終プール供給に占める比率を $\\alpha$、借入金利の利用率弾力性を $\\eta$ とすると、限界預入で収入が非減少となる条件は $\\alpha(1+\\eta)\\leq1$ と報告しています。一定比率を保護する曲線の境界はべき乗型となり、新規預入者をすべて保護する場合は双曲線型となります。",
+        "practicalApplication": "プロトコル設計者が保護対象とする供給者シェアを定め、それに応じて利用率ごとの金利弾力性を制限する設計指針として活用できます。",
+        "methodology": "収入の単調性条件を理論的に導出し、DriftのSOL・USDC市場で観測された時間単位の事例を示しています。さらに、複数キンクを持つUSDT市場について、制約を満たす曲線修正の収入効果を論じています。",
+        "limitations": "提示された要約だけでは、データ期間、標本数、推定・検証手法や結果の統計的不確実性は分かりません。実例は特定プロトコルの市場に限られ、制約は預入に対する収入の応答を扱うもので、収入水準そのものを保証しません。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "金利曲線設計に関する明確な理論条件と実市場の例を提示しており、DeFi貸出市場の金利モデル研究として関連性があります。一方、適用範囲や実証の詳細は要約から評価できません。",
+        "tags": [
+          "金利モデル",
+          "DeFi貸出市場",
+          "利用率連動金利",
+          "金利曲線設計",
+          "供給者収入"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "This study derives when an additional deposit can reduce a supplier’s total interest income in utilization-dependent pooled-lending rate models, and presents a rate-curve design constraint to mitigate this effect.",
+          "mainResult": "Let $\\alpha$ be a supplier’s share of final pool supply and $\\eta$ the elasticity of the borrow rate with respect to utilization. The abstract reports that income is nondecreasing under a marginal deposit when $\\alpha(1+\\eta)\\leq1$. The boundary curve for protecting a fixed share is a power law, while protecting every fresh depositor yields a hyperbolic curve.",
+          "practicalApplication": "Protocol designers can specify the supplier share they intend to protect and use it to constrain rate elasticity at each utilization level.",
+          "methodology": "The authors derive an income-monotonicity condition and provide hourly examples from Drift’s SOL and USDC markets. They also discuss how compliant curve repairs affect income on a USDT market with multiple kinks.",
+          "limitations": "The abstract does not specify the data period, sample size, estimation or validation methods, or statistical uncertainty. The examples are limited to markets on one protocol, and the constraint concerns how income responds to deposits, not the income level itself.",
+          "reason": "The paper offers a clear theoretical condition and examples from live markets, making it relevant to interest-rate model research for DeFi lending. Its scope and empirical details cannot be fully assessed from the abstract alone.",
+          "tags": [
+            "interest-rate models",
+            "DeFi lending markets",
+            "utilization-dependent rates",
+            "rate-curve design",
+            "supplier income"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "利用率に応じて金利が決まる貸出プールでは、大口の資金供給者が追加入金すると、金利低下が既存残高にも及び、残高全体の年率換算利息収入が減ることがある。著者らは、この逆転が起きる条件を供給者の持分と借入金利の弾力性で表した。Driftの時間別データでは、2025年12月1日から2026年4月1日までに、微小な追加入金で収入が減る貸し手が少なくとも1者いた時間の割合は、SOLで少なくとも$11.4\\%$、USDCで少なくとも$7.9\\%$だったと報告している。",
+        "mainResult": "借入残高を固定すると、微小な追加入金で供給者の年率換算収入が減らない必要十分条件は $\\alpha(1+\\eta)\\leq 1$ である。ここで $\\alpha$ は入金後のプール持分、$\\eta=d\\ln R_b/d\\ln U$ は利用率 $U$ に対する借入金利 $R_b$ の弾力性である。一定の持分 $\\bar{\\alpha}$ まで保護するには、弾力性を $K=(1-\\bar{\\alpha})/\\bar{\\alpha}$ 以下に抑える必要があり、等号を満たす境界曲線はべき関数となる。利用率 $80\\%$ で借入金利 $5\\%$、完全利用時に $100\\%$ という端点を維持する例では、一律に保護できる持分は最大でも約 $6.93\\%$ である。一方、どの初期利用率からでも新規供給者の入金額が増えるほど収入が減らないようにする条件は $(1-U)R_b'(U)\\leq R_b(U)$ で、境界曲線は双曲線となる。",
+        "practicalApplication": "プロトコル運営者は、保護する持分を決め、区分線形の金利曲線の各区間をパラメータ更新時に検査できる。一定持分の保護なら各区間の両端で $U\\Delta r\\leq Kr\\Delta U$ を確認すればよく、通常の金利計算を変える必要はない。USDTの設定例では、最高金利 $90\\%$ を維持し、新規供給者と持分 $5\\%$ 以下の既存供給者をともに保護する場合、既存の折れ点を固定すると最低限必要な基準年率は $8.68\\%$ だった。曲線区間を許せば、既存金利をどこでも引き下げずに基準年率を約 $1.85\\%$ にできた。保護条件は入金に伴う収入変化の向きを定めるが、借り手の負担や貸し手の収入水準までは定めない。",
+        "methodology": "供給者の残高を $b$ として年率換算収入 $I=bUR_b(U)$ を入金額で微分し、得られた弾力性の上限を対数利用率について各区間で積分して、許容される金利曲線を特徴づけた。実証部分では、Driftのオンチェーン記録から時間別の利用率と金利曲線を復元し、入出金記録と経過利息から推定した貸し手の持分を、その時点の曲線が保護する持分と比較した。複数の折れ点を持つUSDTの例では、元本と利用率の経路を同一にして、異なる曲線修正が期間利息に与える影響を比較した。",
+        "limitations": "理論が扱うのは借入残高が変わらない取引直後の年率換算収入であり、金利変更後の借入需要、実現利回り、厚生は予測しない。Driftで持分を復元できた口座の残高は、時間別の中央値でSOL預金の $57\\%$、USDC預金の $62\\%$ にとどまる。貸し手に関する集計は対象期間中に無期限先物の決済がなかった供給者に限られ、実際に入金を控えたり出金したりした動機は特定していない。また、連続値での証明だけでは、トークン数量や利息の丸め後の取引単位の単調性は保証されない。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "利用率が高く資金供給を必要とする局面で、なぜ大口貸し手には逆に出金の誘因が生じうるのかを説明し、その誘因を取り除ける持分の上限を計算できる点が有用である。貸出金利モデルの設計・審査に推奨する。実市場のデータが裏づけるのは、この誘因に直面した貸し手の存在であり、曲線変更による流動性の改善ではない。",
+        "tags": [
+          "分散型貸出",
+          "利用率連動金利",
+          "借入金利の弾力性",
+          "供給者の集中度",
+          "利息収入の単調性",
+          "区分線形金利曲線",
+          "Drift"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "In a lending pool that prices loans by utilization, a large supplier's additional deposit can lower the rate on its existing balance enough to reduce annualized interest income on the whole position. The authors characterize this reversal using the supplier's pool share and the elasticity of the borrow rate. In hourly Drift data from December 1, 2025 to April 1, 2026, they report that at least one lender would have lost annualized income on a marginal deposit in at least $11.4\\%$ of hours on SOL and $7.9\\%$ on USDC.",
+          "mainResult": "With borrowing fixed, a marginal deposit leaves a supplier's annualized income nondecreasing if and only if $\\alpha(1+\\eta)\\leq 1$, where $\\alpha$ is the post-deposit pool share and $\\eta=d\\ln R_b/d\\ln U$ is the elasticity of the borrow rate $R_b$ with respect to utilization $U$. Protecting suppliers up to a constant share $\\bar{\\alpha}$ requires elasticity no higher than $K=(1-\\bar{\\alpha})/\\bar{\\alpha}$; the boundary curve attaining equality is a power law. With a borrow rate of $5\\%$ at $80\\%$ utilization and $100\\%$ at full utilization, the largest share that can be protected uniformly is about $6.93\\%$. By contrast, ensuring that a fresh supplier's income never falls as its deposit grows, from any starting utilization, requires $(1-U)R_b'(U)\\leq R_b(U)$ and gives a hyperbolic boundary.",
+          "practicalApplication": "Protocol operators can choose the share to protect and validate each segment of a piecewise-linear rate curve when parameters change. For constant-share protection, checking $U\\Delta r\\leq Kr\\Delta U$ at both ends of each segment suffices, without changing routine rate computation. In the USDT configuration example, retaining the $90\\%$ maximum rate and the original kinks while protecting both fresh suppliers and existing suppliers with shares up to $5\\%$ required a base APR of at least $8.68\\%$. Allowing curved segments made a base APR of about $1.85\\%$ possible without lowering the original rate anywhere. The protection rule determines the direction of the income change on deposit, not the level of borrower costs or lender income.",
+          "methodology": "The authors differentiate annualized income $I=bUR_b(U)$, where $b$ is the supplier's balance, with respect to the deposit amount. They integrate the resulting elasticity cap over log utilization on each interval to characterize the admissible curves. For Drift, they reconstruct hourly utilization and rate curves from on-chain records, estimate lender shares from deposit and withdrawal records plus accrued interest, and compare those shares with the share protected by the curve in force. In the multi-kink USDT example, they hold principal and utilization paths fixed to compare interest earned over time under different curve repairs.",
+          "limitations": "The theory concerns annualized income immediately after a transaction with unchanged borrowing; it does not predict subsequent loan demand, realized yields, or welfare. At the median hour, reconstructed accounts covered only $57\\%$ of SOL deposits and $62\\%$ of USDC deposits on Drift. The lender counts are restricted to suppliers without perpetual futures settlements during the window, and the data do not identify whether lenders withheld deposits or withdrew because of the incentive. The continuous-value proof also does not guarantee transaction-level monotonicity after token amounts and interest are rounded.",
+          "reason": "The paper explains why a large lender can have an incentive to withdraw precisely when a highly utilized pool needs supply, and it quantifies the largest share for which a designer can remove that incentive. It is recommended for lending-rate model design and review. The live-market evidence supports the presence of exposed lenders, not a claim that changing the curve improves liquidity.",
+          "tags": [
+            "Decentralized lending",
+            "Utilization-dependent interest rates",
+            "Borrow-rate elasticity",
+            "Supplier concentration",
+            "Interest income monotonicity",
+            "Piecewise-linear rate curves",
+            "Drift"
+          ]
+        }
+      }
+    },
+    "2610.36921": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "取引費用、確率的流動性リスク、二因子確率的ボラティリティを含む不完備市場での米国型オプション価格付けに対し、深層学習を用いた作用素分割法を提案する研究です。",
+        "mainResult": "5次元の変分不等式を継続領域の方程式と早期行使制約の射影に分解し、有限差分法および最小二乗モンテカルロ法と価格・行使境界がよく一致したと報告しています。安定性の評価は、所定の仮定の下で導かれています。",
+        "practicalApplication": "高次元の自由境界問題、とくに複雑な市場摩擦を含む米国型オプション価格付けの数値計算に応用できる可能性があります。",
+        "methodology": "各時間層で変分不等式を分割し、継続領域の楕円型方程式を物理情報ニューラルネットワークで近似、早期行使条件を閉形式の射影で適用します。既存の数値手法との比較とモデルパラメータの感度分析を行っています。",
+        "limitations": "要旨には誤差の定量値や計算コストの比較が示されていません。安定性評価はリゾルベントおよびリプシッツ条件に依存し、報告された検証だけでは他のモデルや実運用環境への一般化は判断できません。また、研究の中心はオプション数値計算であり、本サイトの主要対象である電子取引、マーケット・マイクロストラクチャ、金利モデル、イールドカーブへの直接的な関連は限定的です。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "数値金融の手法としては関連性がありますが、対象は米国型オプションの自由境界問題であり、本サイトの重点分野には直接該当しません。",
+        "tags": [
+          "米国型オプション",
+          "自由境界問題",
+          "作用素分割",
+          "物理情報ニューラルネットワーク",
+          "不完備市場"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes a deep-learning-driven operator splitting scheme for American option pricing in an incomplete market with transaction costs, stochastic liquidity risk, and two-factor stochastic volatility.",
+          "mainResult": "The method splits a five-dimensional variational inequality into a continuation-region equation and a projection enforcing the early-exercise constraint. The paper reports close agreement in prices and exercise boundaries with finite-difference and least-squares Monte Carlo benchmarks. Its stability result is derived under stated assumptions.",
+          "practicalApplication": "The method may be applicable to numerical computation for high-dimensional free-boundary problems, particularly American option pricing with complex market frictions.",
+          "methodology": "At each time layer, the variational inequality is split; a physics-informed neural network approximates the elliptic continuation equation, and a closed-form projection enforces the early-exercise condition. The study compares results with existing numerical methods and reports sensitivity analyses for model parameters.",
+          "limitations": "The abstract provides no quantitative error figures or computational-cost comparisons. The stability result depends on resolvent and Lipschitz assumptions, and the reported validation alone does not establish generalizability to other models or production settings. The work focuses on numerical option pricing and has limited direct relevance to the site's main areas of electronic trading, market microstructure, interest-rate models, and yield curves.",
+          "reason": "The work is relevant to computational finance, but it addresses American-option free-boundary problems rather than the site's core areas.",
+          "tags": [
+            "American options",
+            "free-boundary problems",
+            "operator splitting",
+            "physics-informed neural networks",
+            "incomplete markets"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.37171": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本稿は、不完備市場におけるCAT債の価格付けに、金融エントロピー最大化とリーマン幾何学的最適化を適用する枠組みを提案する。",
+        "mainResult": "仮想的な地震CAT債の較正では、リスク中立トリガー強度は物理強度の6.58～10.45倍となり、発行時のモデル上のリスク倍率は市場スプレッド対期待損失比と近いと報告する。頻度・重大度プレミアムの内訳は市場データだけでは識別できず、エントロピー基準がその配分を選ぶ。",
+        "practicalApplication": "CAT債の市場スプレッドを用いた価格付けや、頻度リスクと重大度リスクのプレミアム配分を検討する際のモデル候補となる。金利分野との接点は割引に用いるデフォルトフリー期間構造に限られ、主題は災害リスク証券の価格付けである。",
+        "methodology": "複合ポアソン・一般化パレート損失モデルとWang歪みを用い、同値測度の有限次元多様体上で金融エントロピーとリーマン計量を導出する。仮想的な地震CAT債を四半期スプレッドに較正し、プールおよび日付別スプレッドを制約に用いる。",
+        "limitations": "結果は仮想的な債券と特定の損失モデル・較正例に基づく。頻度・重大度プレミアムの分離は市場データから識別されず、報告された内訳はエントロピーによる選択に依存する。要旨だけでは他のCAT債や市場環境での頑健性は判断できない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "金融エントロピーを用いる価格付け手法として興味深いが、主対象はCAT債であり、電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ研究への直接的な関連は限定的である。",
+        "tags": [
+          "CAT債",
+          "不完備市場",
+          "金融エントロピー",
+          "リーマン幾何学",
+          "災害リスクプレミアム"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proposes a framework for pricing CAT bonds in incomplete markets using financial-entropy maximization and Riemannian geometric optimization.",
+          "mainResult": "Calibration of a hypothetical earthquake CAT bond yields a risk-neutral trigger intensity 6.58–10.45 times the physical intensity; the reported issuance-date model-implied risk multiple is close to the market spread-to-expected-loss ratio. Frequency and severity premia are not separately identifiable from market data, so the entropy criterion selects their allocation.",
+          "practicalApplication": "The framework may serve as a model candidate for pricing CAT bonds from market spreads and examining the allocation of frequency and severity risk premia. Its connection to rates is limited to discounting with a default-free term structure; the main subject is catastrophe-risk securities.",
+          "methodology": "The authors use a compound Poisson–generalized Pareto loss model with Wang distortion and derive financial entropy and a Riemannian metric on a finite-dimensional manifold of equivalent measures. They calibrate a hypothetical earthquake CAT bond to quarterly spreads, using pooled and date-specific spread constraints.",
+          "limitations": "The results rely on a hypothetical bond and a specific loss model and calibration example. The frequency–severity premium split is not identified by market data and the reported allocation depends on the entropy-based selection. The abstract does not establish robustness across other CAT bonds or market conditions.",
+          "reason": "The entropy-based pricing method is of interest, but the paper focuses on CAT bonds and has limited direct relevance to electronic trading, market microstructure, interest-rate models, or yield-curve research.",
+          "tags": [
+            "CAT bonds",
+            "incomplete markets",
+            "financial entropy",
+            "Riemannian geometry",
+            "catastrophe risk premia"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.37306": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "農業の発明と拡散に関する仮説を検証し、季節性、人口密度、空間的拡散、技術進歩の役割を報告する研究です。",
+        "mainResult": "Matranga（2024）の結果を再現し、季節性仮説が代替データや推定方法、競合仮説に対して頑健だったと報告しています。海面上昇と気候変動の影響は小さく、農業の外延的拡大では長期的に技術進歩が主要因だったとしています。",
+        "practicalApplication": "農業の起源や歴史的な気候・人口要因を検討する研究に参考となりますが、金融市場や金利分析への直接的な応用は示されていません。",
+        "methodology": "農業の発明と拡散について複数の仮説を比較し、既存研究の再現、代替データ・推定方法による検証、および農業発明のロジットモデルの外挿を行っています。",
+        "limitations": "提供された抄録だけでは、データの詳細、効果量、推定上の不確実性、ロジットモデルの妥当性を評価できません。対象は農業史・気候変動であり、本サイトの対象分野との関連は限定的です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "農業の歴史的発展を扱う研究であり、電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブ、金利に実質的な関連がありません。",
+        "tags": [
+          "農業史",
+          "気候変動",
+          "人口密度",
+          "技術進歩"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study tests hypotheses about the invention and spread of agriculture, reporting on the roles of seasonality, population density, spatial diffusion, and technological progress.",
+          "mainResult": "The authors report replicating Matranga (2024) and finding that the seasonality hypothesis is robust to alternative data, estimation methods, and competing hypotheses. They find that sea-level rise and climate change had minor effects, while technological progress was the main driver of agriculture's long-run expansion at the extensive margin.",
+          "practicalApplication": "The study may inform research on the origins of agriculture and historical climate and demographic factors, but it indicates no direct application to financial markets or interest-rate analysis.",
+          "methodology": "The study compares multiple hypotheses about the invention and spread of agriculture, replicates prior work, tests alternative data and estimation methods, and extrapolates a logit model of agricultural invention.",
+          "limitations": "The abstract does not provide enough detail to assess the data, effect sizes, estimation uncertainty, or validity of the logit model. The subject is agricultural history and climate change, with limited relevance to this site's areas of focus.",
+          "reason": "The study concerns the historical development of agriculture and has no material connection to electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "Agricultural history",
+            "Climate change",
+            "Population density",
+            "Technological progress"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.37324": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "論文は、状態依存 Hawkes 過程で注文フローを表す板取引市場における、マーケットメーカーの最適気配提示を検討する。",
+        "mainResult": "二次の終端在庫ペナルティの下で在庫に依存する気配と価値関数係数の後退再帰を導出した。LOBSTER データを用いた数値実験では、戦略の終端資産は1ティックおよび3ティックの固定スプレッド基準を上回ったが、2ティック基準を下回った。",
+        "practicalApplication": "注文フローの状態依存性を考慮したマーケットメイキングの気配設定や、在庫・終端資産の評価に応用できる可能性がある。",
+        "methodology": "ブロック単位の線形需要仕様で成行注文数と約定量を関連付け、連続時間・離散状態の動的計画法を構成する。二次終端在庫ペナルティを用いて価値関数係数の後退再帰を導き、LOBSTER データによる数値実験を行う。",
+        "limitations": "評価は要旨に記載された数値実験に限られ、比較結果は固定スプレッドの設定によって異なる。終端資産の比較は在庫ペナルティ付き目的関数での評価とは異なると著者らは明記している。要旨からは、他の市場や期間への一般化、統計的有意性、実運用時のコストの扱いは確認できない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "状態依存の注文フローと在庫を組み込んだ気配最適化は市場マイクロストラクチャーに直接関連する。数値結果は基準設定に依存するため、実務的な優位性の証拠としては限定的である。",
+        "tags": [
+          "マーケットメイキング",
+          "最適気配提示",
+          "状態依存 Hawkes 過程",
+          "指値注文板",
+          "在庫リスク"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "The paper studies optimal quote placement for a market maker in a limit order book where order flow is modeled by a state-dependent Hawkes process.",
+          "mainResult": "Under a quadratic terminal inventory penalty, the authors derive inventory-dependent quotes and backward recursions for value-function coefficients. In numerical experiments using LOBSTER data, the strategy's terminal wealth exceeds fixed-spread benchmarks at one and three ticks, but falls below the two-tick benchmark.",
+          "practicalApplication": "The framework may be applicable to market-making quote placement that accounts for state-dependent order flow, and to evaluating inventory and terminal wealth.",
+          "methodology": "A block-based linear demand specification links market-order counts to execution volumes to construct a continuous-time, discrete-state dynamic programming model. The authors derive backward recursions for the value-function coefficients under a quadratic terminal inventory penalty and conduct numerical experiments using LOBSTER data.",
+          "limitations": "The evaluation is limited to the numerical experiments described in the abstract, and the comparisons vary with the fixed-spread benchmark. The authors explicitly distinguish terminal-wealth comparisons from evaluation under the inventory-penalized objective. The abstract does not establish generalizability to other markets or periods, statistical significance, or how costs in live deployment are treated.",
+          "reason": "Quote optimization incorporating state-dependent order flow and inventory is directly relevant to market microstructure. The numerical results depend on the benchmark setting, so evidence of practical superiority is limited.",
+          "tags": [
+            "market making",
+            "optimal quote placement",
+            "state-dependent Hawkes process",
+            "limit order book",
+            "inventory risk"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "マーケットメーカーがミッド価格から何ティック離して売買の指値を置くかを研究する。板の需給不均衡に依存するHawkes過程で成行注文の集中を表し、注文数に応じた線形需要を介して約定株数と結び付ける。期末在庫に二次罰則を課しても、モデル上の内点解では、最適な提示幅は現在在庫のアフィン関数という既存の形を保つ。",
+        "mainResult": "MSFTの5日間のシミュレーションでは、売り気配の71.52%、買い気配の77.33%がミッドから2ティックに集中した。毎日引けのミッド価格で清算した富の合計は3,165,081ドルで、固定1ティックの2,549,852ドルと固定3ティックの2,695,842ドルを上回ったが、固定2ティックの3,443,368ドルを278,287ドル下回った。在庫の絶対値は全区間の52.91%で5,000株のソフト閾値を超え、最大6,311.2株に達した。比較表は清算前在庫に対する罰則を含まないため、目的関数上の優劣も、固定戦略に対する在庫リスクの低下も示していない。",
+        "practicalApplication": "固定2ティックは有力な比較基準になる。在庫を無視し、片側の需要を $A+BL$、傾きを $B<0$ とすれば、スプレッド収入 $L(A+BL)$ の最大点は $L=-A/(2B)$ で、最も頻度の高い注文数区分の推定値では約2ティックになる。Hawkesモデルの追加価値を測るには、同じ約定・在庫ルールで注文数の重みだけを経験頻度に替え、標本外で清算前在庫に基づく罰則込み利得と日中の在庫エクスポージャーを別々に比較するとよい。",
+        "methodology": "2014年11月3～7日のMSFTのLOBSTERデータを117,000個の1秒区間に分けた。各側の成行注文数をゼロを含む6区分に分け、板の各価格水準で先頭に並ぶ205株の仮想注文について、上位5水準の約定割合から線形需要を推定した。後ろ向き計算では、板の不均衡状態について平均したHawkes由来の区分重みを固定し、片側・両側に注文が来る確率は直近3区間の履歴から別途推定する。売買両側の需要の交差モーメントは周辺モーメントの積で近似する。清算前の現金と在庫に対する目的 $\\mathbb{E}[W_T+S_T I_T-\\lambda I_T^2]$ から気配係数を逆算し、順方向の評価では在庫による追加調整後に提示幅を整数の1～5ティックに制限した。",
+        "limitations": "較正と評価は同じ1銘柄・5日間に限られる。Hawkesモデルの1秒間のゼロ到着確率は買い47.66%、売り52.89%で、実測の各側約90%と大きく異なる。約定近似の誤差は主要な提示水準にも及ぶ。買い成行注文が1～10件の区分では、第2水準の約定割合は板厚からの推定で0.062だが、線形近似では0.357となる。深い水準では負の約定量も排除されない。また、再帰式の分母の符号を数値的に修正しても凹性は保証されず、在庫調整と丸めを加えた実装に理論上の最適性は引き継がれない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "注文到着モデルの出力のうち、どの確率と需要モーメントが実際に指値決定に使われるかを追える点で、マーケットメイク研究の参考になる。ただし、リアルタイムの状態依存予測が単純な経験頻度を上回ることも、実装が罰則込みの成績を改善することも検証されていない。",
+        "tags": [
+          "マーケットメイク",
+          "指値配置",
+          "状態依存Hawkes過程",
+          "板の不均衡",
+          "約定モデル",
+          "在庫リスク",
+          "動的計画法",
+          "LOBSTER"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "The paper studies how many ticks from the mid-price a market maker should post bids and asks. A Hawkes process conditioned on queue imbalance models clustering in market orders, while count-specific linear demand links arrivals to filled shares. With a quadratic terminal inventory penalty, the model's interior solution retains the familiar form: optimal quote offsets are affine in current inventory.",
+          "mainResult": "In the five-day MSFT simulation, 71.52% of asks and 77.33% of bids were posted two ticks from the mid-price. Aggregate wealth after daily liquidation at the closing mid-price was USD 3,165,081, above fixed one-tick quotes at USD 2,549,852 and fixed three-tick quotes at USD 2,695,842, but USD 278,287 below fixed two-tick quotes at USD 3,443,368. Absolute inventory exceeded the 5,000-share soft threshold in 52.91% of intervals and reached 6,311.2 shares. The comparison excludes the penalty on pre-liquidation inventory, so it establishes neither a ranking under the control objective nor lower inventory risk relative to the fixed strategies.",
+          "practicalApplication": "Fixed two-tick quotes are a useful benchmark. Ignoring inventory, if one-sided demand is $A+BL$ with $B<0$, spread revenue $L(A+BL)$ peaks at $L=-A/(2B)$, about two ticks for the most frequent count block. To measure the incremental value of the Hawkes model, one could keep the fill and inventory rules unchanged, replace only the count weights with empirical frequencies, and compare out-of-sample penalized payoffs based on pre-liquidation inventory separately from intraday exposure.",
+          "methodology": "The study divides MSFT LOBSTER data from November 3–7, 2014 into 117,000 one-second intervals. It groups each side's market-order counts into six blocks including zero and estimates linear demand from fill fractions across the first five book levels for a hypothetical 205-share order at the front of its queue. The backward calculation holds the Hawkes block weights fixed after averaging over queue-imbalance states. It separately estimates one-sided and joint arrival probabilities from the three most recent intervals and approximates cross-side demand moments by products of marginal moments. Quote coefficients are computed backward for the objective $\\mathbb{E}[W_T+S_T I_T-\\lambda I_T^2]$, using pre-liquidation cash and inventory. The forward evaluation applies additional inventory feedback and restricts offsets to integer levels from one to five ticks.",
+          "limitations": "Calibration and evaluation use the same stock and five days. The Hawkes model assigns one-second zero-arrival probabilities of 47.66% for buys and 52.89% for sells, far from the observed roughly 90% on each side. Fill approximation error matters even at the dominant quote level: for one to ten market buys, the depth-based estimate of the level-two fill fraction is 0.062, versus 0.357 under the linear fit. Negative fill volumes are not ruled out at deeper levels. Numerically correcting the sign of a recursion denominator does not ensure concavity, and theoretical optimality does not carry over to the inventory-adjusted, rounded implementation.",
+          "reason": "The paper is worth reading for market-making research because it identifies which arrival probabilities and demand moments actually enter the quote decision. It does not establish that real-time state-dependent forecasts beat simple empirical frequencies or that the implemented strategy improves inventory-penalized performance.",
+          "tags": [
+            "Market making",
+            "Limit order placement",
+            "State-dependent Hawkes process",
+            "Queue imbalance",
+            "Fill modeling",
+            "Inventory risk",
+            "Dynamic programming",
+            "LOBSTER"
+          ]
+        }
+      }
+    },
+    "2610.37445": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、ハンガリーのEV電池産業への投資を対象に、対外依存と国内の生産能力を軸とする「exposure-capability」枠組みで産業政策の成果を評価する。",
+        "mainResult": "企業パネルの分析では、産業は拡大した一方、価値獲得は建設損失からの回復を超えず、低付加価値段階に集中し、費用も賄えていないと報告する。支援条件は投資額・売上・雇用維持を重視し、生産能力向上との連動は弱かった。",
+        "practicalApplication": "産業政策の評価で、投資や生産の誘致と、国内企業の能力向上・価値獲得を区別する分析枠組みとして参考になり得る。",
+        "methodology": "2010～2024年のハンガリー大企業の企業レベル・パネルを用いて4つの仮説を検証し、投資支援の条件も調査する。",
+        "limitations": "要旨からは仮説の詳細、推定方法、因果識別の強さを確認できない。証拠は2024年までのハンガリーの単一産業事例に限られ、他国・産業への一般化には注意が必要である。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "産業政策と国際分業に関する研究であり、電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利研究との直接的な関連はない。",
+        "tags": [
+          "産業政策",
+          "国際分業",
+          "EV電池",
+          "ハンガリー"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper evaluates Hungary's investment in the EV battery industry using an exposure-capability framework centered on external dependence and domestic productive capability.",
+          "mainResult": "The firm-panel analysis reports that the sector expanded, but value capture did not exceed recovery from construction losses, remained concentrated in a low-value stage, and did not cover costs. Support conditions emphasized investment volume, revenue, and employment retention, with weak links to capability development.",
+          "practicalApplication": "The framework may help industrial-policy evaluations distinguish attracting investment and production from developing domestic capabilities and capturing value.",
+          "methodology": "The paper tests four hypotheses using a firm-level panel of Hungary's largest companies from 2010 to 2024 and examines the conditions attached to investment support.",
+          "limitations": "The abstract does not specify the hypotheses, estimation methods, or strength of causal identification. The evidence is limited to one Hungarian industry through 2024, so generalization to other countries or industries requires caution.",
+          "reason": "This is a study of industrial policy and international production, with no direct relevance to electronic trading, market microstructure, interest-rate models, yield curves, or rates research.",
+          "tags": [
+            "industrial policy",
+            "international production",
+            "EV batteries",
+            "Hungary"
           ]
         }
       },
@@ -551,6 +962,226 @@
         "2610.36317v1"
       ],
       "outcome": "unconfirmed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 44841,
+      "outputTokens": 2867,
+      "reasoningTokens": 808,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 44629,
+      "totalTokens": 47708,
+      "estimatedCostUsd": 0.562666,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 42,
+      "paperIds": [
+        "2610.36317v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 735,
+      "outputTokens": 733,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1468,
+      "estimatedCostUsd": 0.00044,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.36392v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 838,
+      "outputTokens": 773,
+      "reasoningTokens": 66,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1611,
+      "estimatedCostUsd": 0.00047,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.36473v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 829,
+      "outputTokens": 847,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1676,
+      "estimatedCostUsd": 0.000506,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.36899v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 24016,
+      "outputTokens": 2560,
+      "reasoningTokens": 280,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 23804,
+      "totalTokens": 26576,
+      "estimatedCostUsd": 0.342136,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 28,
+      "paperIds": [
+        "2610.36899v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 789,
+      "outputTokens": 1000,
+      "reasoningTokens": 155,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1789,
+      "estimatedCostUsd": 0.000579,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.36921v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 969,
+      "outputTokens": 926,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1895,
+      "estimatedCostUsd": 0.00056,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.37171v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 744,
+      "outputTokens": 821,
+      "reasoningTokens": 45,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1565,
+      "estimatedCostUsd": 0.000485,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.37306v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 764,
+      "outputTokens": 973,
+      "reasoningTokens": 77,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1737,
+      "estimatedCostUsd": 0.000563,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.37324v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 31940,
+      "outputTokens": 3806,
+      "reasoningTokens": 1834,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 31728,
+      "totalTokens": 35746,
+      "estimatedCostUsd": 0.471216,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 47,
+      "paperIds": [
+        "2610.37324v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 895,
+      "outputTokens": 742,
+      "reasoningTokens": 70,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1637,
+      "estimatedCostUsd": 0.000461,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.37445v1"
+      ],
+      "outcome": "completed"
     }
   ]
 }
