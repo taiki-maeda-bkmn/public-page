@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 2,
+  "batchDate": "2026-11-24",
+  "fingerprint": "c61eecccf7978f06cf5402f610c9d0e6b5130fe33e64c8fd9de3353a28427ab3",
+  "candidateFingerprints": {
+    "2611.27987": "407235dda1a759b68f8b85b005283bfa9864e922dab7030a86bd6f0e5116c5ec",
+    "2611.27988": "dff242a75f901e7be59aa6191e572a129f9312fecc44352cf51d9f008f1aa533",
+    "2611.27989": "c33858896984a5e700d1cc9295ae578b249e4ac39d7a85917e016cd69608a264",
+    "2611.27990": "c00598014a18e8249beb866ab24a38eb7d4199aa657ee24ac2243e7d02608579",
+    "2611.27993": "b4c43294be00cd22bb309034a60e8bd1eb32c10e67d3eb2a914f98cac0b1dea9",
+    "2611.28288": "845ef6fe1a1d21d573a1417d60d9213dce42dbcc9b4ee1e7c65f7983b8a2074b",
+    "2611.28309": "d3d931022942d6f42bf5eb30c9ca53b03e1f06018eaf3c6d61bc9660e0b3c29b",
+    "2611.28342": "7d792d82184a47d8e3936e8cb284ea735bd75de04c20782d6dfb40cccc20fb48",
+    "2611.28468": "e0b41255b4953c60c74725b61cd182d73e0aec005bb84821973ae7b4d35030cf",
+    "2611.29485": "d5d67bcf5d6d1f7a31bc6157dd8b4b2ec1a7a3acf47ac3000d9c89e2ce5991c2",
+    "2611.29502": "93e356002c1bf6d8d5754700b4e39da80e72a980792a37142642cee94dee59af",
+    "2611.29552": "71869328a02900a84e90f0165caff0206a5d73bbb237ea3e22e9e97d1e7bb99e",
+    "2611.29565": "553f323c10f6fd08498135dc9677909c1ca7acad07861984690782abab7219ae",
+    "2611.29576": "8fb8f0deb758ebaf86ce9f83a7e24049c401eec467e3b24debe9a086c0fc98ef",
+    "2611.29652": "a2081ccef2e4de370bdbd0aca1523e9d7872ad3db472db8813de0b3d10af12b0",
+    "2611.30019": "69e1cc900188f24df1c999cacc0ffe4fe76ef9acaac0006029d33ff096f7499f",
+    "2611.30046": "f32dc302ceec096fd89a8d1f9f3701c05448966f5db454b2e4deab0c8e45dcf6",
+    "2611.30584": "72c42634faa4e914463e3f34d029138f05a84bb2718b1931b7b2832230dd20da",
+    "2611.30735": "67b37e6da12c2cfcc2d8ca26cdb9d75a48b4bb0b01a7d9dffc576d0cf7ffabd0",
+    "2611.30737": "338f1a306e40bef02329c86bcdaf106ac7c3341fb872b43609fb65e06ab9952c",
+    "2611.30880": "d70f4d147dc479dfebd239dfe74ba3c5ede93dbdc932cf429aceabb74d9a2ba7",
+    "2611.30980": "4414750c0c82f5f70373c47528bfb7b7525c8934c829196d4daa4d36eea2e107",
+    "2611.30982": "5fcef643aa1ee41a11bf0f265c1142cb263640423b07db55fab627911028a548",
+    "2611.31083": "7b85d03c3597fab434cf2e4477e78c813487cc1b3a042153b242a1b62421f01a",
+    "2611.31100": "aa450b5343ef45e97f473f8b0edef9f1e21fdb1c7490487ca2a0381b369ea57b",
+    "2611.31190": "e9ba9382077a82429bd3dd2d6b144beb8b5356babbb2ea70aabe8b86a5e4e4f6"
+  },
+  "results": {
+    "2611.27987": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "Uniswap V2型AMMでの注文執行を対象に、CVaRペナルティ付きPPOとガス費用を考慮する貪欲オラクルを比較した研究です。",
+        "mainResult": "修正後の環境では、最良のPPOはオラクルの約79%の収益にとどまり、ガス履歴の追加やモデル容量の拡大でも差は埋まりませんでした。修正前には、終端清算の実装上の抜け道が収益を約3倍に見せる仕様攻略も確認されました。",
+        "practicalApplication": "AMM執行方策の評価では、終端処理やMEV経路の実装を監査し、単純なガス対応ベンチマークとの比較を行う必要性を示します。",
+        "methodology": "実際のUniswap V2準備金とSwapイベントに基づく環境に、EIP-1559型の自己回帰ガス過程とストレス時のガスショックを設定し、複数のリスク回避度・乱数シードでPPOを学習させ、ガス対応の貪欲オラクルと比較しています。",
+        "limitations": "結果は要旨に記された特定のAMM環境、観測設計、モデルフリーMLP方策とベンチマークに限られます。他の市場環境や執行方式への一般化、実運用での成果は示されていません。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "AMM執行とMEVを扱い、強化学習の評価における仕様攻略という実務上重要な問題を具体的に報告しています。ただし、対象環境と方策の範囲は限定的です。",
+        "tags": [
+          "AMM",
+          "DeFi",
+          "注文執行",
+          "MEV",
+          "強化学習",
+          "CVaR",
+          "ガス費用"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "This study compares CVaR-penalized PPO with a greedy oracle accounting for gas costs in a Uniswap V2-style AMM execution setting.",
+          "mainResult": "In the corrected environment, the best PPO policy achieves about 79% of the oracle's return; adding gas history or increasing model capacity does not close the gap. Before correction, a terminal-liquidation implementation loophole was found to inflate returns roughly threefold through specification gaming.",
+          "practicalApplication": "The findings highlight the need to audit terminal handling and MEV paths when evaluating AMM execution policies, and to compare them against a simple gas-aware benchmark.",
+          "methodology": "The study uses an environment based on actual Uniswap V2 reserves and Swap events, with an EIP-1559-style autoregressive gas process and stress-period gas shocks. PPO is trained across multiple risk-aversion levels and random seeds, then compared with a gas-aware greedy oracle.",
+          "limitations": "The results are limited to the specific AMM environment, observation design, model-free MLP policies, and benchmark described in the abstract. Generalization to other market conditions or execution methods, and live deployment performance, are not established.",
+          "reason": "The paper addresses AMM execution and MEV, and reports a practically important specification-gaming problem in reinforcement-learning evaluation. Its environment and policy scope are nevertheless limited.",
+          "tags": [
+            "AMM",
+            "DeFi",
+            "order execution",
+            "MEV",
+            "reinforcement learning",
+            "CVaR",
+            "gas costs"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "Uniswap V2のWETH/USDCプールで、大口注文を複数ブロックに分ける際、強化学習がガス代を考慮した執行ルールに勝てるかを検証した。モデル内では、ガス代によってサンドイッチ取引が採算に合う注文サイズの境目が変わる。この閾値を直接使うルールは、同じガス代を観測して経験から発注量を学ぶPPOよりも多くのUSDCを受け取った。対象は単一プール内の時間配分であり、複数プール間のルーティングではない。",
+        "mainResult": "修正後のシミュレータで、初期注文量をプール準備高の$10\\%$、執行期間を20ブロックとすると、平均受取額は閾値ルールが$58{,}786$ USDC、均等分割のTWAPが$37{,}847$ USDCだった。最良のPPOはガス履歴を使い、CVaR罰則を付けない設定で$46{,}542$ USDCを得た。これはTWAPを約$23\\%$上回るが、閾値ルールの$79.2\\%$にとどまる。正のCVaR重みはいずれも平均受取額を下げた。別の準備高$20\\%$の実験では、期末の強制清算だけがMEV判定を免れていた。修正後に同じ学習済み方策を再評価すると、受取額は約$68\\%$から$88\\%$減少し、最大の下落はリスク回避重みが最も高い設定で生じた。",
+        "practicalApplication": "AMMの分割執行を評価するなら、TWAPだけでなく、現在のガス代でサンドイッチ取引が不採算となる最大注文量を求めるルールも比較対象にするとよい。また、期末の残余清算に通常の注文と同じ約定・コスト条件を課し、修正前後で同じ方策を再評価すれば、戦略自体の改善とシミュレータの抜け穴による利得を区別できる。",
+        "methodology": "定積型AMMに、採算閾値を持つ決定論的なMEVモデル、200ブロックの手数料履歴から推定したガス過程、実際のSwapイベントの反復再生を組み合わせた。比較ルールは各ブロックで二分探索により発注量を選ぶ。PPOは5種類のCVaR重みについて各5シード、各100万ステップで学習し、修正後の比較では3ブロック分のガス履歴を加えた方策と、ネットワークを拡大した方策も検証した。いずれも閾値ルールとの差を埋めなかった。",
+        "limitations": "ガスショックの標準偏差は実測推定値の$0.045$に対し、主要実験では閾値をまたぎやすくするため$0.5$または$1.5$に設定した。外部の注文フローは自分の執行に反応せず、比較ルールはモデル上のMEV閾値を正確に知る。受取額からトレーダー自身のガス代は差し引かれていないため、結果は実運用の手取り額を示さない。閾値ルールは各ブロックだけを見るため、全期間の最適解でもPPOの理論的上限でもない。また、PPOの表にある標準偏差はシード間のばらつきで、ベースラインのエピソード間のばらつきとは異なる。PPOのCVaR実測値も表にないため、下方リスクでの優劣は平均受取額ほど明確ではない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "執行方策を評価するうえで、TWAPとの比較だけでは見落とす性能差と、期末清算の実装が生む見かけの改善を、どちらも数値で示した点に読む価値がある。特に有用なのは評価設計であり、報告された達成率を実市場での強化学習の限界とみなすべきではない。",
+        "tags": [
+          "分割執行",
+          "自動マーケットメーカー",
+          "Uniswap V2",
+          "ガス代",
+          "MEV",
+          "強化学習",
+          "条件付きバリュー・アット・リスク",
+          "シミュレータ検証"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "The paper tests whether reinforcement learning can beat a gas-aware execution rule when splitting a large order across blocks in a Uniswap V2 WETH/USDC pool. In the model, gas costs shift the order-size threshold at which a sandwich trade becomes profitable. A rule that uses this threshold directly received more USDC than PPO, which observes the same gas cost but learns order sizes from experience. The problem is allocation over time within one pool, not routing across pools.",
+          "mainResult": "In the corrected simulator, with an initial order equal to $10\\%$ of pool reserves and a 20-block horizon, mean proceeds were $58{,}786$ USDC for the threshold rule and $37{,}847$ USDC for equal-split TWAP. The best PPO used gas history and no CVaR penalty, receiving $46{,}542$ USDC. That was about $23\\%$ above TWAP but only $79.2\\%$ of the threshold rule's proceeds. Every positive CVaR weight reduced mean proceeds. In a separate experiment at $20\\%$ of reserves, forced terminal liquidation was the only trade exempt from the MEV check. Re-evaluating the same trained policies after the fix reduced proceeds by about $68\\%$ to $88\\%$, with the largest drop at the highest risk-aversion weight.",
+          "practicalApplication": "When evaluating an AMM execution schedule, benchmark it not only against TWAP but also against a rule that finds the largest order for which a sandwich trade is unprofitable at the current gas cost. Applying the same fill and cost rules to residual terminal inventory as to ordinary orders, then re-evaluating identical policies before and after a fix, helps distinguish strategy improvements from gains due to a simulator loophole.",
+          "methodology": "The simulator combines a constant-product AMM, a deterministic MEV model with a profitability threshold, a gas process estimated from 200 blocks of fee history, and cyclic replay of actual Swap events. The benchmark selects each block's order size by bisection. PPO was trained for one million steps per run at five CVaR weights with five seeds each. Tests in the corrected environment also examined policies with three blocks of gas history and policies with larger networks. Neither change closed the gap to the threshold rule.",
+          "limitations": "The fitted gas-shock standard deviation was $0.045$, but the main experiments used $0.5$ or $1.5$ to make threshold crossings more frequent. External order flow does not respond to the trader, and the benchmark knows the model's MEV threshold exactly. Proceeds do not deduct the trader's own gas costs, so they are not net live-execution proceeds. The threshold rule looks only at the current block: it is neither a proven full-horizon optimum nor a theoretical upper bound on PPO. The PPO tables report dispersion across seeds, whereas baseline dispersion is measured across episodes. They also omit realized PPO CVaR, making the downside-risk ranking less certain than the ranking by mean proceeds.",
+          "reason": "The paper quantifies both a performance gap that a TWAP-only comparison would miss and an apparent improvement caused by the terminal-liquidation implementation. Its main value is in evaluation design; the reported capture rate should not be taken as a limit on reinforcement learning in live markets.",
+          "tags": [
+            "order splitting",
+            "automated market makers",
+            "Uniswap V2",
+            "gas costs",
+            "MEV",
+            "reinforcement learning",
+            "conditional value at risk",
+            "simulator validation"
+          ]
+        }
+      }
+    },
+    "2611.27988": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "Hyperliquidのコピー取引を対象に、マスター口座の行動変化が損失急増を事前に捉えられるか検証した研究です。",
+        "mainResult": "報告によれば、行動ドリフトが損失に先行したのは急落口座の9%で、中央値では8日遅れていました。事前登録された検知器のAUCは0.49、再現率は2%で、一般的な早期警戒策として有効性は限定的でした。",
+        "practicalApplication": "コピー取引のリスク管理では行動監視だけに依存せず、口座の損益やドローダウンに基づく停止策も検討する根拠になります。ただし、停止策の優位性を確立した研究ではありません。",
+        "methodology": "公開Hyperliquidランキングから選定した口座を用い、損失主導の急落事例を特定。行動ドリフトと損益変化の先行・遅行を調べ、独立した調整用データで運用点を固定した検知器を封印テストデータで評価したとしています。",
+        "limitations": "単一プラットフォームのオンチェーン口座に限られ、口座選定や急落の定義が結果に影響し得ます。提示されたのは要旨のみで、再現性、統計的不確実性、他市場への一般化は評価できません。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "電子的なコピー取引のリスク監視に関する実証研究で、行動ベースの警戒策が見逃しやすいという実務上重要な結果を報告しています。一方、対象範囲は限定的です。",
+        "tags": [
+          "コピー取引",
+          "リスク管理",
+          "早期警戒",
+          "暗号資産",
+          "オンチェーン"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "This study tests whether changes in master-account behavior can anticipate loss blow-ups in Hyperliquid copy-trading.",
+          "mainResult": "The abstract reports that behavioral drift preceded losses for only 9% of blow-up accounts and lagged them by 8 days at the median. The pre-registered detector achieved an AUC of 0.49 and 2% recall, indicating limited effectiveness as a general early-warning measure.",
+          "practicalApplication": "The findings support considering account P&L- or drawdown-based stops rather than relying solely on behavioral monitoring for copy-trading risk management. The study does not establish that such stops are superior.",
+          "methodology": "The study identifies loss-driven blow-ups among accounts selected from the public Hyperliquid leaderboard and examines whether behavioral drift leads or lags P&L changes. It evaluates a detector with its operating point fixed on separate tuning data against a sealed test set.",
+          "limitations": "The analysis is limited to on-chain accounts on one platform, and account selection and blow-up definitions may affect the results. Based on the abstract alone, reproducibility, statistical uncertainty, and generalizability to other markets cannot be assessed.",
+          "reason": "This is empirical research on risk monitoring in electronic copy-trading and reports a practically important limitation of behavior-based warnings. Its scope is nevertheless narrow.",
+          "tags": [
+            "copy trading",
+            "risk management",
+            "early warning",
+            "crypto assets",
+            "on-chain"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "自動コピートレードでは、追随先の売買行動を監視すると、口座資産の減少を待つより早く危険を察知できるか。本稿はHyperliquidの公開ランキング37,895アドレスから観測開始前の口座規模などを基準に10,395口座を選んだ。多数の口座で急落が重なった日を除き、48日で2,621件の損失による大幅ドローダウンを特定した。著者の検証では、行動変化が資産減少に先行した例は少なく、行動スコアでも急落口座と安定口座を識別できなかった。",
+        "mainResult": "行動履歴を分析した急落2,477件のうち、行動悪化が最初の $10\\%$ 超のドローダウンに先行したのは216件（$8.7\\%$）で、1,706件では定義した行動悪化を検出しなかった。両時点を観測できた762件では、行動悪化は中央値で8日遅かった。一方、先行した216件に限ると中央値で13.2日早く、うち215件はレバレッジの代理指標が警報の契機だった。別途、急落990口座・安定404口座の保留テストでは、行動スコアのAUCは $0.49$（日付単位のクラスタリングによる $95\\%$ 信頼区間 $[0.47, 0.51]$）。固定した警報基準での検出率は $2.1\\%$、偽陽性率は $4.0\\%$ だった。",
+        "practicalApplication": "追随停止の判断では、行動警報が出ていないことを安全の根拠にせず、口座資産とドローダウンを直接監視するのが妥当である。検出器の「急落まで中央値49日」という余裕は、警報が出た $2.1\\%$ の事例に限られる。単純なレバレッジ閾値でも検出率は $10.5\\%$、偽陽性率は $7.4\\%$ であり、先行日数だけで警報を選ぶべきではない。ただし、本稿は実際にコピーを停止した場合の損失削減額や執行価格を測っていない。",
+        "methodology": "急落のラベルは、ピークから $70\\%$ 超下落し、30日以内にピークの $80\\%$ まで回復せず、累積損益の減少が資産減少の半分以上を占める場合に付けた。資産減少だけで拾った候補の $65\\%$ は出金によるものだったと報告しており、損益による確認は重要である。行動悪化と資産減少の時点を閾値で直接比較する分析とは別に、エクスポージャー、売買規律、損失後のリスク取りを4時間ごとに集計し、混合逐次確率比検定を組み合わせた。著者によれば、警報基準は調整用データで選び、テスト前に固定した。早期警報として数えたのは、基準期間終了後、資産がピークの $70\\%$ 以上で、初回清算より前の警報だけである。",
+        "limitations": "単一取引所の約11か月が対象で、推論を支える急落日のクラスターは48に限られる。約10,000約定の履歴上限により、高頻度口座では過去の行動が欠ける。レバレッジは建玉と証拠金から復元した値ではなく、注文フローによる近似であり、逆指値などの記録も疎である。したがって「信号なし」は「観測可能な指標が閾値を超えなかった」という意味で、急落に前兆がなかったことの証明ではない。レバレッジ指標が先行した少数群も事後的に特定されており、あらかじめ選別できるとは示されていない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "自動追随のリスク制御を設計する実務家に有用な否定的結果である。特に、出金を損失と区別し、警報の早さを検出率・偽陽性率と併記した点は、他の警報システムの評価にも役立つ。電子取引との接点は口座リスク管理であり、執行品質や市場の価格形成を検証した研究ではない。",
+        "tags": [
+          "自動コピートレード",
+          "口座ドローダウン",
+          "行動変化の検出",
+          "逐次検定",
+          "暗号資産無期限先物",
+          "Hyperliquid"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "In automated copy trading, can monitoring the copied trader's conduct identify danger sooner than monitoring account equity? The paper selects 10,395 accounts from 37,895 public Hyperliquid leaderboard addresses using pre-observation criteria including account size. After excluding days when many accounts cratered together, it identifies 2,621 large, loss-driven drawdowns across 48 days. In the author's tests, behavioral changes rarely preceded equity deterioration, and the behavioral score did not distinguish blow-up accounts from stable ones.",
+          "mainResult": "Among 2,477 blow-ups with behavioral histories analyzed, deterioration preceded the first drawdown exceeding $10\\%$ in 216 cases ($8.7\\%$); 1,706 showed no deterioration under the specified rule. In the 762 cases with both timestamps, behavior deteriorated a median of eight days later. Among the 216 cases where behavior led, however, the median lead was 13.2 days, and the leverage proxy triggered 215 of those signals. In a separate held-out test of 990 blow-up and 404 stable accounts, the behavioral score had an AUC of $0.49$ (day-clustered $95\\%$ confidence interval $[0.47, 0.51]$). At the frozen alarm threshold, recall was $2.1\\%$ and the false-positive rate was $4.0\\%$.",
+          "practicalApplication": "When deciding whether to pause copying, desks should monitor equity and drawdown directly rather than treat the absence of a behavioral alarm as evidence of safety. The detector's median warning of 49 days before a blow-up applies only to the $2.1\\%$ of cases it flagged. A simple leverage threshold had $10.5\\%$ recall and a $7.4\\%$ false-positive rate, illustrating why lead time alone is a poor basis for choosing an alarm. The paper does not measure losses avoided or execution prices under an actual copy-stop policy.",
+          "methodology": "A blow-up required a drawdown exceeding $70\\%$, no recovery to $80\\%$ of the peak within 30 days, and a decline in cumulative P&L accounting for at least half the equity drop. The author reports that withdrawals explained $65\\%$ of candidates identified from equity declines alone, making P&L confirmation consequential. Separate from a direct threshold-based comparison of behavioral and equity timestamps, the study aggregates exposure, trading discipline, and risk-taking after losses in four-hour buckets and combines mixture sequential probability ratio tests. The author reports selecting the alarm settings on tuning data and freezing them before testing. An alarm counted as early only after the baseline period, while equity remained at least $70\\%$ of its running peak and before the first liquidation.",
+          "limitations": "The study covers about eleven months on one venue, with only 48 crash-day clusters supporting inference. A history cap of roughly 10,000 fills truncates past behavior for high-frequency accounts. Leverage is approximated from order flow rather than reconstructed from positions and margin, and records of protective orders are sparse. Thus, “no signal” means that the observable measures did not cross the specified thresholds, not that a blow-up had no precursor. The small group in which the leverage proxy led was also identified retrospectively; the study does not show that these accounts can be selected in advance.",
+          "reason": "This negative result is useful for practitioners designing automated copy-trading risk controls. Distinguishing withdrawals from losses and reporting warning time alongside recall and false-positive rates are practices worth carrying into other alarm evaluations. The electronic-trading relevance is account risk management; the study does not test execution quality or market price formation.",
+          "tags": [
+            "automated copy trading",
+            "account drawdown",
+            "behavioral change detection",
+            "sequential testing",
+            "crypto perpetual futures",
+            "Hyperliquid"
+          ]
+        }
+      }
+    }
+  },
+  "usage": [
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 951,
+      "outputTokens": 1005,
+      "reasoningTokens": 230,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1956,
+      "estimatedCostUsd": 0.000598,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27987v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 10863,
+      "outputTokens": 2301,
+      "reasoningTokens": 367,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 10651,
+      "totalTokens": 13164,
+      "estimatedCostUsd": 0.200246,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 6,
+      "paperIds": [
+        "2611.27987v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 932,
+      "outputTokens": 954,
+      "reasoningTokens": 204,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1886,
+      "estimatedCostUsd": 0.00057,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27988v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 13601,
+      "outputTokens": 2964,
+      "reasoningTokens": 881,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 13389,
+      "totalTokens": 16565,
+      "estimatedCostUsd": 0.254146,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 13,
+      "paperIds": [
+        "2611.27988v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 843,
+      "outputTokens": 924,
+      "reasoningTokens": 84,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1767,
+      "estimatedCostUsd": 0.000546,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27989v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 843,
+      "outputTokens": 926,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1769,
+      "estimatedCostUsd": 0.000547,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27989v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 843,
+      "outputTokens": 1003,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1846,
+      "estimatedCostUsd": 0.000586,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27989v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 843,
+      "outputTokens": 1030,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1873,
+      "estimatedCostUsd": 0.000599,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27989v1"
+      ],
+      "outcome": "completed"
+    }
+  ]
+}

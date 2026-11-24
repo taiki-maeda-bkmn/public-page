@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "batchDate": "2026-11-24",
+  "capturedAt": "2026-11-24T18:09:14Z",
+  "pages": [
+    {
+      "category": "q-fin.CP",
+      "items": [
+        {
+          "arxivId": "2611.29552",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.29565",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30046",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30737",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30880",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30982",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.31190",
+          "listingType": "cross"
+        }
+      ]
+    },
+    {
+      "category": "q-fin.EC",
+      "items": [
+        {
+          "arxivId": "2408.13630",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2509.09598",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2510.08199",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2605.15217",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2605.29207",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2606.06652",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2609.35111",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2610.13785",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2610.38883",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.22033",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.27210",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.27993",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.28309",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.29485",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.29502",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.29652",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30019",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.30584",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.30735",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.31083",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.31100",
+          "listingType": "new"
+        }
+      ]
+    },
+    {
+      "category": "q-fin.MF",
+      "items": [
+        {
+          "arxivId": "2607.22085",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2610.38988",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2610.40404",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.21262",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.28288",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.28468",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.30980",
+          "listingType": "new"
+        }
+      ]
+    },
+    {
+      "category": "q-fin.PR",
+      "items": [
+        {
+          "arxivId": "2611.28288",
+          "listingType": "cross"
+        }
+      ]
+    },
+    {
+      "category": "q-fin.RM",
+      "items": [
+        {
+          "arxivId": "2411.17136",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.21262",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.21326",
+          "listingType": "replacement"
+        },
+        {
+          "arxivId": "2611.27988",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.27990",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.28288",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.28342",
+          "listingType": "cross"
+        }
+      ]
+    },
+    {
+      "category": "q-fin.TR",
+      "items": [
+        {
+          "arxivId": "2611.27987",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.27988",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.27989",
+          "listingType": "new"
+        },
+        {
+          "arxivId": "2611.29565",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.29576",
+          "listingType": "cross"
+        },
+        {
+          "arxivId": "2611.30584",
+          "listingType": "cross"
+        }
+      ]
+    }
+  ]
+}
