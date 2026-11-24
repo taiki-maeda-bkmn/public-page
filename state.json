@@ -2666,6 +2666,46 @@
           "output_tokens": 54
         }
       }
+    },
+    "2611.27987": {
+      "batch": "2026-11-24",
+      "id": "2611.27987v1",
+      "fingerprint": "407235dda1a759b68f8b85b005283bfa9864e922dab7030a86bd6f0e5116c5ec",
+      "listing": [
+        "new"
+      ],
+      "categories": [
+        "q-fin.TR"
+      ],
+      "luna": {
+        "model": "gpt-6-luna",
+        "effort": "low",
+        "classification": "electronic_trading",
+        "importance": 3,
+        "recommended": true
+      },
+      "status": "waiting"
+    },
+    "2611.27988": {
+      "batch": "2026-11-24",
+      "id": "2611.27988v1",
+      "fingerprint": "dff242a75f901e7be59aa6191e572a129f9312fecc44352cf51d9f008f1aa533",
+      "listing": [
+        "cross",
+        "new"
+      ],
+      "categories": [
+        "q-fin.RM",
+        "q-fin.TR"
+      ],
+      "luna": {
+        "model": "gpt-6-luna",
+        "effort": "low",
+        "classification": "electronic_trading",
+        "importance": 3,
+        "recommended": true
+      },
+      "status": "waiting"
     }
   }
 }
