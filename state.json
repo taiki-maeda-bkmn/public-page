@@ -2860,7 +2860,7 @@
         "importance": 1,
         "recommended": false
       },
-      "status": "waiting"
+      "status": "attempted"
     },
     "2611.32139": {
       "batch": "2026-11-25",
