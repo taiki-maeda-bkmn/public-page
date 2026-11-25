@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "daily": {
-    "status": "UPDATE_NOT_CONFIRMED",
-    "checkedAt": "2026-11-24T18:09:14Z",
-    "lastCompletedBatchDate": "2026-11-23",
-    "pendingBatchDate": "2026-11-24"
+    "status": "UPDATE_CONFIRMED",
+    "checkedAt": "2026-11-25T17:32:12Z",
+    "lastCompletedBatchDate": "2026-11-25",
+    "pendingBatchDate": null
   },
   "pendingPeriods": [
     {

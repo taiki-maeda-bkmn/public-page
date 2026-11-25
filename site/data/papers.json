@@ -2,6 +2,28 @@
   "schemaVersion": 1,
   "editions": [
     {
+      "editionId": "2026-11-25-daily-openai-01",
+      "date": "2026-11-25",
+      "kind": "daily",
+      "periodEnd": null,
+      "papers": [
+        {
+          "arxivId": "2611.32790v1",
+          "title": "Delta-Vega Hedging with Deep Reinforcement Learning: From Simulation to Reality",
+          "authors": [
+            "Michele Colombi",
+            "Marco Di Francesco",
+            "Pietro Rossi"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        }
+      ]
+    },
+    {
       "editionId": "2026-11-23-daily-openai-01",
       "date": "2026-11-23",
       "kind": "daily",
