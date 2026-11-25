@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "reportKind": "daily",
+  "reportDate": "2026-11-25",
+  "generatedAt": "2026-11-25T17:32:12Z",
+  "status": "UPDATE_CONFIRMED",
+  "message": "arXiv batch 2026-11-25 was confirmed with 1 relevant paper(s).",
+  "expectedBatchDate": "2026-11-25",
+  "observedBatchDate": "2026-11-25",
+  "periodStart": null,
+  "periodEnd": null,
+  "papers": [
+    {
+      "metadata": {
+        "arxivId": "2611.32790v1",
+        "title": "Delta-Vega Hedging with Deep Reinforcement Learning: From Simulation to Reality",
+        "authors": [
+          "Michele Colombi",
+          "Marco Di Francesco",
+          "Pietro Rossi"
+        ],
+        "submittedDate": "2026-11-24",
+        "updatedDate": "2026-11-24",
+        "categories": [
+          "q-fin.CP",
+          "q-fin.RM"
+        ]
+      },
+      "finalAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "S&P 500指数のコール売りに対し、原資産とより満期の長いコールの保有量を同時に決めるヘッジ手法を検証した。近接方策最適化（PPO）には価格、保有量、残存期間だけを与え、Hestonモデルで学習した方策を再学習せずに市場データへ適用した。バックテストで損益のばらつきを最も大きく減らしたのは、ヘッジ手段にオプションを加えたことだった。PPOによる追加の改善はそれより小さく、特に2020年に集中した。",
+        "mainResult": "無コストのシミュレーションでは、PPOはHestonのデルタ・ベガヘッジに近い保有量を学習した。リスク回避係数を $\\lambda=1$ とすると、平均分散目的値は低コスト時にはPPOが $-0.26$、Hestonヘッジが $-0.23$ とPPOがわずかに劣った。一方、高コスト時には売買を抑えたPPOが $-0.56$ 対 $-1.07$ で上回った。SPXの市場データでは、60営業日の累積損益の標準偏差は、期初指数値比でデルタ単独が $1.174\\%$、実務型のBlack–Scholesデルタ・ベガが $0.560\\%$、PPOが $0.484\\%$ だった。後二者の推計取引コストはそれぞれ $0.060\\%$ と $0.059\\%$ でほぼ同じだった。ただし2021年と2022年には、PPOの損益標準偏差の方が大きかった。",
+        "practicalApplication": "オプションデスクが日次の目標保有量を決める際、実務型デルタ・ベガヘッジと比較する候補になる。SPXでは、売ったコール1単位当たりのヘッジ用コールの平均保有量はPPOが $0.77$ 単位、実務型が $0.70$ 単位だった。これは、分散ショックに対して短期のインプライド・ボラティリティが長期より強く反応するという学習環境の性質と整合する。導入前に検証すべきなのは、この追加のベガ保有が、ストレス時に広がる実際のスプレッドを払っても有効かどうかである。",
+        "methodology": "PPOは各時点で両商品の次の保有量を選び、比例コスト控除後の各期損益からその二乗に比例する罰則を引いた報酬を最大化する。まず単一のHeston設定で、コストとリスク回避度を変え、未学習の1万経路でモデルの感応度に基づくヘッジと比較した。市場データへの移行では、2018年のSPXインプライド・ボラティリティ曲面に日ごとに較正した251組のパラメータと8種類の満期区分から、リスク中立下の学習用エピソードを36万件生成した。2019年から2022年7月までの日次気配で検証し、比較対象のデルタとベガにはデータ提供元のBlack–Scholes感応度を用いた。",
+        "limitations": "市場データの1,193エピソードが共有する指数経路は、重ならない15期間分しかない。平均損益はゼロと統計的に区別できず、年別の優劣や収益性を強く主張できない。損益は仲値から計算し、オプションの片道コストを $1\\%$ に固定したが、改善の大きかった2020年の平均提示ハーフスプレッドは $1.94\\%$ だった。市場インパクトは含まず、比較手法もコストに応じて取引量を調整しない。また、各期の二乗損益への罰則は終端損益の分散を抑える目的の近似にすぎず、検証対象も期初にほぼアット・ザ・マネーの欧州型コールに限られる。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "取引コストを考慮した自動ヘッジに関心がある読者に勧める。第2のヘッジ手段を使う効果と、その保有量をPPOで決める追加効果を、別々の比較で評価できる点が有用である。扱うのは注文を出す前の目標保有量であり、注文方法や実際の約定品質を検証した研究ではない。",
+        "tags": [
+          "自動ヘッジ",
+          "デルタ・ベガヘッジ",
+          "近接方策最適化",
+          "取引コスト",
+          "Hestonモデル",
+          "SPXオプション",
+          "シミュレーションから市場データへの転移"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "The paper tests a hedge for a short S&P 500 index call that jointly sets holdings in the underlying and a longer-dated call. Proximal Policy Optimization (PPO) observes only prices, holdings, and times to expiry. The authors apply the policy trained in a Heston simulator to market data without retraining it. Adding the hedging option accounted for the largest reduction in backtested P&L dispersion. The incremental improvement from PPO was smaller and concentrated particularly in 2020.",
+          "mainResult": "Without transaction costs, PPO learned positions close to the Heston Delta-Vega hedge. At risk aversion $\\lambda=1$, its mean–variance objective was slightly worse at low costs: $-0.26$ for PPO versus $-0.23$ for the Heston hedge. At high costs, PPO traded less and achieved $-0.56$ versus $-1.07$. On SPX market data, the standard deviation of 60-trading-day cumulative P&L, as a percentage of the initial index level, was $1.174\\%$ for Delta alone, $0.560\\%$ for practitioner Black–Scholes Delta-Vega, and $0.484\\%$ for PPO. Estimated trading costs for the latter two were nearly identical at $0.060\\%$ and $0.059\\%$, respectively. PPO nevertheless had higher P&L dispersion than practitioner Delta-Vega in both 2021 and 2022.",
+          "practicalApplication": "An options desk could use the policy as a challenger to practitioner Delta-Vega when setting daily target holdings. Per unit of the short call on SPX, PPO held an average of $0.77$ units of the hedging call versus $0.70$ for the practitioner hedge. This is consistent with the training environment, where a variance shock moves short-dated implied volatility more than long-dated implied volatility. Before deployment, the relevant test is whether that extra Vega exposure still helps after paying the wider spreads actually quoted during stress.",
+          "methodology": "At each step PPO chooses the next holdings in both instruments. Its reward is one-period P&L net of proportional costs, less a penalty proportional to squared P&L. The authors first vary costs and risk aversion under a single Heston specification and compare the policy with sensitivity-based hedges on 10,000 held-out paths. For transfer to market data, they generate 360,000 risk-neutral training episodes using eight maturity buckets and 251 parameter sets calibrated to daily SPX implied-volatility surfaces in 2018. They test on daily quotes from 2019 through July 2022, using the data vendor’s Black–Scholes sensitivities for the benchmark Delta and Vega.",
+          "limitations": "The 1,193 market-data episodes share index paths from only 15 non-overlapping windows. Mean P&L is not statistically distinguishable from zero, limiting claims about profitability or annual rankings. P&L is marked at midquotes with a fixed one-way option cost of $1\\%$, whereas the average quoted half-spread was $1.94\\%$ in 2020, the year of the largest improvement. The test omits market impact, and the benchmarks do not adjust their trades for costs. The per-step squared-P&L penalty is only a proxy for penalizing terminal P&L variance. Testing is limited to European calls that are near the money at inception.",
+          "reason": "Recommended for readers interested in cost-aware automated hedging. Separate comparisons distinguish the benefit of adding a second hedging instrument from the incremental benefit of using PPO to size the positions. The study addresses target holdings before order submission; it does not test order placement or realized execution quality.",
+          "tags": [
+            "Automated hedging",
+            "Delta-Vega hedging",
+            "Proximal Policy Optimization",
+            "Transaction costs",
+            "Heston model",
+            "SPX options",
+            "Simulation-to-market transfer"
+          ]
+        }
+      },
+      "usage": [
+        {
+          "stage": "screen",
+          "model": "gpt-6-luna",
+          "requestedModel": "gpt-6-luna",
+          "effort": "low",
+          "inputTokens": 880,
+          "outputTokens": 981,
+          "reasoningTokens": 113,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 0,
+          "totalTokens": 1861,
+          "estimatedCostUsd": 0.000579,
+          "pricingDate": "2026-10-03",
+          "sourceScope": "abstract",
+          "pdfPages": null,
+          "paperIds": [
+            "2611.32790v1"
+          ],
+          "outcome": "completed"
+        },
+        {
+          "stage": "paper",
+          "model": "gpt-6.2-astra",
+          "requestedModel": "gpt-6.2-astra",
+          "effort": "high",
+          "inputTokens": 34540,
+          "outputTokens": 2950,
+          "reasoningTokens": 812,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 34328,
+          "totalTokens": 37490,
+          "estimatedCostUsd": 0.462976,
+          "pricingDate": "2026-11-21",
+          "sourceScope": "full_text",
+          "pdfPages": 34,
+          "paperIds": [
+            "2611.32790v1"
+          ],
+          "outcome": "completed"
+        }
+      ]
+    }
+  ],
+  "usage": [
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 828,
+      "outputTokens": 646,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1474,
+      "estimatedCostUsd": 0.000406,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31491v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 672,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1468,
+      "estimatedCostUsd": 0.000416,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31518v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 879,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1675,
+      "estimatedCostUsd": 0.000519,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31613v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 786,
+      "outputTokens": 844,
+      "reasoningTokens": 89,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1630,
+      "estimatedCostUsd": 0.000501,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31626v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 712,
+      "outputTokens": 602,
+      "reasoningTokens": 47,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1314,
+      "estimatedCostUsd": 0.000372,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31860v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 823,
+      "outputTokens": 638,
+      "reasoningTokens": 52,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1461,
+      "estimatedCostUsd": 0.000401,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32139v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 783,
+      "reasoningTokens": 57,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1579,
+      "estimatedCostUsd": 0.000471,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32420v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 836,
+      "outputTokens": 681,
+      "reasoningTokens": 43,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1517,
+      "estimatedCostUsd": 0.000424,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32488v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 880,
+      "outputTokens": 981,
+      "reasoningTokens": 113,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1861,
+      "estimatedCostUsd": 0.000579,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32790v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 34540,
+      "outputTokens": 2950,
+      "reasoningTokens": 812,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 34328,
+      "totalTokens": 37490,
+      "estimatedCostUsd": 0.462976,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 34,
+      "paperIds": [
+        "2611.32790v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 825,
+      "outputTokens": 954,
+      "reasoningTokens": 131,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1779,
+      "estimatedCostUsd": 0.000559,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32791v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 962,
+      "outputTokens": 833,
+      "reasoningTokens": 87,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1795,
+      "estimatedCostUsd": 0.000513,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.33050v1"
+      ],
+      "outcome": "completed"
+    }
+  ]
+}
