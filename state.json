@@ -2860,7 +2860,19 @@
         "importance": 1,
         "recommended": false
       },
-      "status": "attempted"
+      "status": "compared",
+      "jev": {
+        "scores": {
+          "rates": 0.02,
+          "execution": 0.02,
+          "practical": 0.02
+        },
+        "route": "exclude",
+        "usage": {
+          "input_tokens": 543,
+          "output_tokens": 54
+        }
+      }
     },
     "2611.32139": {
       "batch": "2026-11-25",
