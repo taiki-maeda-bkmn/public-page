@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 2,
+  "batchDate": "2026-11-25",
+  "fingerprint": "a165bb8ea607ed161636c03ee222a40484689f0a6c8026f8095de0de04220960",
+  "candidateFingerprints": {
+    "2611.31491": "63ced1def940664dc842ee7422d8b1878ea305b32d3d9eaa7542c080d0e314e1",
+    "2611.31518": "26faa055efc0db2c1839944f1d6a326fe9aee594683e04e0be3db626731dd112",
+    "2611.31613": "1d7c3b67a11c4cf665abd8d43bd681ae1233f07e11828a48ed8af14b5185695d",
+    "2611.31626": "0ad49774a83cd6a9ca6dc543c2060116cd87c66bcf8bf723f00d96ab910614a8",
+    "2611.31860": "7c557972d19142d69826a3023f8197046a2ec57aa7a800a5934ff7c9763fe224",
+    "2611.32139": "3d435a00e29383322d4c1ece11cca1bb320a82b759ab8d713eafc0246b44f4ad",
+    "2611.32420": "08c2c82faf3788d14493d35232d85f6d69733e3b731305fcb7af9a95d1e541a3",
+    "2611.32488": "ab2e2a01464a630a4faa3dd4f6ef5f5b9c6b2fb4b9cf932817b4cf4cd2f1e1ee",
+    "2611.32790": "1e3463d80f5510b3db418564df098b2896577ca6998f53c2e76a77e6212220d9",
+    "2611.32791": "41e95c7f78d4c9986ef41de4e10218b7bfe607f225538938d157b2c74d0aee92",
+    "2611.33050": "0e59f505cdf1f4bc19dc2ea298502e1c833438fa29f1e4aeeda476bf2059689e"
+  },
+  "results": {
+    "2611.31491": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、4つの表形式基盤モデルの固定表現を、米国株の空間的資産価格モデルにおける企業間の金融的非類似度として評価しています。",
+        "mainResult": "2011〜2025年の米国株を対象に、広範なSEC提出書類データを含めると、モデル表現に基づく推定上の改善が、同じ開示情報間の直接距離に対して一貫して正となったと報告しています。",
+        "practicalApplication": "企業のピア選定、リスク帰属、ネットワーク型資産価格分析への応用可能性を提案していますが、電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブの研究ではありません。",
+        "methodology": "4つの表形式基盤モデルの固定内部表現を金融的非類似度として用い、空間的裁定価格理論の枠組みで米国株のリターン波及を分析しています。",
+        "limitations": "要旨だけでは、推定手法の詳細、改善の大きさや統計的不確実性、頑健性検証、実運用での有効性は確認できません。報告結果は著者の分析結果であり、確立した事実とは扱えません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "資産価格・企業ネットワークに関する研究ですが、サイトの対象領域との直接的な関連性は限定的です。",
+        "tags": [
+          "表形式基盤モデル",
+          "空間的資産価格理論",
+          "企業間類似度",
+          "SEC提出書類"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper evaluates frozen representations from four tabular foundation models as measures of financial dissimilarity in a spatial asset-pricing model of US equities.",
+          "mainResult": "For US equities from 2011 to 2025, the authors report that estimated gains from model representations over direct distances between the same disclosures become consistently positive when broad SEC filing data are included.",
+          "practicalApplication": "The paper suggests applications to peer selection, risk attribution, and network-based asset pricing, but it does not study electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The authors use frozen internal representations from four tabular foundation models as financial dissimilarity measures and analyze return spillovers among US equities within a spatial arbitrage pricing theory framework.",
+          "limitations": "The abstract does not provide details of the estimation method, the magnitude or statistical uncertainty of the gains, robustness checks, or effectiveness in practical deployment. The reported findings are the authors' results, not established facts.",
+          "reason": "The research concerns asset pricing and firm networks, but its direct relevance to the site's focus areas is limited.",
+          "tags": [
+            "tabular foundation models",
+            "spatial asset pricing theory",
+            "interfirm similarity",
+            "SEC filings"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.31518": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、小規模開放経済で外国製AIエージェントへの依存が国内所得・付加価値・消費に及ぼす影響を分析する。",
+        "mainResult": "著者のモデルとブラジルの会計データに基づく試算では、供給者の交渉シェアが約0.15を超えると、外国費用がごく小さくても地域サービスでの導入拡大が付加価値を減らし得る。貿易財では対応する閾値は約0.66と報告されている。",
+        "practicalApplication": "AI導入の費用対効果を国内所得や輸出収入と併せて評価する際の、マクロ経済的な考慮枠組みとなり得る。",
+        "methodology": "外国製AIエージェントを使う輸出企業と地域サービス企業を含む小規模開放経済モデルを構築し、ブラジルとメキシコの過去の国民経済計算データで要件を例示している。",
+        "limitations": "提示された情報は要旨のみであり、モデル仮定、推定・較正の詳細、閾値の頑健性は確認できない。結論は電子取引、金融市場のミクロ構造、金利モデル、イールドカーブに直接関係しない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "AI導入のマクロ経済的分配影響を扱う研究で、対象サイトの金融・市場分野との実質的な関連性が乏しい。",
+        "tags": [
+          "AIエージェント",
+          "国内付加価値",
+          "小規模開放経済",
+          "ブラジル",
+          "メキシコ"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes how reliance on foreign AI agents affects domestic income, value added, and consumption in a small open economy.",
+          "mainResult": "In the authors’ model and illustrative calculations based on Brazilian accounts, a supplier bargaining share above about 0.15 can make greater adoption in local services reduce value added even when foreign costs are negligible. The corresponding reported threshold for tradables is about 0.66.",
+          "practicalApplication": "The analysis may provide a macroeconomic framework for assessing AI adoption alongside domestic income and export earnings.",
+          "methodology": "The authors construct a small open economy model with exporters and local-service firms using foreign AI agents, and illustrate the requirements using historical national accounts data for Brazil and Mexico.",
+          "limitations": "Only the abstract is supplied, so the model assumptions, estimation or calibration details, and robustness of the thresholds cannot be assessed. The conclusions do not directly concern electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "reason": "The paper studies the macroeconomic distributional effects of AI adoption and has little substantive relevance to the site’s finance and market scope.",
+          "tags": [
+            "AI agents",
+            "domestic value added",
+            "small open economy",
+            "Brazil",
+            "Mexico"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.31613": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、LLMを合成人間回答者として使う際の選択バイアスを抑えるため、過去の回答者単位の選択データでモデルを学習する手法を検討しています。",
+        "mainResult": "要旨によると、2つの離散選択実験で学習したモデルは、異なる領域・回答形式の4件の保留研究で処置効果誤差を22%から89%低減しました。また、単一研究での学習は交差エントロピーを改善しても、処置効果誤差を悪化させる場合がありました。",
+        "practicalApplication": "市場調査や実験でLLMを合成人間回答者として利用する際、推定対象のデータを見る前に選択データでモデルを学習させる方法が候補になります。電子取引、金融市場のミクロ構造、金利モデルやイールドカーブへの直接的な適用は示されていません。",
+        "methodology": "著者らは、過去の回答者単位の選択マイクロデータを用い、条件付き最尤法でKEVモデルの重みを推定対象研究のデータなしに更新しました。3つのモデル規模で、2つの離散選択実験による学習を、異なる領域・回答形式の4件の研究で評価しています。",
+        "limitations": "評価は4件の保留研究に限られ、要旨からは各研究の標本規模、誤差指標の詳細、モデルやデータの特性を確認できません。金融市場や金利関連タスクでの有効性も報告されていません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "LLMを用いた経済実験の方法論に関する研究であり、対象サイトの電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブの主題とは実質的な関連がありません。",
+        "tags": [
+          "LLM",
+          "合成人間回答者",
+          "離散選択実験",
+          "計量経済学"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines training models on past respondent-level choice data to reduce choice bias when LLMs are used as synthetic human respondents.",
+          "mainResult": "According to the abstract, models trained on two discrete choice experiments reduced treatment-effect error by 22% to 89% on four held-out studies from different domains and response formats. Training on a single study could improve cross-entropy while worsening treatment-effect error.",
+          "practicalApplication": "When using LLMs as synthetic respondents in market research or experiments, training on choice data before observing target-study data may be an option. No direct application to electronic trading, financial-market microstructure, interest-rate models, or yield curves is reported.",
+          "methodology": "The authors updated KEV model weights with conditional maximum likelihood using historical respondent-level choice microdata, without target-study data. They evaluated training on two discrete choice experiments across three model scales and four studies from different domains and response formats.",
+          "limitations": "The evaluation is limited to four held-out studies. The abstract does not specify sample sizes, details of the error metrics, or characteristics of the models and data. It also reports no effectiveness on financial-market or interest-rate tasks.",
+          "reason": "This is a methodological study of LLMs in economic experiments and is not materially related to the site's focus on electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "tags": [
+            "LLMs",
+            "synthetic human respondents",
+            "discrete choice experiments",
+            "econometrics"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.31626": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "論文は、微分・境界・積分作用素を再生核ヒルベルト空間で表し、線形作用素方程式を正則化最小二乗法で解く枠組みを提案する。",
+        "mainResult": "有限個の照合点における解を単一の線形システムで求め、作用素表現のサブサンプリングによる Nyström 近似も導入する。数値例には多資産オプション価格付けやジャンプ拡散モデルが含まれる。",
+        "practicalApplication": "オプション価格付け方程式の数値解法や、その解から得る金融 Greeks の計算に応用できる可能性がある。",
+        "methodology": "作用素の Riesz 表現元を用いて方程式を RKHS に埋め込み、有限個の照合点で正則化最小二乗問題を解く。大規模な場合には表現元をサブサンプリングする。",
+        "limitations": "要旨は数値例の詳細、既存手法との定量比較、計算時間や精度の限界を示していない。また、金利モデル、イールドカーブ、電子取引、マーケット・マイクロストラクチャを主題としていない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "計算ファイナンスへの応用例はあるが、対象サイトの主要分野である電子執行、マーケット・マイクロストラクチャ、金利・イールドカーブ研究への直接的な関連性は限定的。",
+        "tags": [
+          "数値解析",
+          "作用素方程式",
+          "RKHS",
+          "オプション価格付け"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proposes a framework for solving linear operator equations by representing differential, boundary, and integral operators in a reproducing kernel Hilbert space and using regularized least squares.",
+          "mainResult": "The solution at finitely many collocation points is obtained from a single linear system, and the paper introduces a Nyström approximation based on subsampling operator-induced representers. Numerical examples include multi-asset option pricing and jump-diffusion models.",
+          "practicalApplication": "The method may be applied to numerical solution of option-pricing equations and calculation of financial Greeks derived from those solutions.",
+          "methodology": "The authors embed the equations in an RKHS using Riesz representers of the operators, then solve a regularized least-squares problem at finitely many collocation points. For large problems, they subsample the representers.",
+          "limitations": "The abstract provides no details on the numerical examples, quantitative comparisons with existing methods, or limits on computational time and accuracy. The paper does not focus on interest-rate models, yield curves, electronic trading, or market microstructure.",
+          "reason": "Although the paper includes applications in computational finance, its direct relevance to the site's main areas of electronic execution, market microstructure, and interest rates or yield curves is limited.",
+          "tags": [
+            "Numerical analysis",
+            "Operator equations",
+            "RKHS",
+            "Option pricing"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.31860": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "韓国の地域データを用い、リモートワークと家庭ごみの変化を調べた研究です。",
+        "mainResult": "要旨によると、家庭ごみ全体の変化は小さい一方、在宅勤務の適用可能性が高い地域ではプラスチック・繊維ごみが増え、食品ごみが減少しました。",
+        "practicalApplication": "リモートワーク普及時の廃棄物管理や持続可能な働き方を検討する際の参考になり得ますが、金融実務への直接的な適用はありません。",
+        "methodology": "韓国のCOVID-19パンデミックを自然実験として、地域ごとの在宅勤務適用可能性とごみ排出の関係を分析しています。",
+        "limitations": "要旨だけでは、データ期間、推定方法、効果の大きさや統計的不確実性、交絡要因への対処を確認できません。自然実験による因果解釈にも詳細な検証が必要です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "社会・環境政策に関する研究であり、電子取引、市場マイクロ構造、金利モデル、イールドカーブ、金利の対象とは実質的に関連しません。",
+        "tags": [
+          "リモートワーク",
+          "家庭ごみ",
+          "韓国",
+          "環境政策"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines remote work and changes in household waste using regional data from South Korea.",
+          "mainResult": "According to the abstract, overall household waste changed little, while regions with greater work-from-home eligibility saw increases in plastic and textile waste and a decrease in food waste.",
+          "practicalApplication": "The findings may inform waste management and sustainable work practices as remote work expands, but have no direct application to financial practice.",
+          "methodology": "The study uses the COVID-19 pandemic as a natural experiment to analyze the relationship between regional work-from-home eligibility and waste generation in South Korea.",
+          "limitations": "The abstract does not provide the data period, estimation method, effect sizes, statistical uncertainty, or treatment of confounding factors. The causal interpretation of the natural experiment also requires detailed evaluation.",
+          "reason": "This is a study of social and environmental policy and is not materially relevant to electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "remote work",
+            "household waste",
+            "South Korea",
+            "environmental policy"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.32139": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "医療分野の失敗需要を減らすため、費用便益分析と不確実性分析を組み合わせる意思決定支援枠組みを提案する研究です。",
+        "mainResult": "既存の医療現場調査を基に、Monte CarloシミュレーションとSimDecを用いた分析例を示し、SimDecが意思決定に有用な追加の知見を明らかにすると報告しています。",
+        "practicalApplication": "医療関係者がウェブダッシュボードまたは表計算テンプレートを使い、分析を実施できるとしています。金融市場、取引執行、金利モデルへの実用的な関連は示されていません。",
+        "methodology": "既存の失敗需要に関するフィールド調査を出発点に、古典的な費用便益分析、Monte Carloシミュレーション、SimDecを組み合わせています。",
+        "limitations": "要約からは、分析対象の規模や具体的な定量結果、枠組みの外部検証、他手法に対する比較の詳細を確認できません。結果は医療分野の事例に基づく報告です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "医療サービスの意思決定支援が主題であり、対象サイトの金融・市場関連分野には実質的に該当しません。",
+        "tags": [
+          "医療",
+          "費用便益分析",
+          "Monte Carloシミュレーション",
+          "SimDec"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes a decision-support framework combining cost-benefit and uncertainty analyses to mitigate failure demand in healthcare.",
+          "mainResult": "Using an existing healthcare field study, the authors demonstrate analysis with Monte Carlo simulation and SimDec, and report that SimDec reveals additional insights useful for decision-making.",
+          "practicalApplication": "The paper says healthcare practitioners can conduct the analysis using a web dashboard or spreadsheet template. It establishes no practical relevance to financial markets, execution, or interest-rate models.",
+          "methodology": "The authors start from an existing field study of failure demand and combine classical cost-benefit analysis with Monte Carlo simulation and SimDec.",
+          "limitations": "The abstract does not provide the scale of the analysis, specific quantitative results, external validation of the framework, or details of comparisons with other methods. The reported results are based on a healthcare case.",
+          "reason": "The paper focuses on decision support for healthcare services and is not materially relevant to the site's finance and markets topics.",
+          "tags": [
+            "healthcare",
+            "cost-benefit analysis",
+            "Monte Carlo simulation",
+            "SimDec"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.32420": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、WikipediaとGrokipediaに掲載された米国政治家の伝記表現を比較し、政治的偏りを分析する。",
+        "mainResult": "著者の見かけ上の保守性は政治家のイデオロギーに応じて変化し、その関係はGrokipediaでWikipediaの約2倍の傾きだと報告する。最もリベラルな政治家はより左寄りに、最も保守的な政治家はより右寄りに描かれるという。",
+        "practicalApplication": "生成AIが作成する参照情報の偏りを評価する際の比較事例となりうるが、電子取引や金利分析への直接的な応用は示されていない。",
+        "methodology": "2026年2月と11月時点の両百科事典について、民主党・共和党の現職および元政治家1,614人の伝記を比較し、議会投票記録のある1,022人ではイデオロギーとの関係も分析した。",
+        "limitations": "評価は政治家の伝記と特定時点の資料に限られる。要旨からは、偏りの測定方法や統計的不確実性、他の対象・期間への一般化可能性を確認できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "政治情報と生成AIの偏りを扱う研究であり、サイトの対象である電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブには実質的に関連しない。",
+        "tags": [
+          "生成AI",
+          "政治的偏り",
+          "百科事典"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study compares political framing in biographies of US politicians on Wikipedia and Grokipedia.",
+          "mainResult": "The reported relationship between a politician's ideology and the perceived conservatism of the author has about twice the slope on Grokipedia as on Wikipedia. The study reports that the most liberal politicians are portrayed further left and the most conservative further right.",
+          "practicalApplication": "The study may serve as a comparative example for evaluating bias in AI-generated reference material, but it presents no direct application to electronic trading or interest-rate analysis.",
+          "methodology": "The authors compare biographies of 1,614 current and former Democratic and Republican politicians on both encyclopedias as of February and November 2026, and analyze the relationship with ideology for 1,022 politicians with congressional voting records.",
+          "limitations": "The analysis is limited to political biographies and materials from specific dates. The abstract does not establish the measurement method, statistical uncertainty, or generalizability to other subjects or periods.",
+          "reason": "This research concerns political information and generative-AI bias, with no material relevance to the site's focus on electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "tags": [
+            "generative AI",
+            "political bias",
+            "encyclopedias"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.32488": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "論文は、分数階確率優越基準を用いた動的な確率的多属性集団意思決定モデルを提案する。",
+        "mainResult": "要旨によれば、提案基準は整数階の基準を包含し、効用関数が常に凹とは限らない意思決定者にも適用できる。数値例と比較分析で有効性と頑健性を示したと報告している。",
+        "practicalApplication": "期間ごとに属性や選択肢が変化する一般的な意思決定に適用できる可能性があるが、金融市場や執行、金利分析への具体的応用は要旨に示されていない。",
+        "methodology": "分数階確率優越に基づく優先度を導入し、属性・選択肢の追加や削除を許容する動的モデルを構成し、数値例と比較分析を行う。",
+        "limitations": "要旨だけでは、モデルの仮定、比較対象、頑健性の評価方法、実データでの検証や定量的な改善幅を確認できない。研究対象も本サイトの重点領域とは直接関係しない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "意思決定理論の研究であり、電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブへの実質的な関連性が要旨から確認できない。",
+        "tags": [
+          "確率優越",
+          "多属性意思決定",
+          "集団意思決定",
+          "分数階基準"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proposes a dynamic stochastic multi-attribute group decision-making model using fractional-order stochastic dominance criteria.",
+          "mainResult": "According to the abstract, the proposed criterion encompasses integer-order criteria and applies to decision-makers whose utility functions are not always concave. Numerical examples and comparative analyses are reported to demonstrate effectiveness and robustness.",
+          "practicalApplication": "The approach may apply to general decision processes in which attributes or alternatives change over time, but the abstract identifies no specific application to financial markets, execution, or rates analysis.",
+          "methodology": "The study introduces priority degrees based on fractional-order stochastic dominance, constructs a dynamic model that permits attributes and alternatives to be added or removed, and conducts numerical examples and comparative analyses.",
+          "limitations": "The abstract does not provide enough information to assess the model assumptions, comparison baselines, robustness evaluation, validation on real data, or quantitative improvement. The research topic is also not directly related to this site's focus areas.",
+          "reason": "This is a decision-theory study, and the abstract does not establish a material connection to electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "tags": [
+            "stochastic dominance",
+            "multi-attribute decision-making",
+            "group decision-making",
+            "fractional-order criteria"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.32790": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "本研究は、原資産と長期オプションを取引し、取引コスト下で価格リスクとボラティリティリスクをヘッジする深層強化学習手法を提案する。",
+        "mainResult": "シミュレーションでは、PPOは基準コストでDelta-Vegaヘッジに匹敵し、コスト上昇時にはそれを上回った。S&P 500オプションの過去データでは、二商品ヘッジはいずれもDeltaヘッジより損益変動をおおむね半減し、PPOは同程度のコストでDelta-Vegaより低い損益ボラティリティを示した。",
+        "practicalApplication": "市場で観測可能な状態量だけを使う方針を学習するため、オプション・ポートフォリオの動的ヘッジへの応用可能性を示す。ただし、実運用での有効性は要検証である。",
+        "methodology": "確率的ボラティリティモデルの合成データでPPOを学習し、半解析的なDeltaおよびDelta-Vegaヘッジと比較した。さらに、S&P 500指数オプションの過去データで、実務的なBlack-Scholesヘッジ戦略と比較した。",
+        "limitations": "要旨だけでは、標本期間やデータ規模、取引コスト・約定のモデル化、統計的有意性、複数市場での頑健性は確認できない。過去データでの結果は実運用成績を保証しない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "取引コストを考慮した二商品ヘッジに強化学習を適用し、シミュレーションと過去データの双方で比較結果を報告しており、電子取引・ヘッジ運用に関連する。",
+        "tags": [
+          "深層強化学習",
+          "オプションヘッジ",
+          "取引コスト",
+          "確率的ボラティリティ"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "This study proposes a deep reinforcement learning method to hedge price and volatility risk under transaction costs by trading the underlying asset and a longer-dated option.",
+          "mainResult": "In simulation, PPO matched Delta-Vega hedging at baseline costs and outperformed it as costs rose. In historical S&P 500 options data, both two-instrument strategies roughly halved P&L dispersion relative to Delta hedging, while PPO showed lower P&L volatility than Delta-Vega at comparable costs.",
+          "practicalApplication": "The policy uses only market-observable state variables, indicating potential application to dynamic option-portfolio hedging. Its effectiveness in live trading remains to be validated.",
+          "methodology": "PPO was trained on synthetic data from a stochastic-volatility model and compared with semi-analytical Delta and Delta-Vega hedges. The study also compared the approach with practitioner Black-Scholes hedging strategies using historical S&P 500 index option data.",
+          "limitations": "The abstract does not specify the sample period or data scale, how transaction costs and execution are modeled, statistical significance, or robustness across markets. Results on historical data do not guarantee live-trading performance.",
+          "reason": "The study applies reinforcement learning to two-instrument hedging with transaction costs and reports comparisons using both simulation and historical data, making it relevant to electronic trading and hedging practice.",
+          "tags": [
+            "Deep reinforcement learning",
+            "Options hedging",
+            "Transaction costs",
+            "Stochastic volatility"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "S&P 500指数のコール売りに対し、原資産とより満期の長いコールの保有量を同時に決めるヘッジ手法を検証した。近接方策最適化（PPO）には価格、保有量、残存期間だけを与え、Hestonモデルで学習した方策を再学習せずに市場データへ適用した。バックテストで損益のばらつきを最も大きく減らしたのは、ヘッジ手段にオプションを加えたことだった。PPOによる追加の改善はそれより小さく、特に2020年に集中した。",
+        "mainResult": "無コストのシミュレーションでは、PPOはHestonのデルタ・ベガヘッジに近い保有量を学習した。リスク回避係数を $\\lambda=1$ とすると、平均分散目的値は低コスト時にはPPOが $-0.26$、Hestonヘッジが $-0.23$ とPPOがわずかに劣った。一方、高コスト時には売買を抑えたPPOが $-0.56$ 対 $-1.07$ で上回った。SPXの市場データでは、60営業日の累積損益の標準偏差は、期初指数値比でデルタ単独が $1.174\\%$、実務型のBlack–Scholesデルタ・ベガが $0.560\\%$、PPOが $0.484\\%$ だった。後二者の推計取引コストはそれぞれ $0.060\\%$ と $0.059\\%$ でほぼ同じだった。ただし2021年と2022年には、PPOの損益標準偏差の方が大きかった。",
+        "practicalApplication": "オプションデスクが日次の目標保有量を決める際、実務型デルタ・ベガヘッジと比較する候補になる。SPXでは、売ったコール1単位当たりのヘッジ用コールの平均保有量はPPOが $0.77$ 単位、実務型が $0.70$ 単位だった。これは、分散ショックに対して短期のインプライド・ボラティリティが長期より強く反応するという学習環境の性質と整合する。導入前に検証すべきなのは、この追加のベガ保有が、ストレス時に広がる実際のスプレッドを払っても有効かどうかである。",
+        "methodology": "PPOは各時点で両商品の次の保有量を選び、比例コスト控除後の各期損益からその二乗に比例する罰則を引いた報酬を最大化する。まず単一のHeston設定で、コストとリスク回避度を変え、未学習の1万経路でモデルの感応度に基づくヘッジと比較した。市場データへの移行では、2018年のSPXインプライド・ボラティリティ曲面に日ごとに較正した251組のパラメータと8種類の満期区分から、リスク中立下の学習用エピソードを36万件生成した。2019年から2022年7月までの日次気配で検証し、比較対象のデルタとベガにはデータ提供元のBlack–Scholes感応度を用いた。",
+        "limitations": "市場データの1,193エピソードが共有する指数経路は、重ならない15期間分しかない。平均損益はゼロと統計的に区別できず、年別の優劣や収益性を強く主張できない。損益は仲値から計算し、オプションの片道コストを $1\\%$ に固定したが、改善の大きかった2020年の平均提示ハーフスプレッドは $1.94\\%$ だった。市場インパクトは含まず、比較手法もコストに応じて取引量を調整しない。また、各期の二乗損益への罰則は終端損益の分散を抑える目的の近似にすぎず、検証対象も期初にほぼアット・ザ・マネーの欧州型コールに限られる。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "取引コストを考慮した自動ヘッジに関心がある読者に勧める。第2のヘッジ手段を使う効果と、その保有量をPPOで決める追加効果を、別々の比較で評価できる点が有用である。扱うのは注文を出す前の目標保有量であり、注文方法や実際の約定品質を検証した研究ではない。",
+        "tags": [
+          "自動ヘッジ",
+          "デルタ・ベガヘッジ",
+          "近接方策最適化",
+          "取引コスト",
+          "Hestonモデル",
+          "SPXオプション",
+          "シミュレーションから市場データへの転移"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "The paper tests a hedge for a short S&P 500 index call that jointly sets holdings in the underlying and a longer-dated call. Proximal Policy Optimization (PPO) observes only prices, holdings, and times to expiry. The authors apply the policy trained in a Heston simulator to market data without retraining it. Adding the hedging option accounted for the largest reduction in backtested P&L dispersion. The incremental improvement from PPO was smaller and concentrated particularly in 2020.",
+          "mainResult": "Without transaction costs, PPO learned positions close to the Heston Delta-Vega hedge. At risk aversion $\\lambda=1$, its mean–variance objective was slightly worse at low costs: $-0.26$ for PPO versus $-0.23$ for the Heston hedge. At high costs, PPO traded less and achieved $-0.56$ versus $-1.07$. On SPX market data, the standard deviation of 60-trading-day cumulative P&L, as a percentage of the initial index level, was $1.174\\%$ for Delta alone, $0.560\\%$ for practitioner Black–Scholes Delta-Vega, and $0.484\\%$ for PPO. Estimated trading costs for the latter two were nearly identical at $0.060\\%$ and $0.059\\%$, respectively. PPO nevertheless had higher P&L dispersion than practitioner Delta-Vega in both 2021 and 2022.",
+          "practicalApplication": "An options desk could use the policy as a challenger to practitioner Delta-Vega when setting daily target holdings. Per unit of the short call on SPX, PPO held an average of $0.77$ units of the hedging call versus $0.70$ for the practitioner hedge. This is consistent with the training environment, where a variance shock moves short-dated implied volatility more than long-dated implied volatility. Before deployment, the relevant test is whether that extra Vega exposure still helps after paying the wider spreads actually quoted during stress.",
+          "methodology": "At each step PPO chooses the next holdings in both instruments. Its reward is one-period P&L net of proportional costs, less a penalty proportional to squared P&L. The authors first vary costs and risk aversion under a single Heston specification and compare the policy with sensitivity-based hedges on 10,000 held-out paths. For transfer to market data, they generate 360,000 risk-neutral training episodes using eight maturity buckets and 251 parameter sets calibrated to daily SPX implied-volatility surfaces in 2018. They test on daily quotes from 2019 through July 2022, using the data vendor’s Black–Scholes sensitivities for the benchmark Delta and Vega.",
+          "limitations": "The 1,193 market-data episodes share index paths from only 15 non-overlapping windows. Mean P&L is not statistically distinguishable from zero, limiting claims about profitability or annual rankings. P&L is marked at midquotes with a fixed one-way option cost of $1\\%$, whereas the average quoted half-spread was $1.94\\%$ in 2020, the year of the largest improvement. The test omits market impact, and the benchmarks do not adjust their trades for costs. The per-step squared-P&L penalty is only a proxy for penalizing terminal P&L variance. Testing is limited to European calls that are near the money at inception.",
+          "reason": "Recommended for readers interested in cost-aware automated hedging. Separate comparisons distinguish the benefit of adding a second hedging instrument from the incremental benefit of using PPO to size the positions. The study addresses target holdings before order submission; it does not test order placement or realized execution quality.",
+          "tags": [
+            "Automated hedging",
+            "Delta-Vega hedging",
+            "Proximal Policy Optimization",
+            "Transaction costs",
+            "Heston model",
+            "SPX options",
+            "Simulation-to-market transfer"
+          ]
+        }
+      }
+    },
+    "2611.32791": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "論文は、二次ドリフトを持つ確率的ボラティリティモデルを fractional Volterra 方程式へ拡張し、モーメントの安定性と価格のマルチンゲール性を調べる。",
+        "mainResult": "正の二次減衰があれば、許容されるすべての Hurst 指数とボラティリティ・オブ・ボラティリティで二次モーメントが一様有界になると報告する。また、減衰がベータを上回ると価格は真のマルチンゲールとなり、正の有限指数混合カーネルではこの条件も必要としている。",
+        "practicalApplication": "Bitcoin と Ether のオプション・スマイルへの較正例と、厳密なモーメントに対するシミュレーション比較を示す。ただし、電子執行や金利・イールドカーブへの直接的な応用は要旨から確認できない。",
+        "methodology": "fractional Volterra 型確率ボラティリティモデルの解析に加え、条件付きモーメントや積分分散を導出し、オプション・スマイルへの較正とシミュレーション比較を行う。さらに、注文フローに基づく構成と定数カーネルでの停止拡散極限を示す。",
+        "limitations": "特異な fractional kernel について、マルチンゲール条件の逆向きは未解決とされる。実証例は暗号資産のオプション・スマイルであり、要旨だけでは較正の頑健性や実運用での性能は評価できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "主題は確率的ボラティリティと暗号資産オプションで、対象サイトの電子執行、主要な市場マイクロ構造、金利モデル、イールドカーブには直接該当しない。注文フローとの関連はあるが、要旨では補助的なモデル構成として述べられている。",
+        "tags": [
+          "確率的ボラティリティ",
+          "fractional Volterra",
+          "暗号資産オプション",
+          "注文フロー"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper extends a stochastic volatility model with quadratic drift to a fractional Volterra equation and studies moment stability and the martingale property of prices.",
+          "mainResult": "The authors report that positive quadratic damping makes the second moment uniformly bounded for all admissible Hurst exponents and volatilities of volatility. They also state that prices are true martingales when damping exceeds beta, and that this condition is necessary for positive finite exponential-mixture kernels.",
+          "practicalApplication": "The paper presents calibration examples for Bitcoin and Ether option smiles and compares simulations with exact moments. The abstract does not establish direct applications to electronic execution or interest rates and yield curves.",
+          "methodology": "The authors analyze a fractional Volterra stochastic volatility model, derive conditional moments and integrated variance, and present option-smile calibration and simulation comparisons. They also give an order-flow-based construction and a stopped diffusion limit for the constant kernel.",
+          "limitations": "The converse martingale condition for a singular fractional kernel is left open. The empirical examples concern crypto-asset option smiles; the abstract does not establish calibration robustness or real-world performance.",
+          "reason": "The main subject is stochastic volatility and crypto-asset options, not the site's core areas of electronic execution, market microstructure, interest-rate models, or yield curves. The order-flow connection is described as a supporting model construction.",
+          "tags": [
+            "stochastic volatility",
+            "fractional Volterra",
+            "crypto-asset options",
+            "order flow"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.33050": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、生成AIの回答表示方式と待ち時間が利用者の評価や会話継続に与える影響を調べる。",
+        "mainResult": "仏政府系チャットボットの比較では、同じ回答でも即時表示より逐次表示のほうが投票で選ばれやすかった。混雑による遅延は投票評価に明確な影響を示さなかった一方、初回応答や返信の遅れは追加質問や会話継続を減らしたと報告する。",
+        "practicalApplication": "AIサービスの回答キャッシュ、ストリーミング表示、遅延予算やモデル評価の設計に示唆があるが、電子取引や金利市場への直接的な応用は示されていない。",
+        "methodology": "自然利用環境の三つのデータを分析し、ランダムに割り当てられた新規ストリーミング回答と保存回答の比較、プロバイダー混雑による応答時間の変動を利用した評価を行う。",
+        "limitations": "抄録だけでは推定手法や不確実性、混雑を用いた分析の識別仮定を評価できない。結果の他サービスや市場環境への一般化も確認できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "生成AIの利用者行動に関する研究であり、対象サイトの電子執行、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利研究には実質的に該当しない。",
+        "tags": [
+          "生成AI",
+          "応答時間",
+          "ストリーミング",
+          "ユーザー評価",
+          "範囲外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines how generative AI answer presentation and waiting time affect user judgments and continued engagement.",
+          "mainResult": "In a French government chatbot arena, the same answer was more likely to win votes when streamed than when shown immediately. Congestion-related delays had no detectable effect on vote outcomes, but slower initial responses and replies reduced follow-up questions or continued engagement, the abstract reports.",
+          "practicalApplication": "The findings may inform AI-service choices about answer caching, streaming, latency budgets, and model evaluation, but no direct application to electronic trading or interest-rate markets is presented.",
+          "methodology": "The study analyzes three datasets from natural-use settings, comparing fresh streamed answers with stored answers assigned at random and using provider congestion as a source of variation in response time.",
+          "limitations": "The abstract does not provide enough information to assess the estimation methods, uncertainty, or identification assumptions behind the congestion-based analysis. Generalization to other services or market settings is also unclear.",
+          "reason": "This research concerns generative AI user behavior and is not materially relevant to the site's focus on electronic execution, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "generative AI",
+            "response time",
+            "streaming",
+            "user judgments",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    }
+  },
+  "usage": [
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 828,
+      "outputTokens": 646,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1474,
+      "estimatedCostUsd": 0.000406,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31491v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 672,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1468,
+      "estimatedCostUsd": 0.000416,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31518v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 879,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1675,
+      "estimatedCostUsd": 0.000519,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31613v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 786,
+      "outputTokens": 844,
+      "reasoningTokens": 89,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1630,
+      "estimatedCostUsd": 0.000501,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31626v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 712,
+      "outputTokens": 602,
+      "reasoningTokens": 47,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1314,
+      "estimatedCostUsd": 0.000372,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.31860v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 823,
+      "outputTokens": 638,
+      "reasoningTokens": 52,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1461,
+      "estimatedCostUsd": 0.000401,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32139v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 796,
+      "outputTokens": 783,
+      "reasoningTokens": 57,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1579,
+      "estimatedCostUsd": 0.000471,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32420v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 836,
+      "outputTokens": 681,
+      "reasoningTokens": 43,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1517,
+      "estimatedCostUsd": 0.000424,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32488v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 880,
+      "outputTokens": 981,
+      "reasoningTokens": 113,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1861,
+      "estimatedCostUsd": 0.000579,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32790v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 34540,
+      "outputTokens": 2950,
+      "reasoningTokens": 812,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 34328,
+      "totalTokens": 37490,
+      "estimatedCostUsd": 0.462976,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 34,
+      "paperIds": [
+        "2611.32790v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 825,
+      "outputTokens": 954,
+      "reasoningTokens": 131,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1779,
+      "estimatedCostUsd": 0.000559,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.32791v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 962,
+      "outputTokens": 833,
+      "reasoningTokens": 87,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1795,
+      "estimatedCostUsd": 0.000513,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.33050v1"
+      ],
+      "outcome": "completed"
+    }
+  ]
+}
