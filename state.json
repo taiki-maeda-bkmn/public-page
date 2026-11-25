@@ -2986,7 +2986,7 @@
         "importance": 3,
         "recommended": true
       },
-      "status": "waiting"
+      "status": "attempted"
     },
     "2611.32791": {
       "batch": "2026-11-25",
