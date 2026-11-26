@@ -1,0 +1,640 @@
+{
+  "schemaVersion": 2,
+  "batchDate": "2026-11-26",
+  "fingerprint": "fca49e61c4634cdcb4dc9e8d9caee2b1b5a867f44d2f3bde145ac656bc75ed47",
+  "candidateFingerprints": {
+    "2611.33458": "30a83b627674376b39b8f08bdd9973acb08bb373aa57a1e90e3e11ef96da5881",
+    "2611.33593": "e0b0dab4aa4485968017fdf36f939248b30f8de619bc0fcadad28aef72a33b79",
+    "2611.33603": "71508dcb6c2faa3d5988e8c104ad8ab128d9aa57c92fbe5eacd013e3499214bc",
+    "2611.34068": "985aaa04b12ca2d377d120d1ed5c27f812c3e0284a8c653fb2b5891e8f19a9e1",
+    "2611.34099": "94edd4a65c38368d2d7da7d237e1ba4c6721e64693ae2747efece2d962abde70",
+    "2611.34192": "bfc3a7e94f67da2cfd99cb0d5d032072b3af5e94ff975ede8d0c40c69795766d",
+    "2611.34234": "12678f94fc7afd42464d8e4f9dfc2b2a46bece7062ee2092aaf8b063ec369d4e",
+    "2611.34567": "838bc4f0d487d95469b492e92d6b0ed5044c1a82f4025edf68e43fa084897267",
+    "2611.34696": "af902eb95b7127dfe60ccb44c088a7d3db0f637525ececde29593bac32e14473",
+    "2611.34722": "3c9a8915128a8bf53a8a0f1d6c6c4632620058bbe7ac48295226b316651b113c",
+    "2611.34771": "29226be38cadd2e0443099ef1746cb18d3d6cac6270b7a9a7bc294245c8458cd"
+  },
+  "results": {
+    "2611.33458": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "ニュース埋め込みによる株式リターン予測を、情報内容や時間軸に分解して検証した研究です。",
+        "mainResult": "短期ではイベント分類が予測力の大半を占め、イベント別の過去平均リターンに基づく単純予測が埋め込み予測を上回りました。長期では過去報道に含まれる企業情報が予測力の一部を担い、事前学習データに由来する記憶がモデル間の優位性を説明し得ると報告しています。",
+        "practicalApplication": "ニュース予測モデルの評価で、イベント分類、過去の企業情報、事前学習データ由来の先読みバイアスを切り分ける際の参考になります。ただし、電子執行、マーケットマイクロストラクチャ、金利・イールドカーブを扱う研究ではありません。",
+        "methodology": "ニュース埋め込みをイベント分類・企業識別・固有成分、および過去の水準・現在の偏差に分解し、異なる予測期間や事前学習時期の言語モデルでリターン予測を比較しています。",
+        "limitations": "提示された抄録だけでは、標本、推定手順、統計的有意性、取引コストを含む実現可能性を評価できません。著者自身も、ニュース文の予測力だけでは価格への情報反映の遅さを立証できないと述べています。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "ニュースとリターン予測に関する金融研究ですが、対象サイトの電子取引、マーケットマイクロストラクチャ、金利モデル、イールドカーブ、金利の重点領域には直接該当しません。",
+        "tags": [
+          "ニュース埋め込み",
+          "リターン予測",
+          "事前学習データ",
+          "先読みバイアス"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study examines stock-return prediction using news embeddings, decomposing their information by content and time horizon.",
+          "mainResult": "At short horizons, event categories account for most predictive power, and simple forecasts based on historical average returns by event category outperform embedding forecasts. At longer horizons, firm information contained in earlier coverage contributes to predictability; the authors report that pretraining-data memory may explain models’ relative advantage.",
+          "practicalApplication": "The study may inform evaluation of news-prediction models by separating event categories, historical firm information, and look-ahead bias from pretraining data. It does not address electronic execution, market microstructure, interest rates, or yield curves.",
+          "methodology": "The authors decompose news embeddings into event-category, firm-identity, and idiosyncratic components, as well as historical levels and current deviations, then compare return forecasts across horizons and language models with different pretraining periods.",
+          "limitations": "The abstract alone does not permit assessment of the sample, estimation details, statistical significance, or feasibility after transaction costs. The authors also state that return predictability from news text alone does not establish slow incorporation of information into prices.",
+          "reason": "This is a finance study of news and return prediction, but it does not directly address the site's focus areas: electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "News embeddings",
+            "Return prediction",
+            "Pretraining data",
+            "Look-ahead bias"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.33593": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "東ウガンダのSoroti地区を対象に、太陽熱・バイオガス・蓄電池を組み合わせたマイクログリッドの構成を最適化した事例研究です。",
+        "mainResult": "著者らは、最適構成として37 MWの集光型太陽熱発電設備、70 MWhの蓄熱、5 MWのタービン、6 MWのバイオガス発電、10 MWhの蓄電池を報告しています。年間発電量61.3 GWh、IRR 42.91%、負荷供給分の電力コスト0.3752 USD/kWhなどを示しています。",
+        "practicalApplication": "電力アクセス拡大に向けた再生可能エネルギー・マイクログリッドの計画に参考となる可能性がありますが、金融市場、取引執行、金利モデル、イールドカーブには実質的に関係しません。",
+        "methodology": "Xendee最適化ソフトウェアとNASA POWERの6年分のデータを用い、Soroti Integrated Renewable Energy Microgridの技術・経済構成を評価しています。",
+        "limitations": "提供された要旨だけでは、需要・燃料価格・設備費・資金調達条件などの仮定、感度分析、実運用による検証の有無を確認できません。結果は単一地域のモデル事例として扱う必要があります。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "エネルギーシステムの技術経済分析であり、このサイトの金融・市場マイクロストラクチャー分野の対象範囲外です。",
+        "tags": [
+          "再生可能エネルギー",
+          "マイクログリッド",
+          "技術経済最適化",
+          "対象範囲外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This case study optimizes a microgrid combining solar thermal power, biogas, and batteries for the Soroti region of eastern Uganda.",
+          "mainResult": "The authors report an optimal configuration of a 37 MW concentrating solar power field, 70 MWh of thermal storage, a 5 MW turbine, 6 MW of biogas generation, and a 10 MWh battery. They report annual generation of 61.3 GWh, an IRR of 42.91%, and a load-served electricity cost of 0.3752 USD/kWh.",
+          "practicalApplication": "The study may inform planning for renewable-energy microgrids to expand electricity access, but it is not materially related to financial markets, execution, interest-rate models, or yield curves.",
+          "methodology": "The study uses Xendee optimization software and six years of NASA POWER data to assess the technical and economic configuration of the Soroti Integrated Renewable Energy Microgrid.",
+          "limitations": "The supplied abstract does not establish assumptions about demand, fuel prices, capital costs, or financing conditions, nor whether sensitivity analysis or operational validation was conducted. The results should be treated as a modeled case study for a single region.",
+          "reason": "This is a techno-economic analysis of an energy system, outside the site's focus on finance and market microstructure.",
+          "tags": [
+            "renewable energy",
+            "microgrid",
+            "techno-economic optimization",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.33603": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "連続時間ライフサイクルモデルを用い、年金の担保可能性や政府支援が退職時期に与える影響を分析する研究です。",
+        "mainResult": "退職後の借入制約と実効消費の効用低下を考慮すると、即時退職が最適となる資産の区間が生じ得ると報告しています。政府支援の拡大は区間の下限を下げ上限を上げ、年金の担保可能性の上昇は両境界を下げるという結果です。",
+        "practicalApplication": "年金制度や退職後の所得支援を設計する際の理論的な示唆となり得ますが、電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブを扱う研究ではありません。",
+        "methodology": "消費、リスク資産投資、退職時期を選ぶ連続時間ライフサイクルモデルを構築し、退職領域の境界を特徴づけるスカラー方程式を分析しています。",
+        "limitations": "評価は要旨のみに基づきます。モデルの仮定、パラメータ設定、数値検証や実証的妥当性は要旨から確認できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "退職計画と年金政策が中心で、対象サイトの専門領域との実質的な関連性がありません。",
+        "tags": [
+          "退職計画",
+          "年金",
+          "借入制約",
+          "ライフサイクルモデル"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study uses a continuous-time life-cycle model to analyze how pension pledgeability and government support affect retirement timing.",
+          "mainResult": "The authors report that, with tighter borrowing constraints after retirement and lower utility from effective consumption, immediate retirement may be optimal over a bounded wealth interval. Greater government support lowers the interval's lower boundary and raises its upper boundary, while greater pension pledgeability lowers both boundaries.",
+          "practicalApplication": "The findings may offer theoretical insights for designing pension systems and post-retirement income support, but the paper does not address electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The authors formulate a continuous-time life-cycle model in which workers choose consumption, risky investment, and retirement timing, and analyze scalar equations characterizing the boundaries of the retirement region.",
+          "limitations": "This assessment is based only on the abstract. The model assumptions, parameter choices, numerical validation, and empirical relevance cannot be assessed from the abstract.",
+          "reason": "The paper focuses on retirement planning and pension policy, with no material connection to the site's research areas.",
+          "tags": [
+            "retirement planning",
+            "pensions",
+            "borrowing constraints",
+            "life-cycle model"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34068": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "小規模な推論モデルが、eBayおよび広告オークションの入札選択で生じる価値損失を、モデルの判断と運用設定に分けて調べている。",
+        "mainResult": "報告によれば、モデルは自らの推論記録が最良と示す入札を選ばないことがあり、高額入札に偏る。推論トークン上限や回答の読み取り方も損失を生む一方、停止条件の調整や計算機による監査で改善した。",
+        "practicalApplication": "オークション入札エージェントの運用では、推論ブロックの適切な終了、十分なトークン上限、推論記録と入札の整合性監査が有用となる可能性がある。",
+        "methodology": "4B～14Bパラメータのオープン推論モデル6種に、eBay終値とAuctionNetのシミュレーションから得た勝率曲線を与え、未使用オークションで厳密計算機の入札と比較した。損失要因を分解し、設定変更と計算機による上書きを評価した。",
+        "limitations": "評価対象は特定のモデル、データ、オークション設定に限られる。提示された要約だけでは、モデルや市場条件の詳細、実運用での頑健性、統計的不確実性を確認できない。対象は金融市場の売買執行ではなく、一般のオークション入札である。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "オークション入札エージェントの実験としては参考になるが、金融商品の電子執行、マーケットマイクロストラクチャー、金利モデルやイールドカーブを主題としていないため、サイトの対象範囲外。",
+        "tags": [
+          "オークション入札",
+          "推論モデル",
+          "入札エージェント",
+          "対象範囲外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper studies value losses in small reasoning models bidding in eBay and advertising auctions, separating model decisions from operational settings.",
+          "mainResult": "The authors report that models sometimes fail to choose the bid their own reasoning trace identifies as best and tend toward higher bids. Reasoning-token caps and answer extraction also cause losses, while adjusted stopping conditions and calculator-based audits improve results.",
+          "practicalApplication": "For auction-bidding agents, properly closing the reasoning block, allowing a sufficient token budget, and auditing consistency between the reasoning trace and the bid may be useful.",
+          "methodology": "Six open reasoning models with 4B–14B parameters received win-probability curves derived from eBay closing prices and an AuctionNet simulation. Their bids were compared with an exact calculator on held-out auctions; the study decomposed loss causes and evaluated configuration changes and calculator overrides.",
+          "limitations": "The evaluation is limited to particular models, data, and auction settings. The supplied abstract does not establish details of the models or market conditions, robustness in live deployment, or statistical uncertainty. The task is general auction bidding, not financial-market execution.",
+          "reason": "The experiments may inform auction-bidding agents, but the paper does not principally address electronic execution of financial instruments, market microstructure, interest-rate models, or yield curves, so it falls outside the site's scope.",
+          "tags": [
+            "auction bidding",
+            "reasoning models",
+            "bidding agents",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34099": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "ドイツ企業の管理職を対象に、業務の複雑さがAIによる初級職採用の代替意向にどう影響するかを調べた調査実験です。",
+        "mainResult": "事前登録された調査実験では、標準化された業務に比べて複雑な業務で、初級職採用よりAIを使う意向が5段階尺度で0.54ポイント低く、人間による監督の重要性は0.15ポイント高くなりました。管理職はAIの普及が経験者より初級職の採用を強く減らすとも予想していました。",
+        "practicalApplication": "AI導入や人員計画を検討する企業に、業務の複雑さや人間の監督を考慮する視点を示します。電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブ、金利研究への直接的な応用はありません。",
+        "methodology": "情報産業および製造業のドイツ企業1,435社の管理職を対象とした事前登録済み調査実験で、追加人員が必要な状況を設定し、標準化業務または複雑な業務を無作為に提示しました。",
+        "limitations": "結果は管理職の回答に基づく意向や予想であり、実際の採用・AI導入行動を示すものではありません。対象はドイツの情報産業と製造業で、他の国や業種への一般化には限界があります。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "雇用とAI導入に関する研究であり、対象サイトの定量金融・市場構造・金利分野とは実質的な関連がありません。",
+        "tags": [
+          "AI",
+          "雇用",
+          "業務の複雑さ",
+          "調査実験"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This survey experiment examines how task complexity affects managers’ willingness to use AI instead of hiring entry-level workers at German firms.",
+          "mainResult": "In the preregistered experiment, compared with standardized tasks, complex tasks reduced willingness to use AI rather than hire an entry-level employee by 0.54 points on a five-point scale and increased the importance attached to human oversight by 0.15 points. Managers also expected AI availability to reduce hiring more strongly for entry-level than experienced workers.",
+          "practicalApplication": "The findings suggest that firms considering AI adoption and workforce planning should account for task complexity and human oversight. The study has no direct application to electronic trading, market microstructure, interest-rate models, yield curves, or rates research.",
+          "methodology": "A preregistered survey experiment with managers from 1,435 German firms in the information economy and manufacturing industry randomly presented a long-term capacity need involving either standardized or complex tasks.",
+          "limitations": "The findings concern stated intentions and expectations, not observed hiring or AI-adoption behavior. The sample covers German firms in two sectors, limiting generalization to other countries and industries.",
+          "reason": "This study concerns employment and AI adoption and is not materially related to the site’s quantitative-finance, market-structure, or interest-rate topics.",
+          "tags": [
+            "AI",
+            "employment",
+            "task complexity",
+            "survey experiment"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34192": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、凸な現金劣加法的動的リスク尺度の時間整合性を、最小ペナルティの性質で特徴づける。",
+        "mainResult": "条件付き劣確率密度の中間時点での因子分解について、ペナルティが全ての分解にわたる下限で与えられる「infimal cocycle property」が時間整合性と同値であり、その下限は達成されると報告する。",
+        "practicalApplication": "BSDEから誘導されるリスク尺度では、この性質がペナルティを価値とする確率制御問題の動的計画原理を表す。",
+        "methodology": "凸動的リスク尺度の双対表現と最小ペナルティを用いて特徴づけを行い、$L^\\infty$と有限$p$の$L^p$空間で成立条件を示す。",
+        "limitations": "抄録には数値検証や実務データによる評価は示されていない。金融市場の執行、マーケットマイクロストラクチャー、金利モデル、イールドカーブへの具体的な応用も記載されていない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "動的リスク尺度に関する数学的研究としては明確な理論結果を報告するが、サイトの重点分野との直接的な関連は薄い。",
+        "tags": [
+          "動的リスク尺度",
+          "時間整合性",
+          "現金劣加法性",
+          "最小ペナルティ",
+          "BSDE"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper characterizes the time-consistency of convex cash-subadditive dynamic risk measures through a property of their minimal penalty.",
+          "mainResult": "It reports that the “infimal cocycle property”—where the penalty is the infimum over all factorizations of conditional sub-probability densities across an intermediate date—is equivalent to time-consistency, and that the infimum is attained.",
+          "practicalApplication": "For risk measures induced by BSDEs, this property represents the dynamic programming principle of a stochastic control problem whose value is the penalty.",
+          "methodology": "The characterization uses the dual representation of convex dynamic risk measures and their minimal penalty, and establishes conditions for $L^\\infty$ and finite-$p$ $L^p$ spaces.",
+          "limitations": "The abstract reports no numerical validation or evaluation using practical data. It also gives no specific application to execution, market microstructure, interest-rate models, or yield curves.",
+          "reason": "This is a mathematical study of dynamic risk measures with a clear theoretical result, but it has little direct relevance to the site's focus areas.",
+          "tags": [
+            "dynamic risk measures",
+            "time consistency",
+            "cash subadditivity",
+            "minimal penalty",
+            "BSDE"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34234": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "論文は、労働より資本への課税が軽く、税収で公共サービスを賄う国における自動化と財政への影響を分析する。",
+        "mainResult": "EU-27のベンチマークでは、市場部門の自動化がより速く進むと、経済が12%成長する一方、財政赤字は付加価値の約1ポイント拡大すると報告する。",
+        "practicalApplication": "自動化が税収基盤と公共サービス財政に与える影響を検討する政策分析に活用できる可能性があるが、電子取引、マーケットマイクロストラクチャー、金利研究への直接的な応用は示されていない。",
+        "methodology": "タスク単位の自動化を二部門一般均衡モデルに組み込み、EU諸国のデータに合わせて較正している。",
+        "limitations": "要旨から確認できるのはモデルとEU-27のベンチマークシナリオであり、較正や仮定への感応度、実証的な因果検証の詳細は不明である。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "財政と自動化を扱う研究であり、対象サイトの電子執行、マーケットマイクロストラクチャー、金利モデル、イールドカーブ、金利に実質的な関連がない。",
+        "tags": [
+          "自動化",
+          "財政",
+          "一般均衡モデル",
+          "対象外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper analyzes how automation affects public finances in countries that tax labor more heavily than capital and fund public services from tax revenues.",
+          "mainResult": "In the EU-27 benchmark, faster automation in the market sector is reported to increase the deficit by about one percentage point of value added, while the economy grows by 12%.",
+          "practicalApplication": "The analysis may inform policy assessments of automation's effects on the tax base and public-service finances, but no direct application to electronic trading, market microstructure, or interest-rate research is presented.",
+          "methodology": "The authors embed task-level automation in a two-sector general-equilibrium model calibrated to data from EU countries.",
+          "limitations": "The abstract reports a model and an EU-27 benchmark scenario; it does not provide details on sensitivity to calibration and assumptions or on empirical causal validation.",
+          "reason": "The study concerns public finances and automation and has no material connection to the site's focus on electronic execution, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "automation",
+            "public finance",
+            "general-equilibrium model",
+            "out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34567": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "ガウスVolterra過程の指数時間積分について、小時間の大偏差原理を証明し、中心極限定理と中偏差を補足している。",
+        "mainResult": "粗いボラティリティモデルの分散オプションについて、短期満期の漸近評価とインプライド・ボラティリティ展開を導き、数値的に検証したと報告している。",
+        "practicalApplication": "粗いボラティリティモデルにおける分散オプションの短期評価やインプライド・ボラティリティ分析に応用できる可能性があるが、対象サイトの電子執行、マーケット・マイクロストラクチャ、金利モデル、イールドカーブには直接関係しない。",
+        "methodology": "ガウスVolterra過程の指数時間積分に対する小時間大偏差解析を行い、中心極限定理と中偏差を示したうえで、オプション価格とインプライド・ボラティリティの漸近展開を適用し、数値検証している。",
+        "limitations": "評価は提供された抄録に限られ、漸近展開の仮定、精度、数値検証の範囲、実務上の有効性は確認できない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "確率論・粗いボラティリティに関する研究として金融数学上の関連性はあるが、サイトの中心的な対象分野とは直接結びつかない。",
+        "tags": [
+          "粗いボラティリティ",
+          "分散オプション",
+          "大偏差",
+          "ガウスVolterra過程"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper proves small-time large deviations for an exponential time integral of a Gaussian Volterra process and supplements this with a central limit theorem and moderate deviations.",
+          "mainResult": "It reports short-maturity asymptotics and implied-volatility expansions for variance options in rough volatility models, with numerical validation.",
+          "practicalApplication": "The results may apply to short-term valuation of variance options and implied-volatility analysis in rough volatility models, but are not directly related to the site's focus on electronic execution, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The authors analyze small-time large deviations for the exponential time integral of a Gaussian Volterra process, establish a central limit theorem and moderate deviations, then apply the results to asymptotic option pricing and implied-volatility expansions and validate them numerically.",
+          "limitations": "This assessment is based only on the supplied abstract; the assumptions, accuracy, scope of the numerical validation, and practical effectiveness cannot be assessed.",
+          "reason": "The work is relevant to probability theory and rough volatility, but does not directly address the site's core research areas.",
+          "tags": [
+            "rough volatility",
+            "variance options",
+            "large deviations",
+            "Gaussian Volterra process"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34696": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "論文は、加盟店審査で証拠の出所・関連性・鮮度が十分に評価されない場合のリスクを整理し、証拠記録と意思決定の枠組みを提案する。",
+        "mainResult": "著者は、証拠の出所との隔たり、主体間の関係性の見落とし、過去の確認を現在の適格性とみなす問題を示し、来歴・相関・継続性に基づく審査方式を提案する。実運用での効果は報告されていない。",
+        "practicalApplication": "提案された統合証拠記録、意思決定レシート、90日間のシャドー・パイロットは、加盟店審査の統制設計や評価計画の参考になり得る。",
+        "methodology": "審査上の失敗類型を関連規制・基準に対応づけ、証拠記録の設計、パイロット計画、自己評価項目を提示する。",
+        "limitations": "抄録では本番環境での実証結果がなく、提案された統制やパイロット指標の有効性は確認されていない。金融市場、電子取引、金利モデル、イールドカーブに関する研究ではない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "加盟店リスク管理とコンプライアンスを扱う提案的研究であり、対象サイトの定量金融・市場構造の専門範囲には実質的に該当しない。",
+        "tags": [
+          "加盟店審査",
+          "リスク管理",
+          "証拠来歴",
+          "コンプライアンス"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper outlines risks arising when merchant underwriting does not adequately assess the provenance, relationships, or freshness of evidence, and proposes a framework for evidence records and decisions.",
+          "mainResult": "The authors identify gaps between decisions and evidence sources, overlooked relationships among parties, and treating past checks as current eligibility. They propose an underwriting approach based on provenance, correlation, and persistence. No production results are reported.",
+          "practicalApplication": "The proposed unified evidence record, decision receipt, and 90-day shadow pilot may inform the design and evaluation of merchant-underwriting controls.",
+          "methodology": "The paper maps underwriting failure modes to relevant regulations and standards, then presents an evidence-record design, a pilot plan, and self-assessment questions.",
+          "limitations": "The abstract reports no empirical results from production, so the effectiveness of the proposed controls and pilot measures is unverified. The work does not concern financial markets, electronic trading, interest-rate models, or yield curves.",
+          "reason": "This is a proposal-oriented study of merchant risk management and compliance, materially outside the site's focus on quantitative finance and market microstructure.",
+          "tags": [
+            "merchant underwriting",
+            "risk management",
+            "evidence provenance",
+            "compliance"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34722": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "構造VARにおける同時点効果の識別制約が構造定数項と誘導形定数項の対応も定める点を論じ、金融政策分析を例にその含意を示す研究です。",
+        "mainResult": "要旨によれば、構造定数項にも事前分布を置くベイズ推定により、より直観的な金融政策ルールが推定され、データ変動の説明における金融政策の役割が大きく評価されました。インフレの推定要因として、正の需要・商品価格効果と、負の金融政策・リスクスプレッド効果も示されています。",
+        "practicalApplication": "構造VARによる金融政策分析で、識別制約と定数項の事前分布を併せて検討する際の参考になります。電子執行、マーケット・マイクロストラクチャー、金利モデルやイールドカーブへの直接的な応用は要旨から確認できません。",
+        "methodology": "構造VARの識別制約と構造定数項の関係を論じ、Baumeister and Hamilton（2018）の金融政策分析を例として、構造定数項への事前分布を含めたベイズ推定の含意を示しています。",
+        "limitations": "評価は要旨の記述に限られ、モデルの詳細、データ、事前分布の設定、頑健性検証や定量的な効果の大きさは確認できません。報告された推定結果を一般的な事実として扱うことはできません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "金融政策の構造VAR分析としては関連性がありますが、サイトの中心領域である電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブには直接該当しません。",
+        "tags": [
+          "構造VAR",
+          "金融政策",
+          "ベイズ推定",
+          "識別制約"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study discusses how contemporaneous-effect restrictions in a structural VAR also determine the mapping between structural and reduced-form constants, and illustrates the implications using monetary-policy analysis.",
+          "mainResult": "According to the abstract, Bayesian estimation with priors on structural constants yields a more intuitive estimated monetary-policy rule and assigns monetary policy a much larger role in explaining data variation. It also estimates inflation as reflecting positive demand and commodity-price effects offset by negative monetary-policy and risk-spread effects.",
+          "practicalApplication": "The study may inform the joint consideration of identification restrictions and priors on constants in structural-VAR analyses of monetary policy. The abstract indicates no direct application to electronic execution, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The paper discusses the relationship between structural-VAR identification restrictions and structural constants, and illustrates the implications of Bayesian estimation with priors on structural constants using the monetary-policy analysis of Baumeister and Hamilton (2018).",
+          "limitations": "This assessment is based only on the abstract; model details, data, prior specification, robustness checks, and the quantitative magnitude of the effects are unavailable. The reported estimates cannot be treated as general facts.",
+          "reason": "The paper is relevant to structural-VAR analysis of monetary policy, but does not directly address the site's core areas of electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "tags": [
+            "structural VAR",
+            "monetary policy",
+            "Bayesian estimation",
+            "identification restrictions"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2611.34771": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "ETS下の炭素価格と企業の排出選択を組み込んだ、気候関連の信用リスクモデルを提案する研究です。",
+        "mainResult": "均衡炭素価格の存在と排出選択を示し、線形化した場合には炭素価格が決定論的となり、デフォルト確率を明示できると報告しています。EU ETSの下で欧州の発電事業者35社に較正し、2018～2024年のEU排出枠価格の平均水準を再現したとしています。",
+        "practicalApplication": "炭素価格や物理的損失を企業の信用リスク評価に組み込む用途が想定されますが、電子取引、金利モデル、イールドカーブの分析への直接的な応用は示されていません。",
+        "methodology": "企業が予想炭素価格の下で複数のエネルギー源から排出量を選び、実現炭素価格がセクター・地域ごとの市場を均衡させる構造モデルを構築しています。シナリオ依存の需要ショックと適応による物理的損失の緩和を含め、EU ETSデータに較正しています。",
+        "limitations": "評価は提示された要旨に基づきます。較正やモデル検証の詳細、予測性能、他地域・制度への外挿可能性は要旨から判断できません。また、線形化ケースの結果が一般ケースにも当てはまるとは限りません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "気候関連の信用リスクと炭素市場が主題であり、対象サイトの電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブ、金利に実質的な焦点を置いていません。",
+        "tags": [
+          "気候関連信用リスク",
+          "排出量取引制度",
+          "炭素価格",
+          "構造モデル"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes a climate-related credit risk model incorporating carbon prices and firms’ emissions choices under an emissions trading system (ETS).",
+          "mainResult": "The paper reports the existence of an equilibrium carbon price and characterizes firms’ emissions choices. In the linearized case, the carbon price is deterministic and default probabilities are explicit. Calibrated to 35 European power producers under the EU ETS, the model is reported to reproduce the average EU allowance price level from 2018 to 2024.",
+          "practicalApplication": "The model could be used to incorporate carbon prices and physical losses into corporate credit risk assessment, but the abstract does not show a direct application to electronic trading, interest-rate models, or yield-curve analysis.",
+          "methodology": "The authors construct a structural model in which firms choose emissions from multiple energy sources under an anticipated carbon price, while the realized price clears sector-region markets. The model includes scenario-dependent demand shocks and mitigation of physical losses through adaptation, and is calibrated to EU ETS data.",
+          "limitations": "This assessment is based on the abstract provided. The abstract does not establish the details of calibration or validation, predictive performance, or the extent to which results generalize to other regions or schemes. Results from the linearized case may not hold in the general case.",
+          "reason": "The paper focuses on climate-related credit risk and carbon markets, rather than materially addressing electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "Climate-related credit risk",
+            "Emissions trading system",
+            "Carbon prices",
+            "Structural model"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    }
+  },
+  "usage": [
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 836,
+      "outputTokens": 905,
+      "reasoningTokens": 70,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1741,
+      "estimatedCostUsd": 0.000536,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.33458v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 835,
+      "outputTokens": 775,
+      "reasoningTokens": 54,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1610,
+      "estimatedCostUsd": 0.000471,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.33593v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 810,
+      "outputTokens": 702,
+      "reasoningTokens": 74,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1512,
+      "estimatedCostUsd": 0.000432,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.33603v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 1008,
+      "outputTokens": 973,
+      "reasoningTokens": 128,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1981,
+      "estimatedCostUsd": 0.000587,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34068v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 759,
+      "outputTokens": 816,
+      "reasoningTokens": 74,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1575,
+      "estimatedCostUsd": 0.000484,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34099v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 799,
+      "outputTokens": 626,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1425,
+      "estimatedCostUsd": 0.000393,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34192v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 741,
+      "outputTokens": 727,
+      "reasoningTokens": 56,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1468,
+      "estimatedCostUsd": 0.000438,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34234v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 681,
+      "outputTokens": 727,
+      "reasoningTokens": 75,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1408,
+      "estimatedCostUsd": 0.000432,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34567v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 924,
+      "outputTokens": 740,
+      "reasoningTokens": 82,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1664,
+      "estimatedCostUsd": 0.000462,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34696v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 762,
+      "outputTokens": 778,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1540,
+      "estimatedCostUsd": 0.000465,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34722v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 789,
+      "outputTokens": 899,
+      "reasoningTokens": 100,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1688,
+      "estimatedCostUsd": 0.000528,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.34771v1"
+      ],
+      "outcome": "completed"
+    }
+  ]
+}

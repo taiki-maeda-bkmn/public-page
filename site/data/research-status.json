@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "daily": {
-    "status": "UPDATE_CONFIRMED",
-    "checkedAt": "2026-11-25T17:32:12Z",
-    "lastCompletedBatchDate": "2026-11-25",
+    "status": "NO_RELEVANT_PAPERS",
+    "checkedAt": "2026-11-26T17:14:26Z",
+    "lastCompletedBatchDate": "2026-11-26",
     "pendingBatchDate": null
   },
   "pendingPeriods": [
@@ -27,14 +27,6 @@
     },
     {
       "reportKind": "weekly",
-      "periodEnd": "2026-10-09",
-      "missingBatchDates": [
-        "2026-10-06"
-      ],
-      "ready": false
-    },
-    {
-      "reportKind": "weekly",
       "periodEnd": "2026-10-30",
       "missingBatchDates": [
         "2026-10-29"
@@ -45,7 +37,6 @@
       "reportKind": "monthly",
       "periodEnd": "2026-10-31",
       "missingBatchDates": [
-        "2026-10-06",
         "2026-10-29"
       ],
       "ready": false
@@ -68,7 +59,6 @@
     }
   ],
   "pendingDailyBatches": [
-    "2026-10-06",
     "2026-10-29",
     "2026-11-10",
     "2026-11-17",

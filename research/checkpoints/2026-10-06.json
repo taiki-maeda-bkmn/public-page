@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "batchDate": "2026-10-06",
-  "fingerprint": "9e46c92142cd1b18ca2e95705faf8b507d6e1d3f8e6ababacfa578ee922c1525",
+  "fingerprint": "e63758f304d4f016f7c3c40f831ad2e217075212fbdaea413124cbe9bec3642d",
   "candidateFingerprints": {
     "2610.03791": "ed463187dd180e78c6acd453d220bd6e0ce0c7ed6678f34ecc76c5a6cde452d8",
     "2610.03793": "d78239bf3f5c8d9d906e6582c552cb64d1cfe914968ed4eda1fa78371fc170ad",
@@ -150,7 +150,7 @@
       "finalAnalysis": null
     },
     "2610.03922": {
-      "status": "awaiting_pdf",
+      "status": "completed",
       "screenAnalysis": {
         "classification": "electronic_trading",
         "summary": "論文は、Baseで優先ガスオークションを2秒単位から200ミリ秒単位へ細分化した変更が、検索者の入札と競争に及ぼす影響をオンチェーンデータで分析する。",
@@ -182,6 +182,1322 @@
             "Priority gas auctions",
             "Searcher competition",
             "On-chain data"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "Baseは2025年7月、ブロック長と手数料ルールを変えずに、2秒ごとに1回だった取引順序のオークションを200ミリ秒ごとの10回に分割した。最も明確な変化は、自動裁定業者（サーチャー）が順序を競うために支払う優先手数料の低下である。プール別に見ると、単独参加時の平均落札料率は変更前の0.177 gweiと変更後の0.164 gweiで近い。一方、4者または5者が競う場合、この水準を超える上乗せ分は、観測された2つの制度間でオークション時間にほぼ比例した。",
+        "mainResult": "活動頻度の高い対照群に比べ、サーチャーの実効優先手数料はガス当たり0.187 gwei低下した。これは変更前平均0.317 gweiの59%に相当し、申告入札額の相対的な低下は0.228 gweiだった。サーチャーが支払った優先手数料総額のうち、ブロック先頭のガス使用量10%に集中した割合は98%から28%に下がった。競合のあった裁定機会では、落札者より高い料率を提示した取引が、その次の推定区間で失敗した割合は件数ベースで5.4～6.6%、落札者の優先手数料額で加重すると1.9～2.7%だった。これは遅延による敗北率の推定値ではなく、上限である。",
+        "practicalApplication": "ロールアップ運営者は、オークション間隔を評価する際、平均手数料だけでなく、支払いがブロックのどこに集中するか、高い入札でも先着取引に負ける場面がどれだけあるかを追跡できる。200ミリ秒から50ミリ秒への短縮について、観測した競争者数と入札の関係を使うモデルでは、平均落札料率は0.181 gweiから0.169 gweiにしか下がらない。一方、より単純なモデルが示す対照群差し引き後の申告入札額の低下は33～68%である。予測対象も前提も異なり、これらの試算から最適な間隔や一般利用者の約定価格改善は判断できない。",
+        "methodology": "移行月の7月を除き、2025年6月と8月の約5.89億件の取引を分析した。サーチャー3,032アドレスと活動頻度の高い非競争的な8,053アドレスの日次パネルに、アドレス・日固定効果付きの差の差法を適用した。手数料の事前トレンドを検査し、6月の情報だけで群を定義する場合も検証した。別の分析では、異なる送信者間で料率が上方に跳ねる位置から順序の切替点を推定し、成功したスワップのログを使って失敗した試行を流動性プールに対応付けた。到着ラウンドが不確実で、敗者も消費ガスに応じて支払う第一価格オークションを、結果の定性的な解釈に用いた。",
+        "limitations": "単一チェーン全体の制度変更であり、手数料の因果解釈には、変更がなければ両群の手数料が同じ幅で動いたという仮定が要る。対照群の手数料はほぼゼロで、主分析の群分けには変更後の行動も入る。6月だけで群分けしても低下は残るが、実効優先手数料の推定低下幅は0.120 gweiに縮まり、平均回帰も排除できない。失敗率は事前トレンドが異なり、因果効果を識別できない。受信時刻は観測されず、推定区間は実際のFlashblockと一対一ではなく、失敗取引の対象プールにも誤帰属があり得る。11カ月後にも確認できたのはブロック内の手数料分散であり、手数料低下の長期的な因果効果や200ミリ秒未満での効果ではない。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "同じブロック長のまま順序を固定する頻度が変わった事例から、執行の優先順位に付く価格を測っている。市場設計の研究として特に有用なのは、手数料低下を支持する比較分析と、到着の速さについて取引記録だけから言える範囲を区別した点である。",
+        "tags": [
+          "市場マイクロストラクチャー",
+          "優先ガスオークション",
+          "取引順序",
+          "レイテンシー競争",
+          "自動裁定取引",
+          "差の差法",
+          "Base Flashblocks"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "In July 2025, Base replaced one transaction-ordering auction every two seconds with ten auctions spaced 200 milliseconds apart, without changing the block time or fee rule. The clearest change was a decline in the priority fees automated arbitrageurs, or searchers, paid to compete for execution order. Across pools, the mean winning fee rate with a single participant was similar before and after the change: 0.177 and 0.164 gwei, respectively. With four or five competitors, the premium above that level was roughly proportional to auction duration across the two observed regimes.",
+          "mainResult": "Relative to high-activity controls, searchers’ effective priority fees fell by 0.187 gwei per gas, equivalent to 59% of their pre-change mean of 0.317 gwei. Their declared bids fell by 0.228 gwei relative to controls. The share of searchers’ total priority-fee payments concentrated in the first 10% of block gas fell from 98% to 28%. Among contested captures, a transaction offering a higher fee rate than the winner reverted in the next inferred segment in 5.4–6.6% of cases, or 1.9–2.7% when weighted by the winner’s priority-fee payment. These figures are upper bounds, not estimates of the fraction lost because of latency.",
+          "practicalApplication": "When evaluating auction intervals, rollup operators can track not just average fees but where payments concentrate within a block and how often a higher bid loses to an earlier transaction. For a reduction from 200 to 50 milliseconds, a model using the observed relationship between competitor counts and bids projects only a small drop in the mean winning fee rate, from 0.181 to 0.169 gwei. Simpler models project a 33–68% decline in declared bids net of controls. The targets and assumptions differ; these scenarios establish neither an optimal interval nor an improvement in ordinary users’ execution prices.",
+          "methodology": "The authors analyzed approximately 589 million transactions from June and August 2025, excluding July, the transition month. They estimated a difference-in-differences model with address and day fixed effects on a daily panel of 3,032 searcher addresses and 8,053 high-activity, noncompetitive controls. They tested fee pre-trends and repeated the analysis using only June information to define the groups. Separately, they inferred ordering resets from upward fee jumps between different senders and used successful swap logs to attribute failed attempts to liquidity pools. A first-price auction with uncertain arrival rounds and loser payments for gas consumed provides a qualitative interpretation of the results.",
+          "limitations": "The change affected an entire chain. A causal interpretation of the fee estimates requires that, absent the change, fees would have moved by the same absolute amount in both groups. Control fees were near zero, and the main classification used post-change behavior. With June-only classification, the effective-fee decline persists but shrinks to 0.120 gwei; mean reversion cannot be ruled out. Differential pre-trends prevent causal identification of the revert-rate response. Receipt times are unobserved, inferred segments do not correspond one-to-one with flashblocks, and failed attempts can be assigned to the wrong pool. The eleven-month follow-up confirms continued dispersion of fees within blocks, not a long-run causal decline in fee levels or an effect below 200 milliseconds.",
+          "reason": "A change in how often execution order is committed, with block time held fixed, provides a way to measure the price of execution priority. The paper is particularly useful for market design because it distinguishes the comparative evidence for fee compression from the more limited conclusions about arrival speed that transaction records can support.",
+          "tags": [
+            "Market microstructure",
+            "Priority gas auctions",
+            "Transaction ordering",
+            "Latency competition",
+            "Automated arbitrage",
+            "Difference-in-differences",
+            "Base Flashblocks"
+          ]
+        }
+      }
+    },
+    "2610.04018": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "気候政策が生産ネットワークと産業別労働配分に及ぼす中期的影響を、世界経済を対象とするエージェントベース・モデルで分析する。",
+        "mainResult": "シミュレーションでは化石燃料部門が縮小し、低炭素エネルギー部門が拡大する。炭素価格と労働移動の摩擦により、移行期の失業リスクが高まる可能性も示された。",
+        "practicalApplication": "気候政策の移行圧力や部門間の調整課題を検討するためのシナリオ分析に利用できる。電子取引、マーケット・マイクロストラクチャー、金利・イールドカーブ研究への直接的な応用は限定的。",
+        "methodology": "複数地域の産業連関データに基づき、異質な産業・家計、排出量会計を含む貨幣的産業連関ネットワーク・モデルを較正し、2026〜2035年の二つの気候政策シナリオを比較する。",
+        "limitations": "技術変化と既存の生産リンク内での調整を限定的に扱うため、結果は現行の生産構造に対する反実仮想的な評価であり、実際の移行経路を直接予測するものではない。詳細な数値結果や実証的検証は要旨に示されていない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "気候政策と産業・労働市場を扱う研究であり、対象サイトの電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利の主要分野には実質的に該当しない。",
+        "tags": [
+          "気候政策",
+          "産業連関",
+          "労働配分",
+          "エージェントベース・モデル"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper uses an agent-based model of the global economy to analyze the medium-term effects of climate policies on production networks and sectoral labour allocation.",
+          "mainResult": "The simulations show contraction in fossil-fuel sectors and expansion in low-carbon energy sectors. Carbon pricing combined with labour-mobility frictions may also increase transitional unemployment risk.",
+          "practicalApplication": "The analysis can inform scenario assessments of transition pressures and intersectoral adjustment challenges under climate policy. Its direct application to electronic trading, market microstructure, or interest-rate and yield-curve research is limited.",
+          "methodology": "The authors calibrate a monetary input-output network model with heterogeneous industries and households and emissions accounting to a multi-regional input-output database, then compare two climate-policy scenarios for 2026–2035.",
+          "limitations": "Technological change and adjustment within existing production links are limited, so the results are a counterfactual assessment based on current production structures rather than a direct forecast of the actual transition path. The abstract does not provide detailed numerical results or empirical validation.",
+          "reason": "The paper studies climate policy, industry, and labour markets and is not materially relevant to the site's main areas of electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "climate policy",
+            "input-output analysis",
+            "labour allocation",
+            "agent-based model"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04040": {
+      "status": "pdf_out_of_scope",
+      "screenAnalysis": {
+        "classification": "electronic_trading",
+        "summary": "本研究は、金融LLMエージェントの実現リターンと、イベント選択能力を分けて評価する監査手法を提案する。行動変更の種類ごとの件数を固定し、対象イベントへの割当てをランダム化して比較する。",
+        "mainResult": "実データに基づく半合成ベンチマークでは、選択能力がない場合の誤検出率は、通常のペア検定の11.6%に対し提案手法で5.3%だった。723件の決算イベントへの遡及適用では、総価値はイベント当たり+15.2 bps、構成ベンチマークは+25.8 bps、選択価値は-10.6 bpsで、エージェントは対応するランダム割当てを有意に上回らなかった。",
+        "practicalApplication": "金融エージェント評価で、運用全体の価値とイベント選択価値を分けて報告し、行動構成や市場ドリフトによる見かけの成績を識別する用途が考えられる。",
+        "methodology": "行動変更タイプごとの観測件数を固定し、適格イベントへの割当てをランダム化する。再割当ての平均利得を構成ベンチマークとし、観測された運用価値との差を選択価値と定義する。",
+        "limitations": "提示情報は要旨に限られ、ランダム化手順の詳細、統計的不確実性、半合成ベンチマークの設定は確認できない。実証対象は米国消費者関連企業44社の決算イベントに限られ、他市場・戦略への一般化は未確認である。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "市場マイクロストラクチャや金利モデルの研究ではないが、金融エージェントの評価におけるベンチマーク設計と選択能力の識別に直接関係する。",
+        "tags": [
+          "金融LLMエージェント",
+          "イベント選択",
+          "評価手法",
+          "ランダム化ベンチマーク",
+          "決算イベント"
+        ],
+        "english": {
+          "classification": "electronic_trading",
+          "summary": "This study proposes an audit method that separates a financial LLM agent’s realized returns from its event-selection ability. It fixes the count of each action-change type and randomizes their assignment across events.",
+          "mainResult": "In semi-synthetic benchmarks based on real data, the false-positive rate under no selection skill was 11.6% for the usual paired test and 5.3% for the proposed method. Retrospectively applied to 723 earnings events, total value was +15.2 bps per event, the composition benchmark was +25.8 bps, and selection value was -10.6 bps; the agent did not significantly outperform matched random assignments.",
+          "practicalApplication": "The method could help financial-agent evaluations report overall deployment value separately from event-selection value and identify apparent performance arising from action composition or market drift.",
+          "methodology": "The method fixes the observed count of each action-change type and randomizes assignments across eligible events. It defines the mean payoff from reassignment as the composition benchmark and the difference from observed deployment value as selection value.",
+          "limitations": "Only the abstract is available, so details of the randomization procedure, statistical uncertainty, and semi-synthetic benchmark design cannot be assessed. The empirical study is limited to earnings events at 44 U.S. consumer-facing firms; generalization to other markets or strategies is unestablished.",
+          "reason": "Although this is not research on market microstructure or interest-rate models, it is directly relevant to benchmark design and identifying selection skill in financial-agent evaluation.",
+          "tags": [
+            "financial LLM agents",
+            "event selection",
+            "evaluation methodology",
+            "randomized benchmark",
+            "earnings events"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "決算発表を前に、LLMエージェントが固定ルールの売買判断を変更した価値を検証した論文。見送りを買いに変えることが多ければ、対象銘柄の発表時リターンが平均で正であるだけで、無作為に選んでも利益が出うる。著者らは、同じ種類の判断変更を同じ回数だけ無作為に割り当てた場合と比べ、どの決算を選んだかの寄与を切り分けた。",
+        "mainResult": "米国の消費者向け企業44社の決算723件で、エージェントは310件の判断を変更し、うち294件が見送りから買いへの変更だった。1件当たりの対ルール粗収益は $+15.2$ bp（企業別クラスタリングによる95%信頼区間 $[-45.2,69.2]$ bp）。同じ変更構成を無作為に割り当てた期待収益は $+25.8$ bpで、選択の寄与は $-10.6$ bpだったが、有意な差ではなかった（両側 $p=0.63$）。各戦略の非ゼロのポジションに往復40 bpの費用を課すと、純増分は $-1.2$ bpとなった。選択能力を持たない半合成エージェントの5,000回の試行では、名目5%の片側検定で選択能力を誤認する割合が、ゼロを基準とする対応検定の11.6%から提案法の5.3%に下がった。",
+        "practicalApplication": "イベント戦略の採用判断には費用控除後の増分収益を使い、予測能力を主張する際には、同じ回数・種類の売買を無作為に行う基準も示す。意思決定時に評価期間の一部のリターンが既に観測できる場合は、その部分を除いて採点する。売買構成をそろえるだけでは先読みは解消しない。",
+        "methodology": "2020～2024年の各決算について、固定ルールとエージェントのポジション差に、発表日前後3日間のCarhart 4因子調整済み累積異常リターンを掛けた。判断が一致した事例と、エージェントが既定値に戻った53件も増分ゼロとして全件平均に含めた。無作為化は有効な判断が得られた事例だけを対象とし、固定ルールの判断別に、変更元と変更先の組み合わせごとの件数を保存した。基準の平均は各群の平均リターンと変更件数から直接算出し、選択の検定には5,000回の再割り当てを用いた。",
+        "limitations": "無作為化検定の解釈には、選択能力がなければ群内のどのイベントにも同じ確率で変更を割り当てるという仮定が必要である。これは実データでは検証できず、変更の頻度や方向を選ぶ能力も、設計上は選択の寄与に含まれない。監査法は判断記録の固定後に開発され、2025年の独立検証はない。80%の検出力を得るには変更1件当たり約142 bpの選択効果が必要で、小さな効果は否定できない。また、注文が価格を動かす場合や、現在の行動が後続の状態を変える執行戦略には、そのまま適用できない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "イベント戦略のバックテストで、買いに傾いたことと買うべき決算を選べたことを区別する方法として有用である。ただし対象は日次の株式ポジション判断で、注文執行、流動性、価格インパクト、金利やイールドカーブを分析していないため、本サイトの中心分野からは外れる。",
+        "tags": [
+          "決算イベント",
+          "LLM売買エージェント",
+          "収益要因分析",
+          "無作為化検定",
+          "バックテスト検証"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper evaluates the value of an LLM agent overriding a fixed trading rule ahead of earnings announcements. If the agent frequently changes flat positions to long, even random picks can profit when eligible stocks have positive announcement returns on average. The authors isolate the contribution of which announcements were chosen by comparing the agent with random assignments of the same number of each type of override.",
+          "mainResult": "Across 723 earnings events at 44 U.S. consumer-facing firms, the agent made 310 overrides, 294 of them flat-to-long. Its gross incremental return was $+15.2$ bp per event (firm-clustered 95% confidence interval: $[-45.2,69.2]$ bp). Random assignment of the same override mix had an expected return of $+25.8$ bp, leaving a selection contribution of $-10.6$ bp that was not statistically significant (two-sided $p=0.63$). Charging each strategy a 40 bp round-trip cost per nonzero position reduced the net increment to $-1.2$ bp per event. In 5,000 semi-synthetic replications with no selection skill, the false attribution rate at a nominal one-sided 5% level fell from 11.6% for the zero-centered paired test to 5.3% for the proposed audit.",
+          "practicalApplication": "Use incremental returns after costs to assess whether to deploy an event strategy. To claim predictive skill, also report a benchmark that makes the same number and types of trades at random. If part of the evaluation return is already observable at decision time, exclude that part from scoring. Matching the trade mix alone does not remove look-ahead.",
+          "methodology": "For each earnings event in 2020–2024, the authors multiplied the position difference between the agent and the fixed rule by the three-day Carhart four-factor cumulative abnormal return around the announcement. Agreements and the 53 cases in which the agent fell back to the default contributed zero to the average across all events. Randomization used only valid agent decisions and preserved the count of each ordered override type within pools defined by the fixed rule’s action. The benchmark mean was computed directly from pool-average returns and override counts; the selection test used 5,000 reassignments.",
+          "limitations": "Interpreting the randomization test requires assuming that, absent selection skill, overrides are equally likely to be assigned to any eligible event within a pool. The observed data cannot verify this assumption, and skill in choosing the frequency or direction of overrides is excluded from the selection contribution by design. The audit was developed after decision traces were frozen, with no independent 2025 confirmation. Achieving 80% power required a selection effect of about 142 bp per override, so small effects cannot be ruled out. The method also does not directly apply when orders move prices or when current actions change subsequent states in an execution strategy.",
+          "reason": "The audit usefully distinguishes a tilt toward long positions from an ability to pick which earnings events to buy. Its subject, however, is daily equity positioning. It does not analyze order execution, liquidity, price impact, interest rates, or yield curves, placing it outside the site’s core coverage.",
+          "tags": [
+            "earnings events",
+            "LLM trading agents",
+            "return attribution",
+            "randomization inference",
+            "backtest validation"
+          ]
+        }
+      }
+    },
+    "2610.04122": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、複数資産の予測シグナルを時間平均方向（「city」）に圧縮し、その方向間の角度が元の時系列シグナル間の角度をどの程度表すかを調べる。",
+        "mainResult": "理論上、独立一様な履歴では、city間の角度が $90^\\circ$ 以下なら、履歴間角度がそれ以上となる確率は高く、誤差は $O(T^{-1/2})$ と報告される。Competition May 2026のペアでは、city角度が $90^\\circ$ 以下の場合の該当率は74.1%、全体では58.9%だった。",
+        "practicalApplication": "予測シグナル群の類似性や多様性を粗く選別する診断に使える可能性がある。全776シグナルでは、city角度が $60^\\circ$ 以上のペアを選ぶと、履歴角度が同じ閾値以上となる割合は94.3%（全体の基準率は85.0%）で、対象ペアの72.5%を保持したと報告される。",
+        "methodology": "球面上の正規化シグナル履歴について確率的・幾何学的な理論結果を導き、時間依存や共有されたシグナル変動を扱う拡張を示す。さらにAlphaNova Competitionの実データを用いて、city角度と履歴角度の対応を検証する。",
+        "limitations": "実データの頻度は当該シグナル群に限られ、理論上の一様帰無モデルを検証するものではない。著者らは、残差の正の一致が主であり、時間依存の調整だけでは帰無モデルに適合しないと述べる。また、方向だけの要約には限界があり、安定した平均方向がない場合は収束も保証されない。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "シグナル集合の類似性評価に関する定量的研究だが、電子執行、市場ミクロ構造、金利モデル、イールドカーブを主題とするものではなく、本サイトの対象範囲から外れる。",
+        "tags": [
+          "クロスセクショナルシグナル",
+          "シグナル類似性",
+          "方向要約",
+          "時系列依存",
+          "範囲外"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper compresses multi-asset forecast signals into their time-averaged direction (“city”) and studies how well angles between these directions represent angles between the original signal histories.",
+          "mainResult": "For independent uniform histories, the paper reports that when the angle between cities is at most $90^\\circ$, the probability that the angle between histories is at least as large is high, with an $O(T^{-1/2})$ error bound. Among pairs in Competition May 2026, the corresponding rate was 74.1% for city angles at most $90^\\circ$ and 58.9% overall.",
+          "practicalApplication": "The measure may serve as a coarse diagnostic for screening similarity or diversity among forecast signals. For the full set of 776 signals, selecting pairs with city angles of at least $60^\\circ$ yielded a 94.3% rate of history angles meeting the same threshold (versus an 85.0% base rate), retaining 72.5% of pairs, as reported.",
+          "methodology": "The paper derives probabilistic and geometric results for normalized signal histories on a sphere, extends them to temporal dependence and shared signal movement, and tests the relationship between city and history angles using AlphaNova Competition data.",
+          "limitations": "The empirical frequencies apply only to the observed signal library and do not validate the theoretical uniform null. The authors report that residual agreement is mostly positive and that adjusting temporal dependence alone cannot fit the data to that null. Direction-only summaries also have limits, and convergence is not guaranteed without a stable mean direction.",
+          "reason": "This quantitative study evaluates similarity among signal collections, but it does not primarily concern electronic execution, market microstructure, interest-rate models, or yield curves, so it falls outside this site's scope.",
+          "tags": [
+            "Cross-sectional signals",
+            "Signal similarity",
+            "Directional summaries",
+            "Temporal dependence",
+            "Out of scope"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04182": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "新聞記者のイデオロギーと記事の政治的傾向の関係を、記者の新聞社間移動を用いて分析した研究です。",
+        "mainResult": "著者らのモデルと識別仮定の下で、記者の選好は記事の傾向に影響し、傾向の変動の10%を説明すると推定されました。記者の移籍後の平均的な記事傾向は、移籍先と移籍元の新聞社平均との差の77%だけ移動し、記者の党派構成を均等化する反実仮想では記事傾向が保守寄りに0.04標準偏差変化しました。",
+        "practicalApplication": "金融取引、マーケット・マイクロストラクチャー、金利モデルやイールドカーブへの直接的な応用は、抄録からは確認できません。",
+        "methodology": "2013～2018年の米国新聞記事900万件超に、政治家のツイート記事を用いて学習したTransformerモデルを適用して傾向を測定し、記者の新聞社間移動を利用するモデルを推定しています。",
+        "limitations": "結果は提示されたモデルと識別仮定に依存します。また、記事傾向の測定は学習データと新聞記事データベースに依存し、抄録だけでは測定誤差や推定の頑健性を評価できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "政治報道の生産に関する研究であり、本サイトが対象とする定量金融のテーマとは実質的な関連がありません。",
+        "tags": [
+          "報道",
+          "ジャーナリスト",
+          "イデオロギー",
+          "機械学習"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes the relationship between journalists’ ideology and the political slant of news articles, using journalists’ moves between newspapers.",
+          "mainResult": "Under the authors’ model and identifying assumptions, journalists’ preferences affect article slant and are estimated to explain 10% of its variation. After a move, journalists’ average article slant shifts by 77% of the gap between the destination and origin outlets; a counterfactual equalization of journalists’ party composition shifts average slant in a conservative direction by 0.04 standard deviations.",
+          "practicalApplication": "The abstract indicates no direct application to financial trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The authors apply a transformer model trained on articles tweeted by politicians to more than 9 million US newspaper articles from 2013–2018, then estimate a model that uses journalist moves between outlets.",
+          "limitations": "The results depend on the stated model and identifying assumptions. Measurement of article slant also depends on the training and newspaper datasets; the abstract does not allow assessment of measurement error or robustness.",
+          "reason": "This research concerns the production of political news and has no material connection to the quantitative-finance topics covered by the site.",
+          "tags": [
+            "news media",
+            "journalists",
+            "ideology",
+            "machine learning"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04209": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "吸収境界を持つSABRモデルについて、固定満期における右裾確率の対数漸近率を、全ての相関係数について導出する。",
+        "mainResult": "$k\\to\\infty$で、右裾確率の率は$(1-\\beta)^2/[2\\nu^2T(1-(\\rho\\wedge0)^2)]$となると報告する。これに対応するBlack–Scholesインプライド・ボラティリティの極限は、$\\rho\\ge0$では既存の予想と一致する一方、$\\rho<0$では異なる。さらに、後者では生存領域内の固有リーマン距離が裾確率の率を与えるとする。",
+        "practicalApplication": "SABRの極端な高ストライク領域におけるテール確率やインプライド・ボラティリティの評価、および吸収境界を考慮した近似の設計に理論的示唆を与える。",
+        "methodology": "停止Lamperti変換、条件付き時間変更、ガウス過程の移動境界評価、測度変換構成を組み合わせ、熱核評価を用いずに漸近率を証明する。",
+        "limitations": "抄録で示されるのは固定満期の極限漸近であり、有限ストライクでの誤差や数値性能、実データでの検証は報告されていない。結論は指定された吸収境界付きSABR設定に限られる。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "SABRの右裾に関する既存予想を相関の符号ごとに明確化し、吸収境界が負の相関で主要な漸近率を変えることを示す理論研究である。金利のイールドカーブや電子執行への直接的な貢献は抄録からは確認できない。",
+        "tags": [
+          "SABR",
+          "インプライド・ボラティリティ",
+          "右裾漸近",
+          "吸収境界",
+          "相関"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "For the SABR model with an absorbing boundary, the paper derives the fixed-maturity right-tail log-asymptotic rate for every correlation value.",
+          "mainResult": "As $k\\to\\infty$, the reported rate for the right-tail probability is $(1-\\beta)^2/[2\\nu^2T(1-(\\rho\\wedge0)^2)]$. The corresponding Black–Scholes implied-volatility limit agrees with the existing conjecture for $\\rho\\ge0$ but differs for $\\rho<0$. The paper also states that, in the latter case, the intrinsic Riemannian distance within the survival domain gives the tail-probability rate.",
+          "practicalApplication": "The results provide theoretical guidance for evaluating extreme high-strike tail probabilities and implied volatilities in SABR, and for designing approximations that account for an absorbing boundary.",
+          "methodology": "The proof combines a stopped Lamperti transform, a conditional time change, Gaussian moving-barrier bounds, and change-of-measure constructions, without using heat-kernel estimates.",
+          "limitations": "The abstract reports fixed-maturity limiting asymptotics, but not finite-strike errors, numerical performance, or validation on empirical data. The conclusions apply to the specified SABR setting with an absorbing boundary.",
+          "reason": "This theoretical study clarifies existing conjectures about the SABR right tail by correlation sign and shows that the absorbing boundary changes the leading asymptotic rate for negative correlation. The abstract does not establish a direct contribution to yield curves, interest-rate markets, or electronic execution.",
+          "tags": [
+            "SABR",
+            "implied volatility",
+            "right-tail asymptotics",
+            "absorbing boundary",
+            "correlation"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "ゼロで吸収されるSABRモデルについて、満期を固定し、権利行使価格を上げたときのフォワードの右裾とインプライド・ボラティリティを解析する。フォワードとボラティリティの相関が負なら、大きな終値を生むためのボラティリティ上昇が、相関を通じてフォワードを押し下げる。右裾を薄くするのは、ゼロにある確率質量の大きさではなく、極端な高値に達する経路が途中でゼロに触れてはならないという条件である。",
+        "mainResult": "$T>0$、$0<\\beta<1$、$-1<\\rho<1$ を固定し、$k=\\log(K/f_0)$、$s_\\rho=\\sqrt{1-\\min\\{\\rho,0\\}^2}$ とする。著者らは、$k\\to\\infty$ で $-\\log\\Pr(F_T\\ge K)/k^2\\to(1-\\beta)^2/(2\\nu^2 T s_\\rho^2)$ となり、Black–Scholesインプライド・ボラティリティは $\\nu s_\\rho/(1-\\beta)$ に収束することを示した。したがって、Henry-Labordèreが予想した極限 $\\nu/(1-\\beta)$ は非負相関では正しいが、すべての負相関で過大となる。また、制約のない鞍点でポテンシャルが有界でも、経路の制約を外した距離による推定は正当化できない。右裾確率の対数減衰率を与えるのは、生存領域内で測った初期状態から終端目標集合までの距離である。",
+        "practicalApplication": "ゼロ吸収のSABRを金利オプションに使う場合、高ストライク側のスマイル外挿がモデルと整合するかを検査できる。例えば $\\beta=0.5$、$\\nu=0.6$ なら、右ウイングの極限は $\\rho=+0.6$ で $1.2$、$\\rho=-0.6$ で $0.96$ となる。これは外挿の行き先を検証する基準であり、観測可能な最終ストライクでその値を課す根拠ではない。",
+        "methodology": "吸収前にLamperti変換を施し、ボラティリティ経路を条件として、直交するノイズを積分分散を時計とするブラウン運動に書き換える。負相関では、ボラティリティが各水準に達する時点での生存条件から確率の上界を導く。下界には、指数的に上昇するボラティリティ経路に沿って直交ノイズが平方根型の障壁を上回り続ける事象を構成し、上下界の主要係数を一致させる。コール価格を介して右裾の結果をインプライド・ボラティリティに移し、Fermi座標で生存領域内の距離を別途計算する。熱核推定は用いない。",
+        "limitations": "結果はパラメータを固定した主要項に限られ、有限ストライクでの誤差保証はない。実際、$\\beta=0.5$、$\\rho=0$ の計算例では、$k=12$ でもインプライド・ボラティリティは約 $0.87$ で、極限の $1.2$ から遠い。$k=160$ までの計算は変分問題の検証であって、オプション価格や市場データによる検証ではない。負相関での $k^{3/2}$ 次の補正は予想にとどまり、$\\beta\\in\\{0,1\\}$、$|\\rho|=1$、左ウイングは定理の対象外である。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "無相関で既知だった極限について、どの相関で正しく、どこで吸収境界による修正が必要かを明確にした。通常のストライクでの価格式を提供する論文ではないが、金利オプションのSABR実装で、境界条件と右裾の外挿を一貫させるための検証基準として有用である。",
+        "tags": [
+          "SABRモデル",
+          "金利オプション",
+          "吸収境界",
+          "右裾漸近",
+          "インプライド・ボラティリティ",
+          "スマイル外挿",
+          "双曲幾何"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "The paper studies the forward’s right tail and implied volatility as strike increases at fixed maturity in SABR with absorption at zero. When the forward and volatility are negatively correlated, the volatility rise needed to produce a large terminal value also pushes the forward down through the correlated component. What thins the right tail is not the size of the atom at zero, but the requirement that paths reaching an extreme high must never have touched zero along the way.",
+          "mainResult": "Fix $T>0$, $0<\\beta<1$, and $-1<\\rho<1$, and write $k=\\log(K/f_0)$ and $s_\\rho=\\sqrt{1-\\min\\{\\rho,0\\}^2}$. The authors show that as $k\\to\\infty$, $-\\log\\Pr(F_T\\ge K)/k^2\\to(1-\\beta)^2/(2\\nu^2 T s_\\rho^2)$, and Black–Scholes implied volatility converges to $\\nu s_\\rho/(1-\\beta)$. Henry-Labordère’s conjectured limit of $\\nu/(1-\\beta)$ is therefore correct for nonnegative correlation but too high for every negative correlation. A bounded potential at the unrestricted saddle point does not justify an estimate based on unrestricted distance. The logarithmic tail rate is instead determined by the distance from the initial state to the terminal target set measured within the survival domain.",
+          "practicalApplication": "For rates options modeled with SABR absorbed at zero, the result provides a consistency check on high-strike smile extrapolation. For example, with $\\beta=0.5$ and $\\nu=0.6$, the right-wing limit is $1.2$ at $\\rho=+0.6$ but $0.96$ at $\\rho=-0.6$. This tests where an extrapolation should ultimately go; it does not justify imposing that value at the last observable strike.",
+          "methodology": "A Lamperti transform before absorption and conditioning on the volatility path express the orthogonal noise as Brownian motion run on an integrated-variance clock. For negative correlation, survival constraints at successive volatility-level hitting times yield an upper probability bound. For the lower bound, the authors construct an event on which the orthogonal noise stays above a square-root barrier along an exponentially rising volatility path. The two bounds have matching leading coefficients. Call prices transfer the tail result to implied volatility, and a separate calculation in Fermi coordinates gives the distance within the survival domain. No heat-kernel estimate is used.",
+          "limitations": "The result gives only the leading term for fixed parameters, with no finite-strike error guarantee. In the example with $\\beta=0.5$ and $\\rho=0$, implied volatility is only about $0.87$ even at $k=12$, far from its limit of $1.2$. The computations extending to $k=160$ test variational problems, not option prices or market data. The proposed $k^{3/2}$ correction for negative correlation is conjectural, and the theorem does not cover $\\beta\\in\\{0,1\\}$, $|\\rho|=1$, or the left wing.",
+          "reason": "The paper identifies where the previously known zero-correlation limit remains valid and where absorption requires a correction. It does not provide a pricing formula for ordinary strikes, but it gives rates-option modelers a useful benchmark for checking that a SABR implementation’s right-tail extrapolation is consistent with its boundary condition.",
+          "tags": [
+            "SABR model",
+            "Interest rate options",
+            "Absorbing boundary",
+            "Right-tail asymptotics",
+            "Implied volatility",
+            "Smile extrapolation",
+            "Hyperbolic geometry"
+          ]
+        }
+      }
+    },
+    "2610.04221": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、分布の不確実性を考慮した拡張指数追随ポートフォリオの選択モデルを提案する。",
+        "mainResult": "実市場データによる検証では、提案モデルが指数、等ウェイト、および複数のロバスト・ポートフォリオ手法をアウト・オブ・サンプルの累積資産額や各種リスク調整後指標で上回ったと報告する。",
+        "practicalApplication": "投資家が期待損失と下方リスクのバランスを取りながら、ベンチマーク超過を目指すポートフォリオを設計する際の手法となり得る。",
+        "methodology": "最悪ケースの平均損失と下方リスクの凸結合を最小化し、最悪ケースの平均リターンに制約を置く。既知モーメントの場合は閉形式解を導き、未知モーメントの場合は凸最適化に帰着させる。",
+        "limitations": "要約だけでは、データ、標本期間、比較手法の設定、取引コストや実運用上の制約、結果の統計的頑健性を評価できない。対象はポートフォリオ最適化であり、当サイトの主要領域との直接的な関連は限定的である。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "分布ロバストなポートフォリオ選択に関する研究だが、電子執行、マーケット・マイクロストラクチャ、金利モデル、イールドカーブ、金利を主題としていないため、対象範囲外と判断する。",
+        "tags": [
+          "ポートフォリオ最適化",
+          "分布ロバスト最適化",
+          "下方リスク",
+          "指数追随"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes enhanced index-tracking portfolio selection models that account for distributional uncertainty.",
+          "mainResult": "Tests using real market data report that the proposed models outperform the index, an equally weighted portfolio, and several robust portfolio approaches in out-of-sample cumulative wealth and risk-adjusted metrics.",
+          "practicalApplication": "The methods may help investors design portfolios targeting benchmark outperformance while balancing expected loss and downside risk.",
+          "methodology": "The models minimize a convex combination of worst-case mean loss and downside risk, subject to a constraint on worst-case mean return. The known-moment case has a closed-form solution, while the unknown-moment case reduces to convex optimization.",
+          "limitations": "The abstract alone does not allow assessment of the data, sample period, comparator settings, transaction costs or operational constraints, or statistical robustness of the results. The work concerns portfolio optimization and has limited direct relevance to this site's core topics.",
+          "reason": "The paper concerns distributionally robust portfolio selection, not electronic execution, market microstructure, interest-rate models, yield curves, or rates, so it is outside the site's scope.",
+          "tags": [
+            "portfolio optimization",
+            "distributionally robust optimization",
+            "downside risk",
+            "index tracking"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04348": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "株式分割を考慮した確率的ポートフォリオ理論の価格ベースの枠組みを提案する研究です。",
+        "mainResult": "分割時の株数調整を自己金融条件に組み込み、加法・乗法生成戦略の富の分解を導出しています。分割が繰り返される場合の加法的エントロピー戦略では相対富がほぼ確実に負の無限大へ向かい、分割情報だけでは関数生成ポートフォリオの成績改善を保証できないと報告しています。",
+        "practicalApplication": "株式分割を含む価格加重ベンチマークや生成ポートフォリオの分析に利用できる可能性があります。電子執行や金利モデルへの直接的な応用は示されていません。",
+        "methodology": "予測可能な調整イベントを含む半マルチンゲール市場で理論的な富の分解とベンチマーク間の対応を構築し、日次NYSEデータで価格加重・時価総額加重ベンチマークと多様性加重ポートフォリオを比較しています。",
+        "limitations": "提示された要旨だけでは、実証結果の大きさ、頑健性、データ期間やポートフォリオ構築の詳細を評価できません。報告された理論・実証結果の一般性も要旨からは確認できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "確率的ポートフォリオ理論と株式分割の扱いが中心であり、対象サイトの電子執行、マーケットマイクロストラクチャー、金利・イールドカーブ分野には直接該当しません。",
+        "tags": [
+          "確率的ポートフォリオ理論",
+          "株式分割",
+          "価格加重ベンチマーク",
+          "関数生成ポートフォリオ"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper proposes a price-based framework for stochastic portfolio theory that accounts for stock splits.",
+          "mainResult": "It incorporates share adjustments at split events into the self-financing condition and derives wealth decompositions for additive and multiplicative generation. It reports that relative wealth for an additive entropy strategy tends almost surely to negative infinity under repeated splits, and that advance split information alone does not guarantee improved performance for functionally generated portfolios.",
+          "practicalApplication": "The framework may help analyze price-weighted benchmarks and generated portfolios in the presence of stock splits. The abstract presents no direct application to electronic execution or interest-rate models.",
+          "methodology": "The authors develop theoretical wealth decompositions and a correspondence between benchmarks in a semimartingale market with predictable adjustment events, then compare price- and capitalization-weighted benchmarks and diversity-weighted portfolios using daily NYSE data.",
+          "limitations": "The abstract alone does not permit assessment of the magnitude or robustness of the empirical results, the data period, or portfolio-construction details. It also does not establish the generality of the reported theoretical or empirical results.",
+          "reason": "The paper focuses on stochastic portfolio theory and the treatment of stock splits, rather than the site's core areas of electronic execution, market microstructure, interest rates, or yield curves.",
+          "tags": [
+            "Stochastic portfolio theory",
+            "Stock splits",
+            "Price-weighted benchmarks",
+            "Functionally generated portfolios"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04439": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、Symbolic Regressionを用いてイタリア各地域の医療支出の要因を分析しています。",
+        "mainResult": "報告によれば、民間医療支出では予測精度の良いモデルが得られた一方、公的医療支出では十分な予測に至りませんでした。",
+        "practicalApplication": "民間医療支出の要因分析や政策上の資源配分を検討する際の参考となる可能性がありますが、金融市場や金利分析への直接的な応用は示されていません。",
+        "methodology": "異なる期間を対象にSymbolic Regressionモデルを生成し、モデル内での変数頻度と反復する部分構造から支出要因を調べています。",
+        "limitations": "要約にはデータの詳細、検証方法、精度指標、特定された要因の内容が示されていません。また、公的医療支出では予測性能が不十分と報告されています。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "医療支出の分析を扱う研究であり、対象サイトの電子取引、マーケットマイクロストラクチャー、金利モデル、イールドカーブ、金利の範囲には実質的に該当しません。",
+        "tags": [
+          "医療支出",
+          "Symbolic Regression",
+          "機械学習",
+          "イタリア地域"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study uses Symbolic Regression to analyze the drivers of healthcare expenditure across Italian regions.",
+          "mainResult": "The abstract reports that models with good predictive accuracy were obtained for private healthcare expenditure, whereas prediction for public healthcare expenditure was unsuccessful.",
+          "practicalApplication": "The findings may inform analysis of private healthcare expenditure drivers and policy resource allocation, but no direct application to financial markets or interest-rate analysis is presented.",
+          "methodology": "Symbolic Regression models were generated over distinct time windows, and expenditure drivers were examined through variable frequency and recurring substructures in the models.",
+          "limitations": "The abstract does not specify the data, validation procedures, accuracy metrics, or the identified drivers. It also reports inadequate predictive performance for public healthcare expenditure.",
+          "reason": "The paper concerns healthcare expenditure and is not materially relevant to the site's focus on electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "healthcare expenditure",
+            "Symbolic Regression",
+            "machine learning",
+            "Italian regions"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04959": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本論文は、複数の数式アルファの相補性を考慮して候補群を生成・改良する AlphaPADI を提案する。対象は株式リターン予測とポートフォリオ性能であり、電子執行、マーケット・マイクロストラクチャ、金利モデル、イールドカーブの研究ではない。",
+        "mainResult": "要旨によれば、中国株式市場と米国株式市場の実験で、AlphaPADI は比較対象手法を予測性能とポートフォリオ性能の両方で上回った。",
+        "practicalApplication": "株式の定量運用における数式アルファの自動探索や、既存シグナル群と相補的な予測因子の発見に応用できる可能性がある。",
+        "methodology": "文法制約付きのバッファ初期化、現在のアルファ群を考慮した階層的離散拡散、予測性能と多様性に基づく報酬誘導型の群改良を組み合わせる。",
+        "limitations": "要旨には評価指標、ベースライン、データ期間、取引コスト、統計的有意性、実運用での頑健性が示されていない。結果は要旨の報告に限られ、適用範囲や再現性を判断するには本文の確認が必要である。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "数式アルファ探索には関連するが、本サイトの中心領域である電子執行、マーケット・マイクロストラクチャ、金利・イールドカーブ研究には直接該当しない。",
+        "tags": [
+          "数式アルファ",
+          "アルファ探索",
+          "株式予測",
+          "機械学習"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper proposes AlphaPADI, which generates and refines candidate pools of formulaic alphas while accounting for complementarity among them. It focuses on stock-return prediction and portfolio performance, not electronic execution, market microstructure, interest-rate models, or yield curves.",
+          "mainResult": "According to the abstract, experiments in the Chinese and U.S. stock markets show that AlphaPADI outperforms the evaluated baselines in both predictive and portfolio performance.",
+          "practicalApplication": "It could be applied to automated formulaic-alpha discovery in quantitative equity strategies and to finding predictors complementary to an existing signal pool.",
+          "methodology": "The approach combines grammar-constrained buffer initialization, hierarchical discrete diffusion conditioned on the current alpha pool, and reward-guided pool refinement based on predictive performance and diversity.",
+          "limitations": "The abstract does not specify evaluation metrics, baselines, data periods, transaction costs, statistical significance, or robustness in live deployment. The claims are limited to the abstract's reported results; the full paper is needed to assess applicability and reproducibility.",
+          "reason": "The paper is relevant to formulaic-alpha discovery, but does not directly address the site's core areas of electronic execution, market microstructure, or interest-rate and yield-curve research.",
+          "tags": [
+            "Formulaic alpha",
+            "Alpha discovery",
+            "Equity prediction",
+            "Machine learning"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.04990": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "幾何マルチスキュー・ブラウン運動を仮定し、後に最適売却する株式の購入時点を分析する理論研究です。",
+        "mainResult": "売却問題のプレミアムが退出継続領域内で厳密に $r$-劣調和となることから、購入は価格が上昇方向に押される水準に限られると報告しています。支持線と抵抗線が各1つの場合、退出条件にかかわらず支持線で購入するのが最適で、価値も明示されるとしています。",
+        "practicalApplication": "支持線・抵抗線を取り入れた理論的な売買タイミング分析に利用できる可能性がありますが、電子執行や金利モデルへの直接的な応用は示されていません。",
+        "methodology": "幾何マルチスキュー・ブラウン運動の下で購入と最適退出を組み合わせた停止問題を定式化し、購入問題を有限個の点の上側凹包に帰着させています。",
+        "limitations": "提示された要旨だけでは、モデル仮定の妥当性、数値例や実証検証、取引コスト等を含む実務上の頑健性は評価できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "最適停止と価格の支持・抵抗水準を扱いますが、対象サイトの中心分野である電子執行、マーケット・マイクロストラクチャ、金利・イールドカーブ研究との関連は限定的です。",
+        "tags": [
+          "最適停止",
+          "支持線・抵抗線",
+          "スキュー・ブラウン運動"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This theoretical study analyzes when to buy a stock for later optimal sale, assuming a geometric multi-skew Brownian motion.",
+          "mainResult": "The abstract reports that the liquidation premium is strictly $r$-subharmonic inside the exit continuation region, restricting purchases to levels where the price is pushed upward. With one support and one resistance, buying at support is optimal regardless of the exit regime, and the value is explicit.",
+          "practicalApplication": "The results may inform theoretical analysis of trade timing with support and resistance levels, but no direct application to electronic execution or interest-rate models is presented.",
+          "methodology": "The paper formulates a stopping problem combining purchase and optimal exit under a geometric multi-skew Brownian motion, and reduces the entry problem to the upper concave hull of finitely many points.",
+          "limitations": "From the abstract alone, the validity of the model assumptions, numerical or empirical validation, and practical robustness including transaction costs cannot be assessed.",
+          "reason": "Although it studies optimal stopping and price support and resistance levels, its connection to the site's core areas of electronic execution, market microstructure, and interest-rate or yield-curve research is limited.",
+          "tags": [
+            "optimal stopping",
+            "support and resistance",
+            "skew Brownian motion"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.05196": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、リスクスコアに単調性制約を課したうえで、学習型の時系列集約と手設計統計量を比較する。金利モデル、イールドカーブ、電子執行、または市場マイクロストラクチャを直接扱う研究ではない。",
+        "mainResult": "著者の報告では、学習型単調チャネルは幾何加重型の分離可能な手設計統計量を高い順位相関で再現する一方、連続性や時間局所性などの構造には限界がある。適切な基底を追加すると、報告された各失敗は修復された。",
+        "practicalApplication": "単調性を維持するリスクスコアの集約器を設計する際、既存統計量を学習器で置き換えるか、明示的な基底を追加するかを比較する参考になる。金融市場での執行や価格形成への応用は、要旨からは示されていない。",
+        "methodology": "古典的リスク統計量の変換を状態に持つ再帰型ネットワークを構成し、各入力およびMCドロップアウト標本で単調性を保つ。関数回帰を用いて手設計統計量との再現性を評価し、AUC、標本数、学習範囲外で比較した。",
+        "limitations": "評価対象、データ、実験条件、統計的不確実性の詳細は要旨に記載されていない。順位相関やAUCの報告だけでは、実運用での優位性や一般化可能性は判断できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "リスクスコアの学習と集約に関する研究だが、対象サイトの主要分野との実質的な関連は要旨から確認できない。",
+        "tags": [
+          "リスクスコア",
+          "単調性制約",
+          "時系列集約",
+          "機械学習"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study compares learned temporal aggregation with hand-crafted statistics under monotonicity constraints on risk scores. It does not directly address interest-rate models, yield curves, electronic execution, or market microstructure.",
+          "mainResult": "The authors report that a learned monotone channel reproduces geometrically weighted separable hand-crafted statistics with high rank correlation, but has limitations for structures such as consecutivity and time localization. Adding an appropriate explicit basis repairs each reported failure.",
+          "practicalApplication": "The results may inform decisions about replacing existing statistics with learned aggregators, or adding explicit basis functions, when designing monotone risk scores. The abstract does not establish applications to trading execution or price formation.",
+          "methodology": "The authors construct a recurrent network whose state contains transforms of classical risk statistics and preserves monotonicity for every input and MC-dropout sample. They use functional regression to assess reproduction of hand-crafted statistics and compare AUC, sample-size effects, and behavior beyond the training support.",
+          "limitations": "The abstract does not describe the evaluation targets, data, experimental conditions, or statistical uncertainty in detail. The reported rank correlations and AUC differences alone do not establish operational superiority or generalizability.",
+          "reason": "The paper concerns risk-score learning and aggregation, but its abstract does not establish a substantive connection to the site's core research areas.",
+          "tags": [
+            "risk scores",
+            "monotonicity constraints",
+            "temporal aggregation",
+            "machine learning"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.05251": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本稿は、競技形式の短縮が競技者の優劣を識別する力に与える影響を、試行間の系列相関を考慮して評価します。",
+        "mainResult": "著者は、独立試行を仮定すると短縮の影響を過大評価すると報告し、Counter-Strikeの規則変更を使った推定では、識別力の低下は短期窓で35%、全期間で10%でした。",
+        "practicalApplication": "競技形式の設計では、通常の結果データから推定できるデザイン効果を使い、系列相関を考慮して試行数の実効性を評価する方法が示されています。金融市場の執行や市場構造への直接的な応用は、要旨からは確認できません。",
+        "methodology": "2023年9月のCounter-Strike規則変更を自然実験的な事例として、72,576マップのデータから識別力を推定し、独立試行の較正基準と比較しています。",
+        "limitations": "要旨だけでは、系列相関の推定方法や識別戦略の詳細、推定結果の頑健性を評価できません。また、分析対象はプロ esportsであり、金融市場への一般化は示されていません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "競技形式の評価に関する研究であり、対象サイトの電子取引、マーケット・マイクロストラクチャ、金利モデル、イールドカーブ、金利研究には実質的に該当しません。",
+        "tags": [
+          "トーナメント設計",
+          "系列相関",
+          "実効試行数",
+          "eスポーツ"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This paper evaluates how shortening a contest affects its ability to identify the stronger competitor while accounting for serial dependence across trials.",
+          "mainResult": "The author reports that assuming independent trials overstates the cost of shortening. Using a Counter-Strike rule change, the estimated decline in discrimination is 35% in a short window and 10% over the full panel.",
+          "practicalApplication": "For contest design, the paper proposes accounting for serial dependence by using a design effect that can be estimated from ordinary results data. The abstract does not establish direct applications to financial execution or market structure.",
+          "methodology": "Treating a September 2023 Counter-Strike rule change as a natural-experiment setting, the study estimates discrimination from 72,576 maps and compares it with an independent-trials benchmark.",
+          "limitations": "The abstract does not provide enough detail to assess how serial correlation was estimated, the identification strategy, or the robustness of the estimates. The analysis concerns professional esports and does not demonstrate generalizability to financial markets.",
+          "reason": "The study concerns the evaluation of contest formats and is not materially related to the site's focus on electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "tournament design",
+            "serial dependence",
+            "effective trials",
+            "esports"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.05675": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "Fellerランダム測度を、殺されたLévy劣化過程を空間運動とするDawson–Watanabe超過程の占有測度として表現する。対象にはrough CIR過程と関連する過程が含まれる。",
+        "mainResult": "この表現から、パラメータに関する存在性・安定性と、明示的なノイズで駆動される確率方程式を導く。原点に核の原子がない場合は時間変更されたBrown運動ノイズが現れ、原子がある場合は補償付き逆ガウス過程ノイズとなり、測度は純粋原子的になる。",
+        "practicalApplication": "rough CIRなどの金利モデルの理論的構成や正則性分析に役立つ可能性がある。ただし、価格評価や実証的な金利データへの適用は要旨で示されていない。",
+        "methodology": "超過程の占有測度による表現を用い、Hawkes過程のクラスター表現の連続体版として解析する。ノイズの形に応じてマルチンゲール特性と密度・Hölder正則性を調べる。",
+        "limitations": "要旨からは仮定の詳細、証明の範囲、数値検証、金融データへの適合性は確認できない。報告された成果は主として確率過程の理論的結果である。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "rough CIRを含む金利関連確率過程の構造と正則性に関する理論的貢献であり、金利モデル研究には関連するが、直接的な取引・実証応用は示されていない。",
+        "tags": [
+          "rough CIR",
+          "Fellerランダム測度",
+          "超過程",
+          "金利モデル",
+          "Hawkes過程"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "The paper represents Feller random measures, including rough CIR processes and related processes, as occupation measures of Dawson–Watanabe superprocesses with killed Lévy subordinators as their spatial motion.",
+          "mainResult": "This representation yields existence and parameter stability, as well as stochastic equations driven by explicit noise. Without an atom of the kernel at the origin, the noise is a time-changed Brownian motion; with such an atom, it is a compensated inverse-Gaussian process, and the measure is purely atomic.",
+          "practicalApplication": "The results may support theoretical construction and regularity analysis of rough CIR and related interest-rate models. The abstract does not report pricing or empirical applications to interest-rate data.",
+          "methodology": "The analysis uses an occupation-measure representation through superprocesses, described as a continuum analogue of the Hawkes-process cluster representation. It studies martingale characterizations and density and Hölder regularity according to the form of the noise.",
+          "limitations": "The abstract does not specify the detailed assumptions, scope of the proofs, numerical validation, or fit to financial data. The reported contributions are primarily theoretical results on stochastic processes.",
+          "reason": "This is a theoretical contribution to the structure and regularity of interest-rate-related stochastic processes, including rough CIR. It is relevant to interest-rate model research, though no direct trading or empirical application is reported.",
+          "tags": [
+            "rough CIR",
+            "Feller random measures",
+            "superprocesses",
+            "interest-rate models",
+            "Hawkes processes"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "interest_rate_models",
+        "summary": "全文は提供されておらず、本評価は要旨と序論のみに基づく。著者は、古典的なCIR拡散に記憶を持たせたFellerランダム測度を、Hawkes過程のクラスター表現の連続版として構成できると述べる。この見方では、rough CIRのように瞬間値を密度として扱えるモデルと、累積量を直接扱う必要があるモデルを、同じ枠組みで比較できるという。",
+        "mainResult": "全文は未提供であり、以下は要旨と序論における著者の主張である。すべてのFellerランダム測度はDawson–Watanabe超過程の占有測度として表現でき、その法則は記憶核と移入測度に連続的に依存するという。記憶核が原点に質量を持たなければ、駆動ノイズは測度の累積量を時計とするブラウン運動になる。原点に質量を持てば、時計は累積量の補償子となり、ノイズは時間変更された補償逆ガウス過程、測度は純原子的になるという。また著者は、測度が各有限区間で時間と確率について二乗可積分な密度を持つための必要十分条件は、核が局所二乗可積分な密度を持つことだと述べる。",
+        "practicalApplication": "記憶を持つCIR型モデルを短期金利に応用する際、局所二乗可積分な瞬間金利を置けるか、それとも累積量を直接モデル化すべきかを、核の選択段階で検討する手掛かりになる。これはモデル仕様への示唆であり、債券価格やイールドカーブへの適合度を示すものではない。",
+        "methodology": "著者の構成では、率 $1$ で打ち切られるレヴィ・サブオーディネータを、そのポテンシャル測度が記憶核 $\\rho$ に一致するように選ぶ。これを空間運動とし、移入測度 $\\mu$ から始まる臨界二次分枝の超過程 $X$ を考える。モデルの時刻に対応するのは超過程の空間座標であり、分枝時間 $\\tau$ を積分して占有測度 $\\xi(A)=\\int_0^\\infty X_\\tau(A)\\,d\\tau$ を得る。同じ分枝時間に沿ってマルチンゲール測度を射影し、累積量のVolterra方程式を駆動するノイズを特定するという方法である。",
+        "limitations": "全文は提供されておらず、要旨と序論のみを用いた。証明・付録は確認しておらず、密度条件の必要性や正則性の最適性は著者の主張として扱う。対象は正の幾何学的無限分解可能性（PGID）を持つ確率核であり、任意の記憶核ではない。提供箇所からは、金利データへの較正精度や価格計算の性能は評価できない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "CIR型金利モデルの拡張を研究する読者に推奨する。記憶核の選択が瞬間金利という表現の可否に関わる点は、モデル設計に直結する。一方、本文での確認を要する理論研究であり、金利商品の価格付けにすぐ使える手法としての推薦ではない。",
+        "tags": [
+          "CIRモデル",
+          "Fellerランダム測度",
+          "Dawson–Watanabe超過程",
+          "Hawkes過程",
+          "Volterra方程式",
+          "密度の正則性"
+        ],
+        "english": {
+          "classification": "interest_rate_models",
+          "summary": "The full paper was not provided; this assessment uses only the abstract and Introduction. The author describes a continuum analogue of the Hawkes cluster representation for Feller random measures, which extend classical CIR diffusion by adding memory. The author presents this as a common framework for comparing models such as rough CIR, where an instantaneous value can be represented by a density, with models that must be studied through their cumulative quantities.",
+          "mainResult": "The full paper was not provided; the following are the author's claims in the abstract and Introduction. Every Feller random measure can be represented as the occupation measure of a Dawson–Watanabe superprocess, and its law depends continuously on the memory kernel and the immigration measure. If the kernel has no mass at the origin, the author identifies the driving noise as Brownian motion run on the cumulative measure as its clock. If the kernel has mass at the origin, the clock is instead the compensator of the cumulative measure, the noise is a time-changed compensated inverse-Gaussian process, and the measure is purely atomic. The author also states that the measure has a density square-integrable in time and probability on each finite interval if and only if the kernel has a locally square-integrable density.",
+          "practicalApplication": "When adapting a CIR-type model with memory to short rates, the kernel criterion can help determine at the specification stage whether to posit a locally square-integrable instantaneous rate or model the cumulative quantity directly. This is guidance on model specification, not evidence of a fit to bond prices or yield curves.",
+          "methodology": "In the author's construction, a Lévy subordinator killed at rate $1$ is chosen so that its potential measure equals the memory kernel $\\rho$. It supplies the spatial motion of a superprocess $X$ with critical quadratic branching, started from the immigration measure $\\mu$. Model time is the spatial coordinate of the superprocess; integrating out branching time $\\tau$ gives the occupation measure $\\xi(A)=\\int_0^\\infty X_\\tau(A)\\,d\\tau$. Projecting the martingale measure along the same branching-time coordinate is the author's method for identifying the noise driving the Volterra equation for the cumulative quantity.",
+          "limitations": "The full paper was not provided, and only the abstract and Introduction were used. The proofs and appendices were not reviewed; necessity of the density condition and optimality of the regularity results are treated as author claims. The scope is probability kernels in the positive geometrically infinitely divisible (PGID) class, not arbitrary memory kernels. The supplied material does not support an assessment of calibration accuracy on rates data or pricing performance.",
+          "reason": "Recommended for readers researching extensions of CIR-type interest-rate models. The connection between kernel choice and the availability of an instantaneous-rate representation bears directly on model design. This is theoretical work requiring review of the full text, not a recommendation of a ready-to-use method for pricing rates products.",
+          "tags": [
+            "CIR models",
+            "Feller random measures",
+            "Dawson–Watanabe superprocesses",
+            "Hawkes processes",
+            "Volterra equations",
+            "Density regularity"
+          ]
+        }
+      }
+    },
+    "2610.05740": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "本研究は、2022〜2025年の EURO STOXX 50 指数先物の板データを用い、板の状態が離散的な市場レジームではなく、低次元の連続体として表せるかを検討する。",
+        "mainResult": "共分散状態の幾何における有効次元は約1.4で、支配的な潜在座標が変動の83.66〜85.27%を説明し、VSTOXX と連動したと報告する。複数の手法と検証で連続体が離散レジームより支持され、予測性能は約10分先で最大となり、プールした $R^2_{OOS}$ は0.7483に達した。",
+        "practicalApplication": "市場ストレスの連続的な指標や短期予測に応用できる可能性がある。粗いレジーム区分は運用上有用でも、細かな連続情報の離散化が予測力を損なう可能性を示唆する。",
+        "methodology": "987取引日の深層板データを30、45、60秒窓で集約し、対称正定値共分散行列をLog-Euclideanおよびアフィン不変幾何で分析した。汚染除去、ラベル非依存の経済検証、17手法の比較、全点群の幾何証明、拡張年次ウォークフォワード検証を実施したと述べる。",
+        "limitations": "評価対象は単一の先物市場であり、他市場や期間への一般化は要約から確認できない。予測対象やベンチマーク、取引コストを考慮した成績も示されておらず、実運用上の有効性は未確立である。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "板状態の表現と短期予測に関する市場ミクロ構造の研究で、連続状態と離散レジームの比較が実務上も関心を引く。ただし、対象市場の限定と実運用検証の不足には留意が必要。",
+        "tags": [
+          "板情報",
+          "市場ミクロ構造",
+          "市場レジーム",
+          "潜在状態",
+          "短期予測"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "Using EURO STOXX 50 index-futures order-book data from 2022–2025, the study tests whether book states are better represented as a low-dimensional continuum than as discrete market regimes.",
+          "mainResult": "The authors report an effective dimension of approximately 1.4 for the covariance-state geometry; a dominant latent coordinate explains 83.66–85.27% of its variation and tracks VSTOXX. Multiple methods and validation procedures favor a continuum over discrete regimes. Forecast performance peaks at approximately ten minutes, with pooled $R^2_{OOS}$ of 0.7483.",
+          "practicalApplication": "The findings may inform continuous indicators of market stress and short-horizon forecasting. They suggest that coarse regime labels may be operationally useful, but discretizing finer-scale continuous information may reduce predictive power.",
+          "methodology": "The study aggregates deep order-book data across 987 trading days into 30-, 45-, and 60-second windows, then analyzes symmetric positive-definite covariance matrices using Log-Euclidean and affine-invariant geometries. It reports contamination filtering, label-free economic validation, comparison of 17 methods, full-cloud geometric certificates, and expanding-year walk-forward tests.",
+          "limitations": "The evaluation covers a single futures market, and the abstract does not establish generalizability to other markets or periods. It also does not specify the forecast target or benchmark, or report performance after transaction costs, so practical trading effectiveness remains unestablished.",
+          "reason": "This market-microstructure study compares continuous state representations with discrete regimes and addresses short-term forecasting, making it relevant to practitioners. Its single-market scope and lack of reported real-world trading validation warrant caution.",
+          "tags": [
+            "order book",
+            "market microstructure",
+            "market regimes",
+            "latent states",
+            "short-horizon forecasting"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "EURO STOXX 50指数先物（FESX）の10本値の板データを用い、2022年から2025年の987取引日について、流動性や注文フローの変化が離散的な市場レジームを形成するかを検証した。分析対象の通常取引時間帯では、状態間に明確な境界を置くより、連続的なストレス指標で表す方が結果と整合的だった。大まかな区分は有用だが、細分化するとサンプル外で予測力が低下し、連続値のままなら残る情報が失われた。",
+        "mainResult": "標準化前の対数ユークリッド座標では実効次元は約$1.4$で、第1主成分が分散の$83.66\\%$から$85.27\\%$を説明した。これは実用のストレス指標の説明率ではない。標準化後の指標が説明するのは約3割で、VSTOXXとの相関は約$0.50$から$0.52$、ストレスの偏差の半減期は約5分から15分だった。日中の実現ボラティリティ予測は10分先付近で最もよく当てはまり、60秒窓の対数ユークリッド表現を使ったサポートベクトル回帰では、プールしたサンプル外の$R^2$が持続性モデルの$0.6821$から$0.7483$に上がった。持続性モデルに対する改善幅は概して1時間先に向けて広がったが、翌日予測ではHARモデルを頑健に上回らなかった。",
+        "practicalApplication": "最良気配のスプレッドが狭いままでも、板が薄くなり価格インパクトが高まることがある。執行デスクでは、スプレッドを単独で見る代わりに、連続指標を数分先のリスク監視に加え、担当者への通知やリスク限度の見直しにだけ粗い区分を使う方法を検証できる。価格の方向、売買収益、危機の予告を検証した指標ではない。",
+        "methodology": "30秒、45秒、60秒の各窓で、価格・数量・スプレッド・不均衡・注文フローなど15変数から縮小推定した共分散行列を作り、アフィン不変幾何と対数ユークリッド幾何で比較した。主軸の単峰性を中心に、次元、位相、遷移スペクトル、分割の安定性を検査し、別途17種類の状態表現を比較した。VSTOXXは予測用の軸を学習する目的変数ではなく、訓練期間内で軸の符号を決めるために用いた。予測では直近の実現ボラティリティに指標の遅い成分と速い成分、共分散状態の移動量を加え、15種類の予測器を、年次拡張窓・1取引日のエンバーゴ・日単位のブートストラップで評価した。",
+        "limitations": "対象は単一銘柄で、3種類の窓は同じデータを集計し直したものであり、独立な再現ではない。寄り引け、ECB発表、限月交代の周辺などは対象外である。また異常値の選別には当日全体の分位点と日ごとに適合したIsolation Forestを使うため、各予測時点で同じ標本を選べたとは限らない。主軸の単峰性は互いに重なり合う潜在レジームまで否定せず、45秒窓ではアフィン不変幾何の分割安定性検査も基準を満たさなかった。日中の比較対象は直近の実現ボラティリティによる予測であり、60秒窓の10分先予測では2025年の改善幅が$0.0044$まで縮小した。レイテンシー、取引費用、スリッページを含む執行評価はない。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "レジーム数を選ぶ前に、そもそも境界が観測できるか、境界を設けると翌年の予測が改善するかを別々に問う点が有用である。板ストレス指標を設計する研究者には推奨できるが、実装判断の前には、過去情報だけで行う標本選別と、複数のラグを使う日中ボラティリティモデルとの比較を優先したい。",
+        "tags": [
+          "市場マイクロストラクチャー",
+          "指値注文板",
+          "EURO STOXX 50指数先物",
+          "連続ストレス指標",
+          "レジームの離散化",
+          "リーマン幾何",
+          "日中ボラティリティ予測",
+          "ウォークフォワード検証"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "Using ten-level EURO STOXX 50 futures (FESX) order book data from 987 trading days in 2022–2025, the paper tests whether changes in liquidity and order flow form discrete market regimes. During the regular trading periods studied, the evidence was more consistent with a continuous stress measure than with sharp boundaries between states. Coarse categories were useful, but finer subdivisions weakened out-of-sample prediction and discarded information that remained useful in continuous form.",
+          "mainResult": "In unstandardised Log-Euclidean coordinates, the effective dimension was about $1.4$, and the first principal component explained $83.66\\%$ to $85.27\\%$ of the variance. This is not the variance share of the operational stress index. After standardisation, the index explained about three tenths of the variance, correlated approximately $0.50$ to $0.52$ with VSTOXX, and showed a stress-deviation half-life of roughly 5 to 15 minutes. Absolute fit for intraday realised volatility peaked near ten minutes. At that horizon, support-vector regression using the 60-second Log-Euclidean representation raised pooled out-of-sample $R^2$ from $0.6821$ for the persistence model to $0.7483$. Gains over persistence generally widened toward one hour, but the index did not robustly improve on HAR for next-day forecasts.",
+          "practicalApplication": "Displayed depth can fall and price impact can rise even while the best quoted spread stays narrow. Rather than relying on spread alone, an execution desk could test the continuous index for monitoring risk over the next several minutes, reserving coarse bands for notifications or risk-limit reviews. The index has not been validated for predicting price direction, trading profits, or crises.",
+          "methodology": "For each native 30-, 45-, and 60-second window, the study estimated a shrinkage covariance matrix from 15 variables covering prices, quantities, spreads, imbalance, and order flow. It compared affine-invariant and Log-Euclidean geometries. Unimodality along the leading axis was the primary test, supported by checks on dimension, topology, transition spectra, and partition stability. A separate comparison covered 17 state representations. VSTOXX was not a training target for the forecasting axis; training-period values determined only its sign. Forecasts added slow and fast index components and covariance-state movement to recent realised volatility. The study evaluated 15 forecasting models using expanding yearly training windows, a one-trading-day embargo, and trading-day block bootstraps.",
+          "limitations": "The study covers one instrument. The three window lengths aggregate the same feed and do not constitute independent replications. The sample excludes periods around the open, close, ECB announcements, and contract rolls. Anomaly selection also uses full-day percentiles and an Isolation Forest fitted separately to each day, so the same sample may not have been selectable at forecast time. A unimodal leading axis does not rule out overlapping latent regimes, and the 45-second affine-invariant partition-stability check failed its criterion. The intraday benchmark uses only the latest realised volatility; for the 60-second Log-Euclidean model forecasting ten minutes ahead, the gain fell to $0.0044$ in 2025. No execution evaluation accounts for latency, transaction costs, or slippage.",
+          "reason": "The paper separates two useful questions before choosing a regime count: are boundaries observable, and does imposing them improve forecasts in later years? It is recommended for researchers designing order book stress measures. Before deployment, the priorities are to repeat sample selection using only information available at each forecast time and to compare against an intraday volatility model with multiple lags.",
+          "tags": [
+            "market microstructure",
+            "limit order book",
+            "EURO STOXX 50 index futures",
+            "continuous stress index",
+            "regime discretisation",
+            "Riemannian geometry",
+            "intraday volatility forecasting",
+            "walk-forward validation"
+          ]
+        }
+      }
+    },
+    "2610.05741": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "保険料算定における多変量分布的信用理論のため、対象領域の電子取引、マーケット・マイクロストラクチャ、金利モデル、イールドカーブには直接該当しません。",
+        "mainResult": "著者らは、潜在リスククラスへの混合比率を用い、事後予測分布をポートフォリオ情報と個人経験の凸結合として厳密に表すモデルを提案しています。シミュレーションと車両テレマティクスへの適用で、経験の蓄積に伴う個人別リスク評価を示したと報告しています。",
+        "practicalApplication": "保険の将来請求頻度予測や経験料率設定に応用できる可能性がありますが、対象サイトの主要テーマへの実務的関連性は限定的です。",
+        "methodology": "Dirichlet混合メンバーシップモデルを構築し、シミュレーション実験と車両テレマティクス事例で評価しています。",
+        "limitations": "要旨には、比較対象、定量的な性能指標、データ規模、外部検証の詳細が示されていません。報告された有用性は保険分野の事例に基づくもので、対象サイトの主要領域への適用は示されていません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "保険数理に関する研究であり、対象サイトの重点領域との実質的な関連性が見られないためです。",
+        "tags": [
+          "保険数理",
+          "信用理論",
+          "多変量分布",
+          "テレマティクス"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper concerns multivariate distributional credibility for insurance pricing and does not directly address the site's focus areas of electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "mainResult": "The authors propose a model using mixture weights over latent risk classes, in which the posterior predictive distribution is represented exactly as a convex combination of portfolio information and individual experience. They report individual risk assessment as experience accumulates in a simulation and a vehicle telematics application.",
+          "practicalApplication": "The approach may be applicable to future claim-frequency prediction and experience rating in insurance, but its practical relevance to the site's core topics is limited.",
+          "methodology": "The authors develop a Dirichlet mixed-membership model and evaluate it in a simulation experiment and a vehicle telematics case study.",
+          "limitations": "The abstract does not provide details on benchmarks, quantitative performance measures, data size, or external validation. The reported utility is based on insurance applications, and application to the site's core areas is not demonstrated.",
+          "reason": "This is an actuarial insurance study with no material connection to the site's focus areas.",
+          "tags": [
+            "Actuarial science",
+            "Credibility theory",
+            "Multivariate distributions",
+            "Telematics"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.05823": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "言語モデルの個人向けAIアシスタントが賃貸市場の価格や消費者の支出に及ぼす影響を、エージェントベースのシミュレーションで検討する。",
+        "mainResult": "30市場のシミュレーションでは、売り手が価格を固定した場合、実行権限を持つアシスタントの利用者は賃借人・日あたり13.7ドル支出を減らした。売り手の適応後も削減額は8.7ドルで、非利用者の支出変化は平均0.4ドルだった。",
+        "practicalApplication": "AIアシスタントの評価では、利用者の節約だけでなく、取引成立率、総支出、非利用者への影響も確認するという評価枠組みを示す。ただし、実市場への効果を直接推定するものではない。",
+        "methodology": "言語モデルを消費者、アシスタント、適応する売り手として用いた賃貸市場シミュレーションを実施し、売り手固定と適応の分岐を比較した。分析的ベンチマークと行動調整済みルール市場も用いた。",
+        "limitations": "結果は30のシミュレーション市場に基づき、設定や言語モデルの行動に依存する。要旨からは、実市場データによる検証や、他の市場・契約条件への一般化の程度は確認できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "市場シミュレーションに関する研究だが、電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利を主題としていない。",
+        "tags": [
+          "エージェントベース・シミュレーション",
+          "AIアシスタント",
+          "賃貸市場",
+          "価格設定",
+          "消費者支出"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper uses an agent-based simulation to examine how personal AI assistants affect prices and consumer spending in a rental market.",
+          "mainResult": "Across 30 simulated markets, renters using assistants with execution authority spent $13.7 less per renter-day when sellers kept prices fixed. After seller adaptation, the reduction was $8.7, while non-users' spending changed by an average of $0.4.",
+          "practicalApplication": "The study suggests evaluating AI assistants not only by adopters' savings but also by transaction completion, total spending, and effects on non-users. It does not directly estimate effects in real markets.",
+          "methodology": "The authors simulated a rental market with language models acting as consumers, assistants, and adaptive sellers, comparing branches with frozen and adaptive sellers. They also used an analytical benchmark and a behaviorally calibrated rule market.",
+          "limitations": "The findings come from 30 simulated markets and depend on the setup and language-model behavior. The abstract does not establish validation against real-market data or the extent to which findings generalize to other markets or contract terms.",
+          "reason": "Although it studies market simulation, its main subject is not electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "Agent-based simulation",
+            "AI assistants",
+            "Rental market",
+            "Pricing",
+            "Consumer spending"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.05873": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "トークン化ファンドのオンチェーン移転量とアドレス残高を、取引機能と所有者のカバレッジを考慮して測定する研究です。",
+        "mainResult": "Ethereum上のトークン化ファンドを対象に、移転の分類によって算出される回転率が大きく変わり得ることを報告しています。また、仲介者を除外すると、総供給量に対する集中度は低下する一方、残存アドレス間の集中度は上昇する場合があります。",
+        "practicalApplication": "オンチェーン移転量やアドレス集中度を流動性の代理指標として扱う際に、取引機能の分類と所有者カバレッジの明示を促す分析枠組みとして参考になります。",
+        "methodology": "2025年12月から2026年8月までのEthereum上のトークン化ファンドについて、同一資産・観測期間・供給量を用い、特定イベントを分離する前後で移転回転率を比較しています。所有者集中度は、総供給量を基準にした値と、特定仲介者を除外したアドレス間の値を比較しています。",
+        "limitations": "要旨で確認できる対象はEthereum上のトークン化ファンドと限定された期間です。移転活動やアドレス集中度は実際の市場流動性を直接測定せず、推定の頑健性や他資産・他チェーンへの一般化は要旨から判断できません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "オンチェーン指標の解釈に関する有用な注意点を示しますが、実際の市場流動性や電子執行を直接分析する研究ではなく、対象範囲も限定されています。",
+        "tags": [
+          "トークン化資産",
+          "オンチェーン移転",
+          "流動性指標",
+          "所有者集中度"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "This study measures on-chain transfers and address balances in tokenized funds while accounting for transaction functions and ownership coverage.",
+          "mainResult": "For tokenized funds on Ethereum, the reported turnover can change materially depending on transfer classification. Excluding intermediaries can also lower concentration measured against total supply while increasing concentration among the remaining addresses.",
+          "practicalApplication": "The framework can inform analysis of on-chain transfer volume and address concentration by encouraging explicit classification of transaction functions and ownership coverage when these are used as liquidity proxies.",
+          "methodology": "For tokenized funds on Ethereum from December 2025 to August 2026, the study compares transfer turnover before and after separating specified event categories, using the same asset, observation window, and supply denominator. It also compares ownership concentration measured against total supply with concentration among addresses after specified intermediaries are excluded.",
+          "limitations": "The abstract covers only Ethereum-based tokenized funds over a limited period. Transfer activity and address concentration do not directly measure market liquidity, and the abstract does not establish the robustness of the estimates or their generalizability to other assets or chains.",
+          "reason": "The study offers useful cautions for interpreting on-chain metrics, but it does not directly analyze actual market liquidity or electronic execution, and its scope is limited.",
+          "tags": [
+            "Tokenized assets",
+            "On-chain transfers",
+            "Liquidity measures",
+            "Ownership concentration"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "トークン化ファンドのオンチェーン移転量とアドレス残高を、取引機能と所有者のカバレッジを考慮して測定する研究です。",
+        "mainResult": "Ethereum上のトークン化ファンドを対象に、移転の分類によって算出される回転率が大きく変わり得ることを報告しています。また、仲介者を除外すると、総供給量に対する集中度は低下する一方、残存アドレス間の集中度は上昇する場合があります。",
+        "practicalApplication": "オンチェーン移転量やアドレス集中度を流動性の代理指標として扱う際に、取引機能の分類と所有者カバレッジの明示を促す分析枠組みとして参考になります。",
+        "methodology": "2025年12月から2026年8月までのEthereum上のトークン化ファンドについて、同一資産・観測期間・供給量を用い、特定イベントを分離する前後で移転回転率を比較しています。所有者集中度は、総供給量を基準にした値と、特定仲介者を除外したアドレス間の値を比較しています。",
+        "limitations": "要旨で確認できる対象はEthereum上のトークン化ファンドと限定された期間です。移転活動やアドレス集中度は実際の市場流動性を直接測定せず、推定の頑健性や他資産・他チェーンへの一般化は要旨から判断できません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "オンチェーン指標の解釈に関する有用な注意点を示しますが、実際の市場流動性や電子執行を直接分析する研究ではなく、対象範囲も限定されています。",
+        "tags": [
+          "トークン化資産",
+          "オンチェーン移転",
+          "流動性指標",
+          "所有者集中度"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "This study measures on-chain transfers and address balances in tokenized funds while accounting for transaction functions and ownership coverage.",
+          "mainResult": "For tokenized funds on Ethereum, the reported turnover can change materially depending on transfer classification. Excluding intermediaries can also lower concentration measured against total supply while increasing concentration among the remaining addresses.",
+          "practicalApplication": "The framework can inform analysis of on-chain transfer volume and address concentration by encouraging explicit classification of transaction functions and ownership coverage when these are used as liquidity proxies.",
+          "methodology": "For tokenized funds on Ethereum from December 2025 to August 2026, the study compares transfer turnover before and after separating specified event categories, using the same asset, observation window, and supply denominator. It also compares ownership concentration measured against total supply with concentration among addresses after specified intermediaries are excluded.",
+          "limitations": "The abstract covers only Ethereum-based tokenized funds over a limited period. Transfer activity and address concentration do not directly measure market liquidity, and the abstract does not establish the robustness of the estimates or their generalizability to other assets or chains.",
+          "reason": "The study offers useful cautions for interpreting on-chain metrics, but it does not directly analyze actual market liquidity or electronic execution, and its scope is limited.",
+          "tags": [
+            "Tokenized assets",
+            "On-chain transfers",
+            "Liquidity measures",
+            "Ownership concentration"
+          ]
+        }
+      }
+    },
+    "2610.05926": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "クレジットカードのデフォルト時損失率（LGD）推定について、業界で使われるランオフ・トライアングル（ROT）と回帰モデルを比較した研究です。",
+        "mainResult": "要旨によれば、回帰モデルは経験的なU字型LGD分布を捉え、時系列の集計値も経験的損失率により近く追随しました。ROTによる集計値は多くの期間で経験的損失率から乖離したと報告されています。",
+        "practicalApplication": "IFRS 9向けのLGD推定で、回帰モデルをROTの代替候補として評価する示唆があります。ただし導入には自社データでの検証が必要です。",
+        "methodology": "クレジットカードデータを用い、ROTの診断と二段階回帰型LGDモデルの評価を行い、両手法の集計値を期間ごとの平均実損失率と比較しています。",
+        "limitations": "要旨からはデータの範囲、標本規模、検証設計、定量的な誤差指標が分かりません。結果の一般化や他の信用商品への適用可能性は判断できません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "信用リスクのLGD推定を扱う研究であり、電子取引、マーケット・マイクロストラクチャ、金利モデル、イールドカーブ、金利を中心とする対象範囲には直接該当しません。",
+        "tags": [
+          "信用リスク",
+          "LGD",
+          "IFRS 9",
+          "回帰モデル",
+          "ランオフ・トライアングル"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study compares run-off triangles (ROTs), an industry approach, with regression models for estimating credit-card loss given default (LGD).",
+          "mainResult": "According to the abstract, the regression model captures the empirical U-shaped LGD distribution, and its aggregate time series tracks empirical loss rates more closely. ROT aggregates are reported to diverge from empirical loss rates over many periods.",
+          "practicalApplication": "The findings suggest evaluating regression models as an alternative to ROTs for LGD estimation under IFRS 9. Implementation would require validation on an institution’s own data.",
+          "methodology": "Using credit-card data, the authors diagnose ROTs and assess a two-stage regression-based LGD model. They compare aggregate estimates from both approaches with mean empirical loss rates over time.",
+          "limitations": "The abstract does not specify the data scope, sample size, validation design, or quantitative error metrics. Generalizability and applicability to other credit products therefore cannot be assessed.",
+          "reason": "The paper concerns credit-risk LGD estimation and is not directly within the site’s focus on electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "credit risk",
+            "LGD",
+            "IFRS 9",
+            "regression model",
+            "run-off triangles"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06007": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "rates",
+        "summary": "本サーベイは、Phillips曲線の傾きと政策ルールのインフレ反応係数について、推定史を共通の識別問題として整理する。",
+        "mainResult": "著者は、両者の識別が互いの仮定に依存しており、単独では識別上の問題を解消できないと論じる。また、識別結果が点推定ではなく範囲となる場合、許容される推論は境界、符号、順位づけ、および範囲を前提とした意思決定だとする。",
+        "practicalApplication": "金融政策ルールやインフレ動学の推定結果を評価する際、仮定依存性を明示し、点推定に限らず範囲に基づく政策判断を検討する視点を提供しうる。",
+        "methodology": "過去70年間のPhillips曲線と政策ルールの推定研究をサーベイし、係数が識別されたとされる意味を5種類に区別して整理する。潜在的なインフレ目標と最適ルールについても同様の経緯を検討する。",
+        "limitations": "提供された抄録からは、5種類の識別の定義、具体的な研究や設計の評価基準、結論を裏づける詳細を確認できない。実証分析や定量的な政策効果の報告ではなく、サーベイとしての主張である。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "金利政策ルールの係数識別を扱うため対象領域に関連する。特に識別仮定と点推定の限界を整理する概念的価値がある一方、抄録だけでは具体的な手法や実務上の効果を評価しにくい。",
+        "tags": [
+          "金融政策",
+          "政策ルール",
+          "Phillips曲線",
+          "識別",
+          "部分識別"
+        ],
+        "english": {
+          "classification": "rates",
+          "summary": "This survey organizes the estimation histories of the Phillips-curve slope and the inflation response coefficient in policy rules as a shared identification problem.",
+          "mainResult": "The author argues that identification of each depends on assumptions borrowed from the other, so neither resolves the identification problem on its own. When identification yields a range rather than a point estimate, the survey argues that the warranted inferences are bounds, signs, rankings, and decisions designed for a range.",
+          "practicalApplication": "The paper may help readers evaluating estimates of monetary policy rules or inflation dynamics make their dependence on assumptions explicit and consider policy decisions based on ranges rather than only point estimates.",
+          "methodology": "The survey reviews seventy years of estimation research on the Phillips curve and policy rules, distinguishing five meanings of the claim that a coefficient is identified. It examines analogous histories for the latent inflation target and the optimal rule.",
+          "limitations": "The supplied abstract does not specify the five meanings of identification, the criteria used to assess particular studies or designs, or details supporting the conclusions. The paper presents a survey argument rather than empirical analysis or quantified policy effects.",
+          "reason": "The paper is relevant because it addresses identification of coefficients in monetary policy rules. Its conceptual value lies in organizing identification assumptions and the limits of point estimates, while the abstract alone does not permit assessment of specific methods or practical effects.",
+          "tags": [
+            "monetary policy",
+            "policy rules",
+            "Phillips curve",
+            "identification",
+            "partial identification"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "rates",
+        "summary": "全文は提供されておらず、本レビューの対象は要旨と序論のみである。著者は、フィリップス曲線の傾き $\\kappa$ と、政策金利のインフレ反応係数 $\\phi_{\\pi}$ の推計史を、一つの識別問題として読み直す。歴代の修正は単に推計精度を高めたのではなく、各推計がどの仮定の下で何を測っていたかを捉え直すものだったと論じる。",
+        "mainResult": "以下は要旨と序論で著者が述べる主張であり、全文は提供されていない。著者によれば、金融政策がインフレを安定させるほど、データ上のフィリップス曲線は平坦に見えうる。一方、標準的なニューケインジアン・モデルでは、均衡の決定性を支える政策反応が均衡経路外にあり、均衡データだけからは $\\phi_{\\pi}$ を識別できないという。したがって、両係数を用いる政策判断は、独立した二つの推計誤差ではなく、相互に依存する識別上の制約を引き継ぐ、というのが著者の結論である。",
+        "practicalApplication": "供給ショックによるインフレを中央銀行がどこまで許容するかを金利シナリオに織り込む際は、二つの点推計を機械的に組み合わせず、共通の仮定と整合する係数の範囲で判断が変わるかを調べる。その範囲でも維持される政策対応の方向や選択肢の順位を示す方が、単一の金利パスを提示するより推計の限界に忠実である。",
+        "methodology": "著者は新規推計を行わず、識別を主張した研究、その主張を修正した研究、識別の意味を定めた研究を選んで比較する。識別対象を、データに当てはめた関係、識別されたショックの効果、特定のモデル内での係数、政策変更に対して不変な構造パラメータ、パラメータの集合の五つに区別し、両分野の各世代が維持した仮定を照合する。",
+        "limitations": "利用できたのは要旨と序論のみで、全文は提供されていない。各先行研究の仮定が著者の分類をどこまで裏づけるかは検証できず、実務に使える具体的な係数の上下限もこの資料からは読み取れない。著者自身、文献の選択は意図的で、新たな推計は行っていないと明記している。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "過去のインフレと政策金利の関係を別の政策環境に当てはめる前に、何がデータから識別できたかを問う枠組みとして、金利シナリオ分析に有用である。直接の用途は前提の点検であり、イールドカーブの予測ではない。",
+        "tags": [
+          "金融政策",
+          "フィリップス曲線",
+          "政策反応関数",
+          "部分識別",
+          "金利シナリオ分析"
+        ],
+        "english": {
+          "classification": "rates",
+          "summary": "The full paper was not provided; this review covers only the abstract and Introduction. The author reads the estimation histories of the Phillips-curve slope $\\kappa$ and the policy rate’s inflation-response coefficient $\\phi_{\\pi}$ as a single identification problem. The author argues that successive corrections did not simply improve precision: they changed the interpretation of what each estimate measured and under which assumptions.",
+          "mainResult": "These are the author’s claims in the abstract and Introduction; the full paper was not provided. According to the author, the more effectively monetary policy stabilizes inflation, the flatter the Phillips curve can appear in the data. Conversely, in the baseline New Keynesian model, the policy responses that support determinacy lie off the equilibrium path, so equilibrium data alone do not identify $\\phi_{\\pi}$. The author concludes that policy judgments using both coefficients inherit interdependent identification constraints rather than two independent estimation errors.",
+          "practicalApplication": "When building a rates scenario around how much supply-shock inflation a central bank might tolerate, test whether the judgment changes across coefficient values consistent with shared assumptions rather than mechanically combining two point estimates. Reporting a direction of policy response or a ranking of options that holds across that range is more faithful to the limits of the estimates than presenting a single rate path.",
+          "methodology": "The author makes no new estimates and selectively compares studies that made an identification claim, corrected one, or defined what identification meant. The survey distinguishes five objects: a fitted relationship, the effect of an identified shock, a coefficient within a maintained model, a structural parameter invariant to policy changes, and a set of parameter values. It uses those distinctions to compare the assumptions maintained by successive generations in both literatures.",
+          "limitations": "Only the abstract and Introduction were available; the full paper was not provided. The supplied material does not allow an assessment of how well the assumptions in each cited study support the author’s classification, nor does it give specific coefficient bounds for practical use. The author explicitly describes the coverage as selective and reports making no new estimates.",
+          "reason": "The paper offers rates analysts a useful question to ask before applying a historical inflation–policy rate relationship in a different policy environment: what did the data identify? Its direct use is to test scenario assumptions, not to forecast the yield curve.",
+          "tags": [
+            "Monetary policy",
+            "Phillips curve",
+            "Policy reaction function",
+            "Partial identification",
+            "Rates scenario analysis"
+          ]
+        }
+      }
+    },
+    "2610.06088": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、親から子へのランダムな遺伝伝達を利用し、性格特性と所得・資産の関係を調べる経済学研究です。",
+        "mainResult": "報告によれば、情緒安定性への遺伝的素因は所得と世帯資産に、誠実性への素因は世帯資産に正の関係を示しました。他の3特性では一貫した結果はありませんでした。",
+        "practicalApplication": "金融市場、取引執行、金利モデルへの直接的な応用は示されていません。",
+        "methodology": "Lifelinesコホートのポリジェニック指数と、オランダの19年間の税務記録を組み合わせ、家族内の遺伝的差異を用いて分析しています。",
+        "limitations": "抄録だけでは効果量や推定の詳細を評価できません。対象はオランダの単一コホートであり、遺伝的素因の結果を性格そのものの因果効果とみなす解釈には注意が必要です。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "所得・資産と性格の関連を扱う研究であり、本サイトの金融市場・金利分野との実質的な関連性はありません。",
+        "tags": [
+          "性格特性",
+          "遺伝的素因",
+          "所得",
+          "世帯資産"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This economics study uses random genetic transmission from parents to children to examine relationships between personality traits and earnings and wealth.",
+          "mainResult": "The paper reports that genetic propensity toward emotional stability is positively associated with earnings and household wealth, while propensity toward conscientiousness is positively associated with household wealth. The other three traits show no consistent results.",
+          "practicalApplication": "No direct application to financial markets, trade execution, or interest-rate models is presented.",
+          "methodology": "The analysis combines polygenic indexes from the Lifelines cohort with 19 years of Dutch tax records and uses within-family genetic variation.",
+          "limitations": "The abstract does not provide effect sizes or enough estimation details for assessment. The study concerns a single Dutch cohort, and interpreting genetic propensity as the causal effect of personality itself requires caution.",
+          "reason": "The study concerns personality and economic outcomes and has no material relevance to this site's financial-market or interest-rate topics.",
+          "tags": [
+            "personality traits",
+            "genetic propensity",
+            "earnings",
+            "household wealth"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06168": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "不完備市場でのエントロピー型ヘッジにおけるモデルリスクを、二次ガウス価格モデルで分析する研究です。",
+        "mainResult": "価格とヘッジ比率を閉形式で求め、モデルVaRを凸性・次元・資金調達の寄与に分解できると報告しています。",
+        "practicalApplication": "実現損益の説明や、ディープヘッジ向け回帰で使うヘッジ比率のパラメトリック表現に応用できる可能性があります。",
+        "methodology": "二次ガウス価格モデルの価格・ヘッジ方程式を解き、損益とモデルリスクの寄与を分析します。",
+        "limitations": "要旨には数値検証や実データでの評価が示されていません。結果は二次ガウス設定に依存し、対象分野の金利モデルや執行・市場マイクロ構造との関連も明確ではありません。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "ヘッジとモデルリスクを扱いますが、金利・イールドカーブ・電子執行・市場マイクロ構造に直接焦点を当てた研究ではありません。",
+        "tags": [
+          "エントロピー型ヘッジ",
+          "モデルリスク",
+          "二次ガウスモデル",
+          "ディープヘッジ"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes model risk in entropic hedging for incomplete markets using a quadratic Gaussian price model.",
+          "mainResult": "It reports that prices and hedge ratios can be obtained in closed form, and that model VaR can be decomposed into convexity, dimension, and funding contributions.",
+          "practicalApplication": "The approach may support explanations of realized P&L and provide parametric hedge ratios for regressions in deep hedging.",
+          "methodology": "The study solves the pricing and hedging equations in a quadratic Gaussian price model and analyzes P&L and model-risk contributions.",
+          "limitations": "The abstract provides no numerical validation or assessment using real data. The results depend on the quadratic Gaussian setting, and the connection to interest-rate models, yield curves, execution, or market microstructure is not clear.",
+          "reason": "The paper concerns hedging and model risk but does not directly focus on interest rates, yield curves, electronic execution, or market microstructure.",
+          "tags": [
+            "entropic hedging",
+            "model risk",
+            "quadratic Gaussian model",
+            "deep hedging"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06374": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "中国の行政境界改革が企業汚染とその地域間再配分に及ぼす影響を、企業年次データと境界ペア設計で分析する研究です。",
+        "mainResult": "郡の区への編入はNOx強度を低下させる一方、周辺郡ではNOxが増加し、郡の市への昇格は複数の汚染指標を悪化させると報告しています。推計上の厚生効果は、前者では統計的に有意でなく、後者では負でした。",
+        "practicalApplication": "行政境界改革や環境政策の評価では、改革対象地域だけでなく周辺地域への汚染移転も考慮する必要があることを示唆します。金融・市場分析への直接的な応用は示されていません。",
+        "methodology": "1998～2013年の企業別汚染パネルを用い、同一郡境界の両側に位置する企業を比較しています。衛星による大気データなども用いて、汚染移転の説明を検討しています。",
+        "limitations": "要旨のみからは、識別仮定の妥当性や頑健性検証の詳細を評価できません。厚生計算は概算とされ、NOx削減による推計利益も統計的に有意ではありません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "行政制度と環境汚染の実証研究であり、対象サイトの電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブ、金利研究には実質的に該当しません。",
+        "tags": [
+          "行政境界改革",
+          "企業汚染",
+          "空間的再配分",
+          "中国"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes how administrative boundary reforms in China affect firm pollution and its spatial reallocation, using firm-year data and a border-pair design.",
+          "mainResult": "The abstract reports that county-to-district conversion reduces NOx intensity, while NOx rises in neighboring counties; county-to-city upgrading worsens several pollution measures. The estimated welfare effect is not statistically significant for the former and is negative for the latter.",
+          "practicalApplication": "The findings suggest that evaluations of boundary reforms and environmental policy should account for pollution displacement to neighboring areas, not only outcomes in treated areas. No direct application to finance or market analysis is presented.",
+          "methodology": "The study uses firm-level pollution panel data from 1998 to 2013 and compares firms on opposite sides of the same county border. It also uses satellite ambient-air data and other analyses to examine the pollution-displacement account.",
+          "limitations": "From the abstract alone, the validity of the identification assumptions and the details of robustness tests cannot be assessed. The welfare calculation is described as a back-of-the-envelope estimate, and the estimated benefit from NOx reduction is not statistically significant.",
+          "reason": "This is an empirical study of administrative institutions and environmental pollution, with no material fit to the site's focus on electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "administrative boundary reform",
+            "firm pollution",
+            "spatial reallocation",
+            "China"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06412": {
+      "status": "completed",
+      "screenAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "本研究は、Polymarketの公開約定記録における売買方向をオンチェーン決済のテイカー側と照合し、売買方向の分類誤差が取引コスト指標に与える影響を調べる。",
+        "mainResult": "選定した12日間では、決済済みテイカー側と約定記録の一致率は92.1～100.0%で、照合された2,450万組ではサイドとトークンがすべて一致した。分類手法によって推定値が異なり、同一の適格約定に対するLee–Ready法は、均等約定ウェイトの実効スプレッドを0.429セント押し上げた。",
+        "practicalApplication": "予測市場の取引コスト推定では、売買方向を決済情報で検証し、分類法、サンプル選択、ウェイト設定に対する頑健性を確認する必要性を示す。",
+        "methodology": "12日分の公開約定記録をオンチェーン決済のテイカー側と照合し、Lee–Ready法、ティックテスト、遡及的バルク・ボリューム分類の精度と、それぞれによるスプレッドおよび価格インパクト推定を比較した。",
+        "limitations": "対象は選定された12日間であり、記録時刻の順序や将来気配値の経過時間が観測できない制約がある。報告された価格インパクトは配信気配値に基づく会計的数量であり、因果的インパクトや私的情報を識別しない。",
+        "importance": 3,
+        "recommended": true,
+        "reason": "大規模な決済照合を用いて売買方向の誤分類が取引コスト推定をどう変えるかを示し、市場マイクロ構造の実証手法に有用な注意点を提供する。ただし対象市場と期間は限定的で、因果推論を目的とする研究ではない。",
+        "tags": [
+          "市場マイクロ構造",
+          "予測市場",
+          "売買方向分類",
+          "取引コスト",
+          "オンチェーン決済"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "This study compares trade directions in Polymarket’s public prints with the taker side of on-chain settlements and examines how direction-classification errors affect trading-cost measures.",
+          "mainResult": "Across 12 selected days, the match rate between settled taker sides and prints was 92.1–100.0%; side and token agreed for all 24.5 million matched pairs. Estimates differed by classification method: Lee–Ready raised the effective spread by 0.429 cents on the same eligible fills under equal-fill weighting.",
+          "practicalApplication": "The study indicates that trading-cost estimates in prediction markets should validate trade direction against settlement data and test robustness to classification method, sample selection, and weighting.",
+          "methodology": "The study matched public prints from 12 days to the taker side of on-chain settlements, then compared the accuracy of Lee–Ready, the tick test, and retrospective bulk-volume classification, as well as their resulting spread and price-impact estimates.",
+          "limitations": "The sample covers 12 selected days, and receipt-time ordering and unobserved future-quote age impose limitations. The reported price-impact measures are delivered-quote accounting quantities and do not identify causal impact or private information.",
+          "reason": "The large-scale settlement matching shows how trade-sign errors can alter trading-cost estimates and offers useful methodological cautions for empirical market-microstructure research. However, the venue and period are limited, and the study does not aim to establish causal effects.",
+          "tags": [
+            "market microstructure",
+            "prediction markets",
+            "trade-direction classification",
+            "trading costs",
+            "on-chain settlement"
+          ]
+        }
+      },
+      "finalAnalysis": {
+        "classification": "market_microstructure",
+        "summary": "Polymarketの公開約定データにある売買方向が、どの注文を指すのかをオンチェーン決済で検証した研究である。2026年4～8月の選定12日では、公開約定の$92.1\\%$から$100.0\\%$が取引ハッシュで決済に対応し、一致した24,537,912件すべてで売買方向とトークンがテイカー注文と一致した。完全セットの生成では、異なる結果のトークンを買う注文同士が成立するため、メイカーまで数えると買い比率を過大に測る。",
+        "mainResult": "4手法すべてが方向を付けた約1,662万件で、日別の均衡正解率を等加重平均すると、Lee–Readyは0.942、気配ルールは0.941、ティックテストは0.768、5秒足のBVC多数決は0.670だった。それでも、コストを比較できる同一の約1,645万件を日内で約定等加重にすると、Lee–Readyはテイカー基準の実効スプレッドを1シェア当たり2.328セントから2.757セントに押し上げ、実現スプレッドを0.209セント押し下げた。数量加重の5分後ミッド価格インパクトは、テイカー基準の$+0.689$セントに対してティックテストが$-0.374$セント、BVCが$-0.119$セントだった。ただし、同一トークン・同一受信ミリ秒の重複する約定行を評価から外すと、3者の平均はいずれも正になった。",
+        "practicalApplication": "Polymarketの取引コスト分析では、公開約定のsideと取引ハッシュを保存し、決済済み取引を対象とする場合はテイカー注文に照合する。sideが欠けても約定価格と気配が残っていれば、今回の比較ではLee–Readyが最も正確な代替手法だった。ただし、正解率だけで採用を決めず、同じ約定上でスプレッドの差をセント単位で確認し、約定等加重・数量加重と同時刻行の扱いを明示したい。",
+        "methodology": "新旧両取引所の決済ログからテイカー注文を特定し、売買方向フィールドを使わずに日ごとの全保存約定へ4手法を適用してから、ハッシュが一致した行を採点した。気配には約定の受信ミリ秒より前の最終値を使い、BVCはリアルタイム分類器ではなく、事後的に各5秒足の多数方向を全約定に割り当てる比較手法とした。コスト比較では約定・気配・重みを固定し、売買符号だけを差し替えた。例えば、直前に届いたミッドが0.23、買い約定が0.22の実例では、Lee–Readyは売りと判定する。実効スプレッドは$-2$セントから$+2$セントに変わり、誤分類の件数だけでなく、誤った約定の価格がミッドからどれほど離れていたかが効く。",
+        "limitations": "対象は単一会場・単一収集元の非無作為な12日である。方向の完全一致とデータの完全性は別で、日内の決済側から見ると公開約定を確認できた割合は$72.3\\%$から$99.0\\%$にとどまり、コスト比較に残るのはハッシュ一致行の$67.03\\%$である。受信順は取引所での執行順を保証せず、5分後の気配は更新時刻もビッド・アスクも保存されていない。したがって、報告値は受信気配に対する測定値であり、因果的インパクト、私的情報、手数料控除後の利益を示さない。取引所移行には未移行の対照群がなく、刻み値変更も市場の決着時期と重なるため、付録の流動性分析は記述的である。",
+        "importance": 4,
+        "recommended": true,
+        "reason": "約定方向の検証と取引コスト指標の検証を切り分けた点で、執行分析に有用である。とりわけ、最も正確な分類器でも実効スプレッドを系統的に押し上げる理由を、同一約定の比較で示した点に価値がある。他市場にも応用できるのはこの検証方法であり、報告された誤差幅そのものではない。",
+        "tags": [
+          "市場マイクロストラクチャー",
+          "予測市場",
+          "Polymarket",
+          "約定方向の推定",
+          "オンチェーン決済",
+          "Lee–Ready",
+          "取引コスト分析",
+          "実効スプレッド",
+          "気配の受信時刻"
+        ],
+        "english": {
+          "classification": "market_microstructure",
+          "summary": "The study uses on-chain settlement to determine which order the side field in a public Polymarket trade print describes. On 12 selected days from April to August 2026, $92.1\\%$ to $100.0\\%$ of prints matched a settlement by transaction hash. Side and token agreed with the taker order on all 24,537,912 matched pairs. Because a complete-set mint can match buyers of opposite outcome tokens, counting maker orders as well overstates the buy share.",
+          "mainResult": "On the 16.62 million prints signed by all four methods, equal-day mean balanced accuracy was 0.942 for Lee–Ready, 0.941 for the quote rule, 0.768 for the tick test and 0.670 for five-second BVC bar majorities. Yet on the same 16.45 million cost-eligible fills, weighting fills equally within each day, Lee–Ready raised effective spread from the taker benchmark of 2.328 to 2.757 cents per share and lowered realised spread by 0.209 cents. Share-volume-weighted five-minute midpoint impact was $+0.689$ cents under the taker sign, versus $-0.374$ cents for the tick test and $-0.119$ cents for BVC. When prints sharing a token and receipt millisecond were excluded from scoring, all three means were positive.",
+          "practicalApplication": "For Polymarket transaction-cost analysis, retain the public print’s side and transaction hash, and match to the taker order when the target is settled trading. If side is missing but trade prices and quotes are available, Lee–Ready was the most accurate fallback in this comparison. Do not select a rule on accuracy alone: check spread differences in cents on identical fills, and disclose both fill and share-volume weighting and the treatment of timestamp ties.",
+          "methodology": "The study identifies the taker order in settlement logs from both exchange generations. It applies four rules without using the side field to every archived print in each daily tape, then scores hash-matched rows. It uses the last quote received strictly before the print’s receipt millisecond. BVC is a retrospective benchmark that assigns each five-second bar’s majority sign to all its prints, not a real-time classifier. The cost comparison holds fills, quotes and weights fixed and changes only the sign. In one observed example, a confirmed buy at 0.22 against a preceding delivered midpoint of 0.23 is classified as a sell by Lee–Ready. Effective spread changes from $-2$ to $+2$ cents: what matters is not just how many fills are misclassified, but how far their prices are from the midpoint.",
+          "limitations": "The sample consists of 12 nonrandom days from one venue and one collector. Exact sign agreement is distinct from completeness: viewed from the settlement side, only $72.3\\%$ to $99.0\\%$ of in-day settlements had a print, and the cost comparison retains $67.03\\%$ of hash-matched rows. Receipt order does not establish venue execution order, and neither the timestamp nor the bid and ask were saved for the five-minute quote. The results measure distances against delivered quotes, not causal impact, private information or fee-adjusted profit. The exchange migration had no unaffected control group, and tick changes typically coincided with markets approaching resolution, so the appendix’s liquidity analyses are descriptive.",
+          "reason": "The paper is useful for execution analysis because it separates validation of trade direction from validation of the resulting cost measure. Its strongest result is the same-fill demonstration of why even the most accurate classifier systematically raises measured effective spread in this sample. The validation method, not the reported magnitude of distortion, is what transfers to other venues.",
+          "tags": [
+            "market microstructure",
+            "prediction markets",
+            "Polymarket",
+            "trade direction inference",
+            "on-chain settlement",
+            "Lee–Ready",
+            "transaction cost analysis",
+            "effective spread",
+            "quote receipt timing"
+          ]
+        }
+      }
+    },
+    "2610.06495": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "不確実ボラティリティモデルにおける欧州オプション価格の数値近似について、事後的な primal-dual 誤差境界を提案する研究です。",
+        "mainResult": "候補価値関数のヘッセ行列から構成する制御で下界を、行列値 Gamma 場と非負の Hamiltonian ペナルティで上界を導出します。候補関数に基づく上界は Black-Scholes-Barenblatt 方程式の残差でも表せると報告しています。数値実験では、特に二階微分の精度が境界の鋭さに重要とされています。",
+        "practicalApplication": "不確実ボラティリティ下での価格近似を検証し、その誤差を評価する用途が考えられます。ただし、本サイトの電子取引、マーケット・マイクロストラクチャー、金利モデル、イールドカーブの中心領域とは直接関係しません。",
+        "methodology": "候補価値関数から primal と dual の境界を構成し、離散時間近似の誤差を評価しています。確率的 policy-gradient 法や physics-informed neural network で得た候補を数値評価し、確率制御分野の martingale dual 法と比較しています。",
+        "limitations": "要旨には、数値実験の具体的な規模や定量的な改善幅、境界の性能が成立する条件の詳細は示されていません。評価対象も不確実ボラティリティモデルの欧州オプション価格近似に限られています。",
+        "importance": 2,
+        "recommended": false,
+        "reason": "数値的なオプション価格評価に関する手法ですが、対象サイトの主要テーマである電子執行、マーケット・マイクロストラクチャー、金利・イールドカーブ研究には実質的に該当しません。",
+        "tags": [
+          "不確実ボラティリティ",
+          "オプション価格",
+          "事後誤差境界",
+          "数値解析",
+          "確率制御"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study proposes a posteriori primal-dual error bounds for numerical approximations of European option prices in the Uncertain Volatility Model.",
+          "mainResult": "It derives a lower bound using a control constructed from the Hessian of a candidate value function, and an upper bound using a matrix-valued Gamma field and a nonnegative Hamiltonian penalty. The abstract reports that the upper bound generated by the candidate can also be expressed through the residual of the Black-Scholes-Barenblatt equation. Numerical experiments indicate that derivative accuracy, especially second-order accuracy, matters for obtaining tight bounds.",
+          "practicalApplication": "The approach could be used to validate price approximations and assess their errors under uncertain volatility. However, it is not directly related to this site's core areas of electronic trading, market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The study constructs primal and dual bounds from a candidate value function and quantifies discretization errors for discrete-time approximations. It numerically evaluates candidates obtained using stochastic policy-gradient and physics-informed neural-network methods, and compares them with a martingale dual method from the stochastic-control literature.",
+          "limitations": "The abstract does not report the scale of the numerical experiments, quantitative improvement magnitudes, or details of the conditions under which the bounds perform as described. The evaluation is also limited to European option price approximations in the Uncertain Volatility Model.",
+          "reason": "The paper concerns numerical option pricing, but it does not materially address the site's main topics of electronic execution, market microstructure, interest rates, or yield curves.",
+          "tags": [
+            "Uncertain Volatility Model",
+            "option pricing",
+            "a posteriori error bounds",
+            "numerical analysis",
+            "stochastic control"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06504": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "退職者が運用者に資金を委託し、給付額と運用資産に最低保証を設ける連続時間の退職計画問題を扱う。",
+        "mainResult": "著者らは変換を用いて補助的な半線形方程式を解析し、古典解の一意存在と最適戦略の導出に必要な性質を示す。数値実験では、保証が低資産時の方針を保守化し、下方リスクを抑える一方、無保証の場合と比べた厚生損失は小さいと報告する。",
+        "practicalApplication": "退職商品に最低給付・資産保証を組み込む設計への示唆となり得るが、実務適用の検証は要旨からは確認できない。",
+        "methodology": "給付率とポートフォリオ配分を制御とする確率制御問題を定式化し、変換後の半線形方程式の解の存在・挙動を解析して検証定理を導く。数値実験で保証付き戦略を比較する。",
+        "limitations": "要旨にはモデルの具体的な仮定、数値設定、頑健性検証や実データによる評価が記載されていない。金融市場の執行、マーケットマイクロストラクチャー、金利モデル、イールドカーブを主題とする研究ではない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "退職資産運用の確率制御に関する研究であり、対象サイトの電子執行・市場マイクロストラクチャー・金利関連の重点領域には直接該当しない。",
+        "tags": [
+          "退職計画",
+          "確率制御",
+          "最低保証",
+          "ポートフォリオ配分"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "The paper studies a continuous-time retirement-planning problem in which a retiree delegates funds to a manager, subject to minimum guarantees on benefits and managed wealth.",
+          "mainResult": "The authors analyze an auxiliary semilinear equation obtained through a transformation, establishing properties needed to derive the unique classical solution and optimal strategy. Numerical experiments report that guarantees lead to more conservative policies at low wealth and reduce downside risk, while the well-being loss relative to the unconstrained case remains small.",
+          "practicalApplication": "The findings may inform the design of retirement products with minimum benefit and asset guarantees, but the abstract does not establish practical implementation.",
+          "methodology": "The authors formulate a stochastic control problem with the benefit rate and portfolio allocation as controls, analyze existence and behavior of solutions to a transformed semilinear equation, and derive verification results. Numerical experiments compare strategies with and without guarantees.",
+          "limitations": "The abstract does not specify the model assumptions, numerical settings, robustness checks, or evaluation using real data. The research does not focus on trading execution, market microstructure, interest-rate models, or yield curves.",
+          "reason": "This is research on stochastic control for retirement asset management and does not directly address the site's focus areas of electronic execution, market microstructure, or rates.",
+          "tags": [
+            "retirement planning",
+            "stochastic control",
+            "minimum guarantees",
+            "portfolio allocation"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06562": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、集団の選好アンカーから合成回答ポリシーを作り、価値観調査項目への転移を評価する手法を提示する。金融市場、取引執行、金利モデルに関する研究ではない。",
+        "mainResult": "16か国を意図的に選んだ開発パネルでは、アダプターの信頼スコアがGPS信頼アンカーの符号群を完全に分離し、連続GPS信頼スコアとの順位相関は0.74だった。一方、人間の回答との関連は未解決で、他の選好次元の結果も一様ではなかった。",
+        "practicalApplication": "明示した集団アンカーを保持する合成回答ポリシーの構築と、そのアンカー転移を人間の回答との一致から区別して評価する用途が考えられる。金融実務への直接的な適用は示されていない。",
+        "methodology": "6つのGPS座標の符号でペア回答に集団ラベルを付け、Direct Preference Optimizationでパラメーター効率のよいアダプターを学習した。国名を伏せたプロンプトを用い、WVS項目でラベル再現、アンカー転移、人間との整合性、スコア一致を評価した。",
+        "limitations": "評価は意図的に選ばれた16か国の開発パネルに基づき、人間のGPS回答との整合性やアダプターと人間のスコア一致は確立されていない。他の選好次元の結果も不均一であり、より広い母集団への一般化は要約から判断できない。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "合成調査回答の方法論としては関心を引くが、対象サイトの電子取引、マーケットマイクロストラクチャー、金利・イールドカーブ領域には実質的に該当しない。",
+        "tags": [
+          "合成エージェント",
+          "調査回答",
+          "選好アンカー",
+          "Direct Preference Optimization",
+          "価値観調査"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study presents a method for constructing synthetic response policies from aggregate preference anchors and evaluating transfer to values-survey items. It does not concern financial markets, trade execution, or interest-rate models.",
+          "mainResult": "On a purposively selected development panel of 16 countries, adapter trust scores completely separated the sign groups of GPS trust anchors, with a rank correlation of 0.74 with continuous GPS trust scores. Associations with human responses remained unresolved, and results for other preference dimensions were heterogeneous.",
+          "practicalApplication": "The method may be used to construct synthetic response policies that retain declared group anchors and to evaluate anchor transfer separately from agreement with human responses. No direct financial application is reported.",
+          "methodology": "Signs of six GPS coordinates were used to label paired responses by group, and Direct Preference Optimization trained a parameter-efficient adapter. Prompts omitting country names were used to assess label recovery, anchor transfer, coherence with human responses, and score agreement on WVS items.",
+          "limitations": "The evaluation relies on a purposively selected 16-country development panel. Agreement with human GPS responses and between adapter and human scores was not established. Results across other preference dimensions were heterogeneous, and the abstract does not establish generalization to broader populations.",
+          "reason": "The paper may be relevant to methods for synthetic survey responses, but it is not materially within the site's scope of electronic trading, market microstructure, interest rates, or yield curves.",
+          "tags": [
+            "synthetic agents",
+            "survey responses",
+            "preference anchors",
+            "Direct Preference Optimization",
+            "values surveys"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06774": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "米国の組合員数を小地域単位で推定する際、組合の行政報告記録を集計する方法の妥当性を検証した研究です。",
+        "mainResult": "LM記録とCPSを基にした推定値は州レベルでは高く相関しますが、郡・通勤圏・下院選挙区では相関が大きく低下します。報告の偏りにより組合密度が100%を超えるなどの不自然な値が生じ、密度指標の選択によって既存の回帰結果も変わると報告しています。",
+        "practicalApplication": "組合を組織として研究する用途ではLM記録が有用でも、小地域の組合密度を測る用途では集計値を慎重に扱うべきだという示唆があります。対象サイトの金融・市場分野への直接的な応用はありません。",
+        "methodology": "CPSに基づく多層回帰と事後層別化（MrP）を基準として、LM記録による推定値を州から小地域まで比較し、さらに通商ショックを扱う回帰で指標の差を検討しています。",
+        "limitations": "提供された情報は抄録に限られ、推定手順の詳細や誤差評価、適用範囲は確認できません。抄録の結果だけでは、他の地域・期間への一般化も判断できません。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "労働組合員数の地理的推定を扱う研究であり、電子取引、市場マイクロストラクチャー、金利モデル、イールドカーブ、金利に実質的な関連がありません。",
+        "tags": [
+          "労働組合",
+          "行政記録",
+          "地域推定",
+          "測定妥当性"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study evaluates whether aggregating union administrative filings provides valid estimates of union membership at fine geographic levels in the United States.",
+          "mainResult": "LM records and CPS-based estimates are highly correlated at the state level, but their correlation falls substantially for counties, commuting zones, and congressional districts. The authors report that lumpy reporting produces implausible values, including union density above 100%, and that choosing a density measure can change regression results.",
+          "practicalApplication": "The findings suggest that LM records may be useful for studying unions as organizations, but their aggregated counts should be treated cautiously as measures of union density in small areas. The study has no direct application to the site's finance and markets focus.",
+          "methodology": "The authors use multilevel regression with poststratification (MrP) based on the CPS as a benchmark, compare LM-based estimates from the state level down to smaller areas, and examine the effect of alternative measures in a trade-shock regression.",
+          "limitations": "Only the abstract is available, so details of the estimation procedure, error assessment, and scope cannot be verified. The abstract alone also does not establish whether the findings generalize to other places or periods.",
+          "reason": "The paper concerns geographic estimates of union membership and has no material connection to electronic trading, market microstructure, interest-rate models, yield curves, or rates.",
+          "tags": [
+            "labor unions",
+            "administrative records",
+            "geographic estimation",
+            "measurement validity"
+          ]
+        }
+      },
+      "finalAnalysis": null
+    },
+    "2610.06827": {
+      "status": "screened_out",
+      "screenAnalysis": {
+        "classification": "out_of_scope",
+        "summary": "本研究は、賃金契約における情報の非対称性が労働者の生産性や厚生に与える影響を分析しています。",
+        "mainResult": "データ入力作業者の実験で、固定賃金は平均に比べ生産性を8.74%低下させ、賃金提示の10%増加は平均より生産性が1.90%高い限界的労働者を引きつけると報告しています。また、出来高給への課税が固定賃金への逆選択を緩和しうるとしています。",
+        "practicalApplication": "労働契約や賃金政策の設計に示唆を与える可能性がありますが、電子取引、金融市場のミクロ構造、金利モデルやイールドカーブへの直接的な応用は示されていません。",
+        "methodology": "賃金契約のモデルを限界処置効果（MTE）枠組みに対応づけ、データ入力作業者がランダム化された固定賃金と出来高給から選ぶフィールド実験に半パラメトリックMTE推定を適用しています。",
+        "limitations": "提示された要旨だけでは、実験の規模や対象の代表性、推定の頑健性、厚生評価に必要な仮定を確認できません。結果は特定の労働者と契約選択の設定に基づくもので、他の状況への一般化には不確実性があります。",
+        "importance": 1,
+        "recommended": false,
+        "reason": "主題は労働経済学であり、対象サイトの金融・金利関連領域とは実質的な関連がありません。キーワードの「rates」は賃金率を指すもので、金利研究を意味しません。",
+        "tags": [
+          "労働経済学",
+          "賃金契約",
+          "情報の非対称性",
+          "限界処置効果",
+          "フィールド実験"
+        ],
+        "english": {
+          "classification": "out_of_scope",
+          "summary": "This study analyzes how asymmetric information in wage contracts affects worker productivity and welfare.",
+          "mainResult": "In an experiment with data-entry workers, fixed wages reportedly reduce productivity by 8.74% relative to the mean, while a 10% increase in the wage offer attracts a marginal worker whose productivity is 1.90% above the mean. The study also finds that taxing piece rates may mitigate adverse selection into fixed wages.",
+          "practicalApplication": "The findings may inform labor-contract and wage-policy design, but the abstract indicates no direct application to electronic trading, financial-market microstructure, interest-rate models, or yield curves.",
+          "methodology": "The paper maps a wage-contract model to the marginal treatment effects (MTE) framework and applies semiparametric MTE estimation to a field experiment in which data-entry workers choose between randomized fixed wages and piece rates.",
+          "limitations": "The abstract alone does not establish the experiment's scale or representativeness, the robustness of the estimates, or the assumptions required for the welfare analysis. The results concern a specific workforce and contract-choice setting, so their generalizability is uncertain.",
+          "reason": "The topic is labor economics and has no material connection to the site's finance and interest-rate focus. The keyword hint “rates” refers to wages, not interest rates.",
+          "tags": [
+            "labor economics",
+            "wage contracts",
+            "asymmetric information",
+            "marginal treatment effects",
+            "field experiment"
           ]
         }
       },
@@ -288,6 +1604,706 @@
         "2610.03922v1"
       ],
       "outcome": "unconfirmed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 27503,
+      "outputTokens": 2924,
+      "reasoningTokens": 798,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 27291,
+      "totalTokens": 30427,
+      "estimatedCostUsd": 0.391566,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 33,
+      "paperIds": [
+        "2610.03922v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 865,
+      "outputTokens": 860,
+      "reasoningTokens": 37,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1725,
+      "estimatedCostUsd": 0.000517,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04018v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 883,
+      "outputTokens": 867,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1750,
+      "estimatedCostUsd": 0.000522,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04040v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 16612,
+      "outputTokens": 2166,
+      "reasoningTokens": 368,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 16400,
+      "totalTokens": 18778,
+      "estimatedCostUsd": 0.252336,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 9,
+      "paperIds": [
+        "2610.04040v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 986,
+      "outputTokens": 1155,
+      "reasoningTokens": 178,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 2141,
+      "estimatedCostUsd": 0.000676,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04122v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 841,
+      "outputTokens": 779,
+      "reasoningTokens": 82,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1620,
+      "estimatedCostUsd": 0.000474,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04182v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 959,
+      "outputTokens": 878,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1837,
+      "estimatedCostUsd": 0.000535,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04209v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 46741,
+      "outputTokens": 3316,
+      "reasoningTokens": 1283,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 46529,
+      "totalTokens": 50057,
+      "estimatedCostUsd": 0.599626,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 35,
+      "paperIds": [
+        "2610.04209v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 885,
+      "outputTokens": 754,
+      "reasoningTokens": 65,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1639,
+      "estimatedCostUsd": 0.000465,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04221v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 819,
+      "outputTokens": 921,
+      "reasoningTokens": 102,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1740,
+      "estimatedCostUsd": 0.000542,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04348v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 822,
+      "outputTokens": 536,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1358,
+      "estimatedCostUsd": 0.00035,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04439v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 913,
+      "outputTokens": 867,
+      "reasoningTokens": 89,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1780,
+      "estimatedCostUsd": 0.000525,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04959v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 732,
+      "outputTokens": 787,
+      "reasoningTokens": 115,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1519,
+      "estimatedCostUsd": 0.000467,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.04990v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 957,
+      "outputTokens": 776,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1733,
+      "estimatedCostUsd": 0.000484,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05196v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 889,
+      "outputTokens": 672,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1561,
+      "estimatedCostUsd": 0.000425,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05251v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 801,
+      "outputTokens": 877,
+      "reasoningTokens": 110,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1678,
+      "estimatedCostUsd": 0.000519,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05675v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 7780,
+      "outputTokens": 2049,
+      "reasoningTokens": 381,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 7568,
+      "totalTokens": 9829,
+      "estimatedCostUsd": 0.159336,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "abstract_introduction",
+      "pdfPages": 53,
+      "paperIds": [
+        "2610.05675v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 957,
+      "outputTokens": 983,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1940,
+      "estimatedCostUsd": 0.000587,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05740v2"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 47890,
+      "outputTokens": 2484,
+      "reasoningTokens": 349,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 47678,
+      "totalTokens": 50374,
+      "estimatedCostUsd": 0.577836,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 45,
+      "paperIds": [
+        "2610.05740v2"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 823,
+      "outputTokens": 776,
+      "reasoningTokens": 55,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1599,
+      "estimatedCostUsd": 0.00047,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05741v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 934,
+      "outputTokens": 799,
+      "reasoningTokens": 64,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1733,
+      "estimatedCostUsd": 0.000493,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05823v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 848,
+      "outputTokens": 964,
+      "reasoningTokens": 142,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1812,
+      "estimatedCostUsd": 0.000567,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05873v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 871,
+      "outputTokens": 753,
+      "reasoningTokens": 84,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1624,
+      "estimatedCostUsd": 0.000464,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.05926v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 746,
+      "outputTokens": 853,
+      "reasoningTokens": 87,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1599,
+      "estimatedCostUsd": 0.000501,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06007v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 2692,
+      "outputTokens": 1682,
+      "reasoningTokens": 289,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 2480,
+      "totalTokens": 4374,
+      "estimatedCostUsd": 0.093776,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "abstract_introduction",
+      "pdfPages": 109,
+      "paperIds": [
+        "2610.06007v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 763,
+      "outputTokens": 607,
+      "reasoningTokens": 58,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1370,
+      "estimatedCostUsd": 0.00038,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06088v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 724,
+      "outputTokens": 694,
+      "reasoningTokens": 142,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1418,
+      "estimatedCostUsd": 0.000419,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06168v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 890,
+      "outputTokens": 899,
+      "reasoningTokens": 98,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1789,
+      "estimatedCostUsd": 0.000539,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06374v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 905,
+      "outputTokens": 848,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1753,
+      "estimatedCostUsd": 0.000514,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06412v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "paper",
+      "model": "gpt-6.2-astra",
+      "requestedModel": "gpt-6.2-astra",
+      "effort": "high",
+      "inputTokens": 42596,
+      "outputTokens": 2799,
+      "reasoningTokens": 653,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 42384,
+      "totalTokens": 45395,
+      "estimatedCostUsd": 0.537496,
+      "pricingDate": "2026-11-21",
+      "sourceScope": "full_text",
+      "pdfPages": 41,
+      "paperIds": [
+        "2610.06412v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 827,
+      "outputTokens": 1041,
+      "reasoningTokens": 125,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1868,
+      "estimatedCostUsd": 0.000603,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06495v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 919,
+      "outputTokens": 825,
+      "reasoningTokens": 101,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1744,
+      "estimatedCostUsd": 0.000504,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06504v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 849,
+      "outputTokens": 824,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1673,
+      "estimatedCostUsd": 0.000497,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06562v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 866,
+      "outputTokens": 849,
+      "reasoningTokens": 103,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1715,
+      "estimatedCostUsd": 0.000511,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06774v1"
+      ],
+      "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 795,
+      "outputTokens": 845,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1640,
+      "estimatedCostUsd": 0.000502,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2610.06827v1"
+      ],
+      "outcome": "completed"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "lastCompletedBatchDate": "2026-11-25",
+  "lastCompletedBatchDate": "2026-11-26",
   "pendingBatchDate": null,
   "retryCount": 0,
-  "lastStatus": "UPDATE_CONFIRMED",
-  "lastAttemptedAt": "2026-11-25T17:32:12Z"
+  "lastStatus": "NO_RELEVANT_PAPERS",
+  "lastAttemptedAt": "2026-11-26T17:14:26Z"
 }
