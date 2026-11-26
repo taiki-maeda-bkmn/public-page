@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "editions": [
     {
+      "editionId": "2026-11-26-daily-openai-01",
+      "date": "2026-11-26",
+      "kind": "daily",
+      "periodEnd": null,
+      "papers": []
+    },
+    {
       "editionId": "2026-11-25-daily-openai-01",
       "date": "2026-11-25",
       "kind": "daily",
@@ -2142,6 +2149,254 @@
       "papers": []
     },
     {
+      "editionId": "2026-10-09-weekly-openai-01",
+      "date": "2026-10-09",
+      "kind": "weekly",
+      "periodEnd": "2026-10-09",
+      "papers": [
+        {
+          "arxivId": "2610.02917v1",
+          "title": "Event History Over Scale: Compact Transformers for Low-Latency Limit Order Book Forecasting",
+          "authors": [
+            "David Schaurecker",
+            "Lasse B. Strand",
+            "Kevin O'Sullivan",
+            "Robert Jakob"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.03080v1",
+          "title": "MintEval: Do LLMs Implement the Trading Strategy You Asked For? A Behavioural-Equivalence Benchmark for Natural-Language-to-Strategy Code",
+          "authors": [
+            "Siyu Wang",
+            "Yifan Wang",
+            "Yuecheng He"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.03598v1",
+          "title": "When a Correct Reward Is Not Enough: Diagnosing and Guiding PPO in an Analytically Solved Broker-Trader Game",
+          "authors": [
+            "Siu Tung Wong",
+            "Carlo Campajola"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.03922v1",
+          "title": "Priority Gas Auction Cadence and Searcher Competition: Evidence from Flashblocks on Base",
+          "authors": [
+            "Pranay Anchuri",
+            "Edward W. Felten",
+            "Akaki Mamageishvili"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.04209v1",
+          "title": "The Right Wing of the SABR Smile with an Absorbing Boundary: Resolution of Conjectures of Henry-Labordère",
+          "authors": [
+            "Zeyu Cao",
+            "Shaosai Huang"
+          ],
+          "topics": [
+            "Interest-rate models"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05740v2",
+          "title": "Latent Continuum of Regimes in Limit Order Book Dynamics",
+          "authors": [
+            "Anjali Thawait"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.06412v1",
+          "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+          "authors": [
+            "Philipp D. Dubach"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.10053v1",
+          "title": "On Bonart's interpretation of the Square-Root Impact Law",
+          "authors": [
+            "J. -P. Bouchaud",
+            "I. Mastromatteo",
+            "B. Toth"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.11691v1",
+          "title": "Diffusive Market Impact: A Consistent Microfoundation",
+          "authors": [
+            "Julius F. Bonart"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.03369v1",
+          "title": "Mixture-of-Experts for Cryptocurrency Order Execution: Training Stability, Tail Risk, and Failure Modes",
+          "authors": [
+            "Alexander Ardaiz",
+            "Varun Budati",
+            "Ali Habibnia"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05675v1",
+          "title": "A Superprocess-based Approach to Rough CIR Processes and Feller Random Measures",
+          "authors": [
+            "Gordan Žitković"
+          ],
+          "topics": [
+            "Interest-rate models"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.06007v1",
+          "title": "Seventy Years of Identifying the Phillips Curve and the Policy Rule",
+          "authors": [
+            "Eric Vansteenberghe"
+          ],
+          "topics": [
+            "Rates"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.07985v1",
+          "title": "A Finite Bid--Ask Spread from Replenishment Displaced from the Quote",
+          "authors": [
+            "Christopher Angstmann",
+            "Derick Diana",
+            "Tim Gebbie"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.08169v1",
+          "title": "Modelling Regime Shifts in Continuous Intraday Electricity Markets with State-dependent Hawkes Processes",
+          "authors": [
+            "Ayoub Jhabli",
+            "Tarek AlSkaif",
+            "Kwabena E. Bennin",
+            "Bedir Tekinerdogan",
+            "Axel Naumann",
+            "Joost M. E. Pennings"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.10407v1",
+          "title": "SOTA: Stock Options Trading Agents Guided by Option-Implied Return Distributions",
+          "authors": [
+            "Yizhen Xie",
+            "Mengyang Liu"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05873v1",
+          "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
+          "authors": [
+            "Emre Atay Tümer",
+            "Rischan Mafrur"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 4,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.06856v1",
+          "title": "The Agentic ETF: How Agentic Trading Becomes an Asset Class",
+          "authors": [
+            "Amandeep Singh"
+          ],
+          "topics": [
+            "Electronic trading"
+          ],
+          "schedulerRating": 4,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.10525v1",
+          "title": "A Hawkes Microfoundation for Multitype Inverse Gaussian Subordinators",
+          "authors": [
+            "Yingli Wang",
+            "Wei Xu",
+            "Lingjiong Zhu"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 4,
+          "schedulerRatingScale": 10
+        }
+      ]
+    },
+    {
       "editionId": "2026-10-09-daily-openai-01",
       "date": "2026-10-09",
       "kind": "daily",
@@ -2255,6 +2510,102 @@
           ],
           "topics": [
             "Electronic trading"
+          ],
+          "schedulerRating": 4,
+          "schedulerRatingScale": 10
+        }
+      ]
+    },
+    {
+      "editionId": "2026-10-06-daily-openai-01",
+      "date": "2026-10-06",
+      "kind": "daily",
+      "periodEnd": null,
+      "papers": [
+        {
+          "arxivId": "2610.03922v1",
+          "title": "Priority Gas Auction Cadence and Searcher Competition: Evidence from Flashblocks on Base",
+          "authors": [
+            "Pranay Anchuri",
+            "Edward W. Felten",
+            "Akaki Mamageishvili"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.04209v1",
+          "title": "The Right Wing of the SABR Smile with an Absorbing Boundary: Resolution of Conjectures of Henry-Labordère",
+          "authors": [
+            "Zeyu Cao",
+            "Shaosai Huang"
+          ],
+          "topics": [
+            "Interest-rate models"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05740v2",
+          "title": "Latent Continuum of Regimes in Limit Order Book Dynamics",
+          "authors": [
+            "Anjali Thawait"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.06007v1",
+          "title": "Seventy Years of Identifying the Phillips Curve and the Policy Rule",
+          "authors": [
+            "Eric Vansteenberghe"
+          ],
+          "topics": [
+            "Rates"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.06412v1",
+          "title": "Measuring Trade Direction in a Prediction Market: Settlement Ground Truth and Trading-Cost Measurement on Polymarket",
+          "authors": [
+            "Philipp D. Dubach"
+          ],
+          "topics": [
+            "Market microstructure"
+          ],
+          "schedulerRating": 8,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05675v1",
+          "title": "A Superprocess-based Approach to Rough CIR Processes and Feller Random Measures",
+          "authors": [
+            "Gordan Žitković"
+          ],
+          "topics": [
+            "Interest-rate models"
+          ],
+          "schedulerRating": 6,
+          "schedulerRatingScale": 10
+        },
+        {
+          "arxivId": "2610.05873v1",
+          "title": "When Token Transfers Do Not Mean Liquidity in Tokenized Real-World Assets",
+          "authors": [
+            "Emre Atay Tümer",
+            "Rischan Mafrur"
+          ],
+          "topics": [
+            "Market microstructure"
           ],
           "schedulerRating": 4,
           "schedulerRatingScale": 10
