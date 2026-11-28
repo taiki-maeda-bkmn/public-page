@@ -346,6 +346,26 @@
         "2611.27989v1"
       ],
       "outcome": "completed"
+    },
+    {
+      "stage": "screen",
+      "model": "gpt-6-luna",
+      "requestedModel": "gpt-6-luna",
+      "effort": "low",
+      "inputTokens": 843,
+      "outputTokens": 735,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 0,
+      "totalTokens": 1578,
+      "estimatedCostUsd": 0.000452,
+      "pricingDate": "2026-10-03",
+      "sourceScope": "abstract",
+      "pdfPages": null,
+      "paperIds": [
+        "2611.27989v1"
+      ],
+      "outcome": "completed"
     }
   ]
 }
