@@ -13222,6 +13222,22 @@
       "periodEnd": null,
       "sourceText": "## 2026年11月27日 — 日次レビュー\n\n通常の公開スケジュール上、新しいarXivバッチは予定されていません。\n\n### この号の利用状況\n\nモデル・effort・トークン数：未記録。\n\n\n**推薦論文: なし**",
       "papers": []
+    },
+    {
+      "editionId": "2026-11-28-daily-openai-01",
+      "editionDate": "2026-11-28",
+      "editionKind": "daily",
+      "sourceKind": "openai-responses-api",
+      "sourceLabel": "OpenAI Responses API · automated research pipeline",
+      "importedAt": "2026-11-28T15:46:43Z",
+      "status": "NO_NEW_BATCH_EXPECTED",
+      "message": "通常の公開スケジュール上、新しいarXivバッチは予定されていません。",
+      "expectedBatchDate": "2026-11-26",
+      "observedBatchDate": "2026-11-26",
+      "periodStart": null,
+      "periodEnd": null,
+      "sourceText": "## 2026年11月28日 — 日次レビュー\n\n通常の公開スケジュール上、新しいarXivバッチは予定されていません。\n\n### この号の利用状況\n\nモデル・effort・トークン数：未記録。\n\n\n**推薦論文: なし**",
+      "papers": []
     }
   ]
 }
